@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveMKoreaServer주식", "FiveMKoreaServer주식\FiveMKoreaServer주식.csproj", "{4388010F-224F-40AC-A6D4-D16DEC76981E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "주식프로그램", "주식프로그램\주식프로그램.vdproj", "{C9BB0B4E-6EDF-4051-88A3-71B4ACD98AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4388010F-224F-40AC-A6D4-D16DEC76981E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4388010F-224F-40AC-A6D4-D16DEC76981E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4388010F-224F-40AC-A6D4-D16DEC76981E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4388010F-224F-40AC-A6D4-D16DEC76981E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9BB0B4E-6EDF-4051-88A3-71B4ACD98AC0}.Debug|Any CPU.ActiveCfg = Debug
+		{C9BB0B4E-6EDF-4051-88A3-71B4ACD98AC0}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7E1429A-2285-4367-8485-262E51620E1F}
+	EndGlobalSection
+EndGlobal
