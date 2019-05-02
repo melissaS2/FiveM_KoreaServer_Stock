@@ -17,16 +17,21 @@ namespace FiveMKoreaServer주식
         public 로그인()
         {
             InitializeComponent();
-            this.btnLogin.Click += button1_Click;
+            this.AddEventHandler();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddEventHandler()
+        {
+            this.btnLogin.Click += new EventHandler(BtnLogin_Click);
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 string money = string.Empty;
                 DbMgr mgr = new DbMgr();
-                bool flag = mgr.Login(this.idbox.Text, this.pwbox.Text,out money);
+                bool flag = mgr.Login(this.idbox.Text, this.pwbox.Text, out money);
                 if (flag)
                 {
                     this.Hide();
@@ -40,8 +45,6 @@ namespace FiveMKoreaServer주식
                 MessageBox.Show(ex.ToString());
 
             }
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)

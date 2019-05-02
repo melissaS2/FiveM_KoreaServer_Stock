@@ -61,7 +61,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btRecord = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRefill = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -407,15 +407,14 @@
             this.btRecord.Text = "기록 새로고침";
             this.btRecord.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnRefill
             // 
-            this.button1.Location = new System.Drawing.Point(1158, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 23);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "충전 및 출금";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRefill.Location = new System.Drawing.Point(1158, 4);
+            this.btnRefill.Name = "btnRefill";
+            this.btnRefill.Size = new System.Drawing.Size(170, 23);
+            this.btnRefill.TabIndex = 33;
+            this.btnRefill.Text = "충전 및 출금";
+            this.btnRefill.UseVisualStyleBackColor = true;
             // 
             // Chart
             // 
@@ -423,7 +422,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1340, 494);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRefill);
             this.Controls.Add(this.btRecord);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -493,6 +492,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btRecord;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRefill;
     }
 }
