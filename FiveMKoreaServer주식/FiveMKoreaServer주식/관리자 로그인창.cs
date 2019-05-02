@@ -30,7 +30,7 @@ namespace FiveMKoreaServer주식
                     this.Hide();
                     adminstar adminstar1 = new adminstar();
                     adminstar1.Show();
-                    //테스트
+                    //테스트(DO.Lee)
                 }
                 //MySqlConnection conn;
                 //conn = new MySqlConnection("Server=183.109.83.28;Database=jusik;Uid=root;Pwd=!!wjddk4455;CharSet=utf8;");
