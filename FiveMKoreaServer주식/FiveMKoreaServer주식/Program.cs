@@ -19,7 +19,6 @@ namespace FiveMKoreaServer주식
             if (processFlag)
             {
                 Util.GetMessageBox("프로그램이 실행중입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             else
             {

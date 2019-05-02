@@ -51,6 +51,13 @@ namespace FiveMKoreaServer주식
             this.btBuyStock.Click += BtBuyStock_Click; // 매수
             this.btSellStock.Click += BtSellStock_Click; // 매도
             this.btRecord.Click += btRecord_Click;
+            this.btnRefill.Click += BtnRefill_Click;
+        }
+
+        private void BtnRefill_Click(object sender, EventArgs e)
+        {
+            충천및출금 충전및출금1 = new 충천및출금();
+            충전및출금1.ShowDialog();
         }
 
         private void btRecord_Click(object sender, EventArgs e)
@@ -521,12 +528,6 @@ namespace FiveMKoreaServer주식
             {
                 txt.Text = "";
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            충천및출금 충전및출금1 = new 충천및출금();
-            충전및출금1.Show();
         }
     }
 }

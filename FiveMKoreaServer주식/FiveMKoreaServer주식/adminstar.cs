@@ -169,7 +169,7 @@ namespace FiveMKoreaServer주식
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
 
             this.DoRetriveUserData();
