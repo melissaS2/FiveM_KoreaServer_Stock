@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace FiveMKoreaServer주식.Item
+namespace SDs.FiveM.Model.Item.Sample
 {
     [Serializable]
-    public class Shippers
+    public class AdminUserItem
     {
         public int no { get; set; }
         public string adminid { get; set; }

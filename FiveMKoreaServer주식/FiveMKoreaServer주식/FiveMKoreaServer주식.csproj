@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>FiveMKoreaServer주식</RootNamespace>
     <AssemblyName>FiveMKoreaServer주식</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,7 +45,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\MySql\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -151,23 +155,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SqlMap.config" />
+    <Content Include="SqlMap.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="providers.config" />
+    <Content Include="providers.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Resources\goal.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SDs-Global-Libraries\SDs-Global-Libraries.csproj">
+    <ProjectReference Include="..\SDs-Global-Libraries\SDs.Global.Libraries.csproj">
       <Project>{8bace8f6-ad88-4899-b40e-081a939fe95f}</Project>
-      <Name>SDs-Global-Libraries</Name>
+      <Name>SDs.Global.Libraries</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Shippers.xml" />
+    <Content Include="Shippers.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

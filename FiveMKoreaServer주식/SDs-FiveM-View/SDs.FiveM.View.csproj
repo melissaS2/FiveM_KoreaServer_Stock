@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8BACE8F6-AD88-4899-B40E-081A939FE95F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>SDs_Global_Libraries</RootNamespace>
-    <AssemblyName>SDs-Global-Libraries</AssemblyName>
+    <ProjectGuid>{B8B4A48C-1F30-4949-A063-986760553A02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SDs.FiveM.View</RootNamespace>
+    <AssemblyName>SDs.FiveM.View</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,10 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IBatisNet.Common">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\MySql\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Sample\SampleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Sample\SampleView.Designer.cs">
+      <DependentUpon>SampleView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,7 +69,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\Sample\SampleView.resx">
+      <DependentUpon>SampleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -68,16 +86,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.Logging.Log4Net.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.Logging.Log4Net.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataAccess.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataAccess.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataMapper.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataMapper.xml" />
-    <Content Include="Global\Lib\Ibatis\log4net.dll" />
-    <Content Include="Global\Lib\Ibatis\log4net.xml" />
+    <ProjectReference Include="..\SDs-FiveM-Config\SDs.FiveM.Config.csproj">
+      <Project>{58096f57-67ad-41f8-b899-0372f9188429}</Project>
+      <Name>SDs.FiveM.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDs-FiveM-Controller\SDs.FiveM.Controller.csproj">
+      <Project>{a16055b8-1628-4edf-a8f5-2d749dc8c841}</Project>
+      <Name>SDs.FiveM.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDs-FiveM-Model\SDs.FiveM.Model.csproj">
+      <Project>{3f500506-492f-46f9-bc44-50e4d33e1cf6}</Project>
+      <Name>SDs.FiveM.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
