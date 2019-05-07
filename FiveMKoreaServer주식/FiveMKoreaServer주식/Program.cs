@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiveMKoreaServer주식.View.TEST;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,16 +16,17 @@ namespace FiveMKoreaServer주식
         static void Main()
         {
 
-            bool processFlag = Util.CheckProcess();
-            if (processFlag)
+            //bool processFlag = Util.CheckProcess();
+            //if (processFlag)
             {
-                Util.GetMessageBox("프로그램이 실행중입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //Util.GetMessageBox("프로그램이 실행중입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
+            //else
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new 로그인());
+                //Application.Run(new 로그인());
+                Application.Run(new MysqlTest());
             }
         }
     }

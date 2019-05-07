@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="EF4._14" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+
+  <alias>
+    <typeAlias alias="Shippers"  type="FiveMKoreaServer주식.Item.Shippers" />
+  </alias>
+
+  <statements>
+    <select id="SelectShippers"  resultClass="Shippers">
+      select * from adminuser
+    </select>
+  </statements>
+</sqlMap>

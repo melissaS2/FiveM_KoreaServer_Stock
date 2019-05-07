@@ -33,6 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IBatisNet.Common, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataAccess">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,20 +57,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tsb.Fontos.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\COMPANY\RnDCollection\Tsb-Li-Libraries\MAIN\Tsb.Li.Libraries\GlobalLib\Fontos\Tsb.Fontos.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Tsb.Fontos.UITest.Extension.Helper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\COMPANY\RnDCollection\Tsb-Li-Libraries\MAIN\Tsb.Li.Libraries\GlobalLib\Fontos\Tsb.Fontos.UITest.Extension.Helper.dll</HintPath>
-    </Reference>
-    <Reference Include="Tsb.Fontos.Win">
-      <HintPath>D:\COMPANY\RnDCollection\Tsb-Li-Libraries\MAIN\Tsb.Li.Libraries\GlobalLib\Fontos\Tsb.Fontos.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="Tsb.Fontos.Win.Drawing">
-      <HintPath>D:\COMPANY\RnDCollection\Tsb-Li-Libraries\MAIN\Tsb.Li.Libraries\GlobalLib\Fontos\Tsb.Fontos.Win.Drawing.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adminstar.cs">
@@ -77,10 +74,17 @@
     </Compile>
     <Compile Include="DbConnector.cs" />
     <Compile Include="DbMgr.cs" />
+    <Compile Include="Item\Shippers.cs" />
     <Compile Include="LoginInterface.cs" />
     <Compile Include="SqlQuerry.cs" />
     <Compile Include="UserItem.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="View\TEST\MysqlTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TEST\MysqlTest.Designer.cs">
+      <DependentUpon>MysqlTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="관리자 로그인창.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="adminstar.resx">
       <DependentUpon>adminstar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TEST\MysqlTest.resx">
+      <DependentUpon>MysqlTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="관리자 로그인창.resx">
       <DependentUpon>관리자 로그인창.cs</DependentUpon>
@@ -144,12 +151,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SqlMap.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="providers.config" />
     <None Include="Resources\goal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDs-Global-Libraries\SDs-Global-Libraries.csproj">
+      <Project>{8bace8f6-ad88-4899-b40e-081a939fe95f}</Project>
+      <Name>SDs-Global-Libraries</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shippers.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
