@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.PublicLoginView.Maps.PublicLoginMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="loginItem"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
+  </alias>
+  <statements>
+    <select id="SelectLoginId"  resultClass="loginItem">
+      select * from user where id = #id#
+    </select>
+    <select id="SelectLoginPw"  resultClass="loginItem">
+      select * from user where id = #id# and pw = #pw#
+    </select>
+  </statements>
+</sqlMap>

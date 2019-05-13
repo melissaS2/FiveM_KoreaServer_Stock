@@ -1,4 +1,5 @@
-﻿using SDs.FiveM.View.View.Sample;
+﻿using SDs.FiveM.View.View;
+using SDs.FiveM.View.View.Sample;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace SDs_FiveM_View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SampleView());
+            //Application.Run(new SampleView());
+            Application.Run(new PublicLoginView());
         }
     }
 }

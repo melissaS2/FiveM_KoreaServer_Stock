@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item\PublicLoginView\LoginItem.cs" />
     <Compile Include="Item\Sample\AdminUserItem.cs" />
+    <Compile Include="Param\PublicLoginView\LoginParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -70,12 +72,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Param\" />
+    <Folder Include="Service\PublicLoginView\Dao\" />
+    <Folder Include="Service\PublicLoginView\Service\" />
     <Folder Include="Service\Sample\Dao\" />
     <Folder Include="Service\Sample\Service\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service\Sample\Maps\AdminUserMap.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service\PublicLoginView\Maps\PublicLoginMap.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
