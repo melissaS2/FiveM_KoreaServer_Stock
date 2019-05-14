@@ -14,20 +14,60 @@ namespace SDs.FiveM.View.View
 {
     public partial class PublicLoginView : Form
     {
+        #region PROPERTY AREA ******************************
         private PublicLoginViewController controller = null;
+        #endregion
 
+        #region CONTRUCT AREA ******************************
         public PublicLoginView()
         {
             InitializeComponent();
             this.AddEventHandler();
             this.controller = new PublicLoginViewController();
         }
+        #endregion
 
+        #region METHOD AREA *********************************
         private void AddEventHandler()
         {
             this.btnLogin.Click += new EventHandler(BtnLogin_Click);
+            this.btnExit.Click += new EventHandler(BtnExit_Click);
+            this.btnSingUp.Click += new EventHandler(BtnSingUp_Click);
+            this.btnHomePg.Click += new EventHandler(BtnHomePg_Click);
+            this.btnProgramInfo.Click += new EventHandler(BtnProgramInfo_Click);
+            this.btnAdminLogin.Click += new EventHandler(BtnAdminLogin_Click);
         }
+        #endregion
 
+        #region EVENT AREA **********************************
+        private void BtnAdminLogin_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            this.Hide();
+            AdminLoginView view = new AdminLoginView();
+            view.Show();
+        }
+        private void BtnProgramInfo_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            MessageBox.Show("준비중 입니다.");
+        }
+        private void BtnHomePg_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            MessageBox.Show("준비중 입니다.");
+        }
+        private void BtnSingUp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            SignUpView signUpView = new SignUpView();
+            signUpView.Show();
+        }
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Environment.Exit(0);
+        }
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -42,58 +82,15 @@ namespace SDs.FiveM.View.View
                 if (item != null)
                 {
                     this.Hide();
-
-                    //ChartView view = new ChartView()
+                    ChartView view = new ChartView();
+                    view.Show();
                 }
-                //DbMgr mgr = new DbMgr();
-                //bool flag = mgr.Login(this.idbox.Text, this.pwbox.Text, out money);
-                //if (flag)
-                //{
-                //    this.Hide();
-
-                //    Chart 차트1 = new Chart(money);
-                //    차트1.Show();
-                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //회원가입 회원가입1 = new 회원가입();
-            //회원가입1.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("준비중 입니다.");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("준비중 입니다.");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            //관리자_로그인창 관리자_로그인창1 = new 관리자_로그인창();
-            //관리자_로그인창1.Show();
-        }
+        #endregion
     }
 }

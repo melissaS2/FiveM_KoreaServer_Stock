@@ -27,17 +27,18 @@ namespace SDs.FiveM.Controller.Controller
                 if (isSuccess)
                 {
                     item = this.DoCheckPassword(param); // Pw확인
-                    //if ()
-                    //{
+                    if(item != null)
+                    {
                         MessageBox.Show(param.id + " 님 환영합니다");
-                    //}
+                        return item;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            return item;
+            return null;
         }
 
         public bool DoCheckExistId(LoginParam param)
@@ -88,7 +89,7 @@ namespace SDs.FiveM.Controller.Controller
                 else
                 { 
                     MessageBox.Show("비밀번를 잘못 입력하셨습니다.");
-                    return list[0];
+                    return null;
                 }
             }
             catch (Exception ex)
