@@ -1,6 +1,7 @@
 ﻿using SDs.FiveM.Controller.Controller;
 using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Param.PublicLoginView;
+using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,18 +51,20 @@ namespace SDs.FiveM.View.View
         private void BtnProgramInfo_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            MessageBox.Show("준비중 입니다.");
+            FiveMUtilClass.GetMessageBox("준비 중 입니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void BtnHomePg_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            MessageBox.Show("준비중 입니다.");
+            FiveMUtilClass.GetMessageBox("준비 중 입니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void BtnSingUp_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            SignUpView signUpView = new SignUpView();
-            signUpView.Show();
+            SignUpView view = new SignUpView();
+            view.StartPosition = FormStartPosition.Manual;
+            view.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+            view.ShowDialog();
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -76,8 +79,6 @@ namespace SDs.FiveM.View.View
                 param.id = this.idbox.Text;
                 param.pw = this.pwbox.Text;
                 LoginItem item = this.controller.DoLogin(param);
-
-                string money = string.Empty;
 
                 if (item != null)
                 {

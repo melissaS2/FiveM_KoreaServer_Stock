@@ -107,6 +107,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\AdminLoginView.resx">
+      <DependentUpon>AdminLoginView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PublicLoginView.resx">
       <DependentUpon>PublicLoginView.cs</DependentUpon>
     </EmbeddedResource>

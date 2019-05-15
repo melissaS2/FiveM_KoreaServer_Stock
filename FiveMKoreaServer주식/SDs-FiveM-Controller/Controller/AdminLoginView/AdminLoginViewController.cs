@@ -1,6 +1,6 @@
 ﻿using IBatisNet.DataMapper;
-using SDs.FiveM.Model.Item.PublicLoginView;
-using SDs.FiveM.Model.Param.PublicLoginView;
+using SDs.FiveM.Model.Item.AdminLoginView;
+using SDs.FiveM.Model.Param.AdminLoginView;
 using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
@@ -8,19 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SDs.FiveM.Controller.Controller
+namespace SDs.FiveM.Controller.Controller.AdminLoginView
 {
-    public class PublicLoginViewController
+    public class AdminLoginViewController
     {
-        public PublicLoginViewController()
+        public AdminLoginViewController()
         {
 
         }
 
-        public LoginItem DoLogin(LoginParam param)
+        public AdminLoginItem DoLogin(AdminLoginParam param)
         {
             bool isSuccess = false;
-            LoginItem item = new LoginItem();
+            AdminLoginItem item = new AdminLoginItem();
             try
             {
                 isSuccess = this.DoCheckExistId(param); // Id 존재 여부 확인
@@ -28,9 +28,9 @@ namespace SDs.FiveM.Controller.Controller
                 if (isSuccess)
                 {
                     item = this.DoCheckPassword(param); // Pw확인
-                    if(item != null)
+                    if (item != null)
                     {
-                        FiveMUtilClass.GetMessageBox(param.id + " 님 환영합니다", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FiveMUtilClass.GetMessageBox(param.adminid + " 님 환영합니다", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return item;
                     }
                 }
@@ -42,13 +42,13 @@ namespace SDs.FiveM.Controller.Controller
             return null;
         }
 
-        public bool DoCheckExistId(LoginParam param)
+        public bool DoCheckExistId(AdminLoginParam param)
         {
             bool isSuccess = false;
 
             try
             {
-                IList<LoginItem> list = Mapper.Instance().QueryForList<LoginItem>("SelectLoginId", param);
+                IList<AdminLoginItem> list = Mapper.Instance().QueryForList<AdminLoginItem>("SelectAdminLoginId", param);
 
                 if (list.Count > 0)
                 {
@@ -70,17 +70,17 @@ namespace SDs.FiveM.Controller.Controller
             return isSuccess;
         }
 
-        public LoginItem DoCheckPassword(LoginParam param)
+        public AdminLoginItem DoCheckPassword(AdminLoginParam param)
         {
-            IList<LoginItem> list = null;
+            IList<AdminLoginItem> list = null;
             try
             {
-                list = Mapper.Instance().QueryForList<LoginItem>("SelectLoginPw", param);
+                list = Mapper.Instance().QueryForList<AdminLoginItem>("SelectAdminLoginPw", param);
 
                 if (list.Count > 1)
                 {
                     FiveMUtilClass.GetMessageBox("데이터 오류", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return new LoginItem();
+                    return new AdminLoginItem();
                 }
 
                 if (list.Count > 0)
@@ -98,8 +98,7 @@ namespace SDs.FiveM.Controller.Controller
                 MessageBox.Show(ex.ToString());
             }
 
-            return new LoginItem();
+            return new AdminLoginItem();
         }
-
     }
 }

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.AdminLoginView.Maps.AdminLoginMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="adminLoginItem"  type="SDs.FiveM.Model.Item.AdminLoginView.AdminLoginItem" />
+  </alias>
+  <statements>
+    <select id="SelectAdminLoginId"  resultClass="adminLoginItem">
+      select * from adminuser where adminid = #adminid#
+    </select>
+    <select id="SelectAdminLoginPw"  resultClass="adminLoginItem">
+      select * from adminuser where adminid = #adminid# and adminpw = #adminpw#
+    </select>
+  </statements>
+</sqlMap>
