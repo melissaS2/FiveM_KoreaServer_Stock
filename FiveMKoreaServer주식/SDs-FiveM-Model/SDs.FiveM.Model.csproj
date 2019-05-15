@@ -75,6 +75,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Param\SignUpView\" />
     <Folder Include="Service\AdminLoginView\Dao\" />
     <Folder Include="Service\AdminLoginView\Service\" />
     <Folder Include="Service\PublicLoginView\Dao\" />

@@ -1,4 +1,7 @@
-﻿using SDs.FiveM.Model.Util;
+﻿using SDs.FiveM.Controller.Controller.SignUpView;
+using SDs.FiveM.Model.Item.PublicLoginView;
+using SDs.FiveM.Model.Param.PublicLoginView;
+using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +16,7 @@ namespace SDs.FiveM.View.View
     public partial class SignUpView : Form
     {
         #region PROPERTY AREA ******************************
+        private SignUpViewController controller = null;
         #endregion
 
         #region CONTRUCT AREA ******************************
@@ -20,6 +24,7 @@ namespace SDs.FiveM.View.View
         {
             InitializeComponent();
             this.AddEventHandler();
+            this.controller = new SignUpViewController();
         }
         #endregion
 
@@ -53,9 +58,6 @@ namespace SDs.FiveM.View.View
         {
             //throw new NotImplementedException();
             this.Close();
-
-            //PublicLoginView view = new PublicLoginView();
-            //view.Show();
             //Environment.Exit(0);
         }
 
@@ -76,6 +78,13 @@ namespace SDs.FiveM.View.View
             //{
             //    FiveMUtilClass.GetMessageBox("ID와 Password는 빈칸이 될 수 없습니다.","경고",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             //}
+            LoginItem param = new LoginItem();
+            param.id = this.txtId.Text;
+            param.pw = this.txtPw.Text;
+            param.money = long.Parse(this.txtMoney.Text);
+
+            this.controller.DoNewMemberSignUp(param);
+            
         }
         #endregion
 

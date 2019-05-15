@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Controller\AdminLoginView\AdminLoginViewController.cs" />
     <Compile Include="Controller\PublicLoginViewController.cs" />
+    <Compile Include="Controller\SignUpView\SignUpViewController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
