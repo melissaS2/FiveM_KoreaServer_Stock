@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.AdminView.Maps.AdminViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="adminViewItem"  type="SDs.FiveM.Model.Item.AdminView.AdminViewItem" />
+  </alias>
+  <statements>
+    <select id="select-CompanyList"  resultClass="adminViewItem">
+      SELECT * FROM companylist
+    </select>
+
+    <insert id="insert-NewCompany" parameterClass="adminViewItem">
+      INSERT INTO companylist(CompanyName,JuMoney,LeftCnt)
+      VALUES(#CompanyName#,#JuMoney#,#LeftCnt#)
+    </insert>
+
+    <update id="update-Company" parameterClass="adminViewItem">
+      UPDATE companylist
+      SET JuMoney=#JuMoney#
+      AND LeftCnt=#LeftCnt#
+      AND CompanyName=#CompanyName#
+      WHERE No=#No#
+    </update>
+
+      <delete id="delete-Company" parameterClass="adminViewItem">
+      DELETE FROM companylist where No = #No#
+    </delete>
+  </statements>
+</sqlMap>

@@ -44,16 +44,20 @@ namespace FiveMKoreaServer주식
             this.btRefresh.Click += btRefresh_Click;
             this.btExit.Click += btExit_Click;
             this.btAdd.Click += btAdd_Click;
-            this.btStop.Click += btStop_Click;
-            this.btPlay.Click += btPlay_Click;
+
+            this.dataGridView1.CellClick += new DataGridViewCellEventHandler(DataGridView1_CellClick);
+
             this.btDelete.Click += btDelete_Click;
             this.btUpdate.Click += btUpdate_Click;
+
+            this.btPlay.Click += btPlay_Click;
+            this.btStop.Click += btStop_Click;
 
             this.newcompany.TextChanged += newcompany_TextChanged;
             this.newmoney.TextChanged += newmoney_TextChanged;
             this.newju.TextChanged += newju_TextChanged;
 
-            this.dataGridView1.CellClick += new DataGridViewCellEventHandler(DataGridView1_CellClick);
+            
 
             this.ButtonEnabled(true);
 

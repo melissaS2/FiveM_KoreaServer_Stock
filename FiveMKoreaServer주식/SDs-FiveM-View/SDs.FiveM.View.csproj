@@ -110,6 +110,9 @@
     <EmbeddedResource Include="View\AdminLoginView.resx">
       <DependentUpon>AdminLoginView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminView.resx">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PublicLoginView.resx">
       <DependentUpon>PublicLoginView.cs</DependentUpon>
     </EmbeddedResource>

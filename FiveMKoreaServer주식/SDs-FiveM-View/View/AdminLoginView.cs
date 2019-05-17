@@ -55,7 +55,7 @@ namespace SDs.FiveM.View.View
                 if (item != null)
                 {
                     this.Hide();
-                    ChartView view = new ChartView();
+                    AdminView view = new AdminView();
                     view.Show();
                 }
             }

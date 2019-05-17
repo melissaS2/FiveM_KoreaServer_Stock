@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Item\AdminLoginView\AdminLoginItem.cs" />
+    <Compile Include="Item\AdminView\AdminViewItem.cs" />
     <Compile Include="Item\PublicLoginView\LoginItem.cs" />
     <Compile Include="Item\Sample\AdminUserItem.cs" />
     <Compile Include="Param\AdminLoginView\AdminLoginParam.cs" />
@@ -78,6 +79,8 @@
     <Folder Include="Param\SignUpView\" />
     <Folder Include="Service\AdminLoginView\Dao\" />
     <Folder Include="Service\AdminLoginView\Service\" />
+    <Folder Include="Service\AdminView\Dao\" />
+    <Folder Include="Service\AdminView\Service\" />
     <Folder Include="Service\PublicLoginView\Dao\" />
     <Folder Include="Service\PublicLoginView\Service\" />
     <Folder Include="Service\Sample\Dao\" />
@@ -95,6 +98,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service\AdminLoginView\Maps\AdminLoginMap.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service\AdminView\Maps\AdminViewMap.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
