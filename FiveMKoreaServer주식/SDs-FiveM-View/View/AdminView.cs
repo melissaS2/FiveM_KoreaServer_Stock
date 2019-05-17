@@ -51,7 +51,6 @@ namespace SDs.FiveM.View.View
 
             this.grd_StockCompany.CellClick += Grd_StockCompany_CellClick;
             
-
             this.btDelete.Click += BtDelete_Click;
             this.btUpdate.Click += BtUpdate_Click;
 
@@ -93,8 +92,8 @@ namespace SDs.FiveM.View.View
                 item.pw = this.txtPw.Text;
                 item.money = FiveMUtilClass.StringToParseLong(this.txtUserMoney.Text);
 
-                bool flag = this.controller.DoUpdateUser(item);
-
+                bool flag = this.controller.DoUpdateUser(item); 
+                //
                 if (flag)
                 {
                     string msgBoxText = item.id + " 회원 정보가 수정 되었습니다.";
@@ -112,7 +111,7 @@ namespace SDs.FiveM.View.View
             this.txtId.Text = "";
             this.txtPw.Text = "";
             this.txtUserMoney.Text = "0";
-
+            //Simply
             this.userGridCellClick = false;
             this.userGridCurrColIdx = 0;
             this.userGridCurrRowIdx = 0;
