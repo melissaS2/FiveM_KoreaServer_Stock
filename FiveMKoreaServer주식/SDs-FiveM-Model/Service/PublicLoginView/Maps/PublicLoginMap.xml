@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="SDs.FiveM.Model.Service.PublicLoginView.Maps.PublicLoginMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
-    <typeAlias alias="loginItem"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
+    <typeAlias alias="loginItems"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
   </alias>
   <statements>
-    <select id="SelectLoginId"  resultClass="loginItem">
+    <select id="SelectLoginId"  resultClass="loginItems">
       select * from user where id = #id#
     </select>
-    <select id="SelectLoginPw"  resultClass="loginItem">
+    <select id="SelectLoginPw"  resultClass="loginItems">
       select * from user where id = #id# and pw = #pw#
     </select>
 
-    <insert id="InsertNewMember" parameterClass="loginItem">
+    <insert id="InsertNewMember" parameterClass="loginItems">
       INSERT INTO USER (id,pw,money) values(#id#,#pw#,#money#)
     </insert>
   </statements>

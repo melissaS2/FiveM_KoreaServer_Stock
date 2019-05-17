@@ -1,5 +1,6 @@
 ﻿using SDs.FiveM.Controller.Controller.AdminView;
 using SDs.FiveM.Model.Item.AdminView;
+using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
@@ -49,11 +50,319 @@ namespace SDs.FiveM.View.View
             this.btAdd.Click += BtAdd_Click;
 
             this.grd_StockCompany.CellClick += Grd_StockCompany_CellClick;
+            
 
             this.btDelete.Click += BtDelete_Click;
             this.btUpdate.Click += BtUpdate_Click;
+
+            this.btPlay.Click += BtPlay_Click;
+            this.btStop.Click += BtStop_Click;
             
             this.FormClosed += AdminView_FormClosed;
+
+            this.ButtonEnabled(true);
+
+
+            this.grd_User.CellClick += Grd_User_CellClick;
+
+            this.btUserAdd.Click += BtUserAdd_Click;
+            this.btUserDelete.Click += BtUserDelete_Click;
+            this.btUserRefresh.Click += BtUserRefresh_Click;
+            this.btUserSave.Click += BtUserSave_Click;
+        }
+
+        private void BtStop_Click(object sender, EventArgs e)
+        {
+            this.ButtonEnabled(false);
+
+            if (timer != null)
+            {
+                timer.Dispose();
+                timer = null;
+            }
+        }
+
+        private void BtUserSave_Click(object sender, EventArgs e)
+        {
+            LoginItem item = new LoginItem();
+
+            if (userGridCellClick)
+            {
+                item.no = int.Parse(this.grd_User.Rows[userGridCurrRowIdx].Cells[0].FormattedValue.ToString());
+                item.id = this.txtId.Text;
+                item.pw = this.txtPw.Text;
+                item.money = FiveMUtilClass.StringToParseLong(this.txtUserMoney.Text);
+
+                bool flag = this.controller.DoUpdateUser(item);
+
+                if (flag)
+                {
+                    string msgBoxText = item.id + " 회원 정보가 수정 되었습니다.";
+                    string msgBoxCaption = "알림";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    userGridCellClick = false;
+
+                    this.DoRetriveUserData();
+                }
+            }
+        }
+
+        private void BtUserRefresh_Click(object sender, EventArgs e)
+        {
+            this.txtId.Text = "";
+            this.txtPw.Text = "";
+            this.txtUserMoney.Text = "0";
+
+            this.userGridCellClick = false;
+            this.userGridCurrColIdx = 0;
+            this.userGridCurrRowIdx = 0;
+        }
+
+        private void Grd_User_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.RowIndex == this.grd_User.RowCount)
+            {
+                return;
+            }
+
+            userGridCellClick = true;
+
+            LoginItem item = new LoginItem();
+
+            item.no = int.Parse(this.grd_User.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());
+            item.id = this.grd_User.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+            item.pw = this.grd_User.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            item.money = FiveMUtilClass.StringToParseLong(this.grd_User.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
+            
+            this.txtId.Text = item.id;
+            this.txtPw.Text = item.pw;
+            this.txtUserMoney.Text = item.money.ToString();
+
+            this.userGridCurrRowIdx = e.RowIndex;//현재 선택 Index
+            this.userGridCurrColIdx = e.ColumnIndex;
+        }
+
+        private void BtUserDelete_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            LoginItem param = new LoginItem();
+            
+            if (userGridCellClick)
+            {
+                
+                param.no = int.Parse(this.grd_User.Rows[userGridCurrRowIdx].Cells[0].FormattedValue.ToString());
+                param.id = this.grd_User.Rows[userGridCurrRowIdx].Cells[1].FormattedValue.ToString();
+
+                userGridCellClick = false;
+                userGridCurrColIdx = 0;
+                userGridCurrRowIdx = 0;
+
+                bool flag = this.controller.DoDeleteUser(param);
+                if (flag)
+                {
+                    //return;
+                }
+                else
+                {
+                    string msgBoxText = param.id + "사용자 삭제 실패";
+                    string msgBoxCaption = "알림";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //return;
+                }
+            }
+
+            this.DoRetriveUserData();
+        }
+
+        private void BtUserAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //throw new NotImplementedException();
+                //throw new NotImplementedException();
+                if (this.txtId.Text == "" || this.txtId.Text == null)
+                {
+                    FiveMUtilClass.GetMessageBox("ID와 Password는 빈칸이 될 수 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (this.txtPw.Text == "" || this.txtPw.Text == null)
+                {
+                    FiveMUtilClass.GetMessageBox("ID와 Password는 빈칸이 될 수 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //if (this.txtMoney.Text == "" || this.txtMoney.Text == null)
+                //{
+                //    FiveMUtilClass.GetMessageBox("ID와 Password는 빈칸이 될 수 없습니다.","경고",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                //}
+                LoginItem param = new LoginItem();
+                param.id = this.txtId.Text;
+                param.pw = this.txtPw.Text;
+                param.money = long.Parse(this.txtUserMoney.Text);
+
+                this.controller.DoNewMemberSignUp(param);
+                this.DoRetriveUserData();
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void ButtonEnabled(bool flag)
+        {
+
+            this.btPlay.Enabled = !flag;
+            this.btStop.Enabled = flag;
+            this.btDelete.Enabled = !flag;
+            this.btUpdate.Enabled = !flag;
+        }
+
+        private void DoTimer(object param)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    this.DoUpdateJusikData();
+                }));
+            }
+            else
+            {
+                this.DoUpdateJusikData();
+            }
+        }
+
+        private void DoUpdateJusikData()
+        {
+            try
+            {
+                Console.WriteLine("newEventArgsTimer_Tick " + DateTime.Now);
+                //100까지 있을때 1~20 나오면은 
+                /*
+                 1~100 랜덤 돌리는데
+                    10 % = + 100  (1~10)
+                    20 % = - 100  ( 11~30)
+                    5 % = + 1000  ( 31~35)
+                 * */
+                for (int i = 0; i < this.grd_StockCompany.Rows.Count - 1; i++)
+                {
+                    int num = rndNum.Next(1, 215);
+                    int No = int.Parse(this.grd_StockCompany.Rows[i].Cells[0].FormattedValue.ToString());
+                    string companyName = this.grd_StockCompany.Rows[i].Cells[1].FormattedValue.ToString();
+                    long value = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[2].FormattedValue.ToString());
+                    long leftCnt = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[3].FormattedValue.ToString());
+                    
+                    //Console.WriteLine("Grid Row: " + (i + 1) + " Value :  " + value);
+
+                    #region 주가변동
+                    if (num >= 1 & num <= 30) // 30 % = + 4000  (1)
+                    {
+                        value = value + 20;
+                    }
+                    else if (num >= 31 & num <= 100) // 70 % = - 300  ( 2~11)
+                    {
+                        value = value - 10;
+                    }
+                    else if (num >= 101 & num <= 101) // 1 % = + 150  ( 12~22)
+                    {
+                        value = value - 100;
+                    }
+                    else if (num >= 102 & num <= 102) // 1 % = + 150  ( 12~22)
+                    {
+                        value = value + 500;
+                    }
+                    // 51%
+                    #endregion
+
+                    if (num >= 1 & num <= 30) // 30 %
+                    {
+                        value = value + 1;
+                    }
+                    else if (num >= 31 & num <= 60) // 30 %
+                    {
+                        value = value - 1;
+                    }
+                    else if (num >= 61 & num <= 100) // 40 %
+                    {
+                        value = value - 2;
+                    }
+                    else if (num >= 101 & num <= 140) // 40 %
+                    {
+                        value = value + 2;
+                    }
+                    else if (num >= 141 & num <= 141) // 1 %
+                    {
+                        value = value + 20;
+                    }
+                    else if (num >= 142 & num <= 142) // 1 %
+                    {
+                        value = value - 20;
+                    }
+                    else if (num >= 143 & num <= 163) // 20 %
+                    {
+                        value = value - 5;
+                    }
+                    else if (num >= 164 & num <= 184) // 20 %
+                    {
+                        value = value + 5;
+                    }
+                    else if (num >= 185 & num <= 200) // 15 %
+                    {
+                        value = value + 4;
+                    }
+                    else if (num >= 201 & num <= 215) // 15 %
+                    {
+                        value = value + 4;
+                    }
+                    else if (num >= 216 & num <= 220) // 4 %
+                    {
+                        value = value - 300;
+                    }
+                    else if (num >= 221 & num <= 221) // 1 %
+                    {
+                        value = value - 5000;
+                    }
+                    //Console.WriteLine((i + 1) + " 번째 데이터 " + value);
+
+                    AdminViewItem param = new AdminViewItem();
+                    param.No = No;
+                    param.CompanyName = companyName;
+                    param.JuMoney = value;
+                    param.LeftCnt = leftCnt;
+
+                    this.controller.DoUpdateCompany(param);
+
+                    this.DoRetriveJusikData();
+                    this.DoRetriveUserData();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BtPlay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            this.ButtonEnabled(true);
+
+            try
+            {
+                if (timer == null)
+                {
+                    System.Threading.TimerCallback callback = DoTimer;
+                    timer = new System.Threading.Timer(callback, 1, 1000, 5 * 1000);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void BtUpdate_Click(object sender, EventArgs e)
@@ -101,6 +410,7 @@ namespace SDs.FiveM.View.View
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cellClick = false;
                     currRowIndex = 0;
+                    currColIndex = 0;
 
                     this.DoRetriveJusikData();
                 }
@@ -166,10 +476,6 @@ namespace SDs.FiveM.View.View
 
         private void BtRefresh_Click(object sender, EventArgs e)
         {
-            //item.Company = "";
-            //item.JuMoney = 0;
-            //item.LeftCnt = 0;
-
             this.txtCompany.Text = "";
             this.txtMoney.Text = "0";
             this.txtLeftCnt.Text = "0";
@@ -196,7 +502,16 @@ namespace SDs.FiveM.View.View
 
         private void DoRetriveUserData()
         {
+            IList<LoginItem> list = this.controller.DoRetriveUserData();
+            this.grd_User.DataSource = list;
 
+            this.ColumnWidthHandler(this.grd_User);
+            if (this.grd_User.RowCount != 0)
+            {
+                this.grd_User.Rows[userGridCurrColIdx].Selected = true;
+                this.grd_User.Rows[0].Cells[0].Selected = false;
+                this.grd_User.Rows[userGridCurrRowIdx].Cells[userGridCurrColIdx].Selected = true;
+            }
         }
 
         private void ProgramExit()

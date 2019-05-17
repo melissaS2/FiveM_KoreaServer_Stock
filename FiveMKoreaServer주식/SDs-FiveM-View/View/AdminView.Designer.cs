@@ -32,7 +32,7 @@
             this.btUserDelete = new System.Windows.Forms.Button();
             this.btUserAdd = new System.Windows.Forms.Button();
             this.txtUserMoney = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPw = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,32 +65,32 @@
             // 
             // btUserSave
             // 
-            this.btUserSave.Location = new System.Drawing.Point(758, 542);
+            this.btUserSave.Location = new System.Drawing.Point(516, 648);
             this.btUserSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserSave.Name = "btUserSave";
-            this.btUserSave.Size = new System.Drawing.Size(86, 29);
+            this.btUserSave.Size = new System.Drawing.Size(116, 29);
             this.btUserSave.TabIndex = 61;
-            this.btUserSave.Text = "Save";
+            this.btUserSave.Text = "수정사항 반영";
             this.btUserSave.UseVisualStyleBackColor = true;
             // 
             // btUserDelete
             // 
-            this.btUserDelete.Location = new System.Drawing.Point(758, 579);
+            this.btUserDelete.Location = new System.Drawing.Point(638, 648);
             this.btUserDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserDelete.Name = "btUserDelete";
-            this.btUserDelete.Size = new System.Drawing.Size(86, 29);
+            this.btUserDelete.Size = new System.Drawing.Size(113, 29);
             this.btUserDelete.TabIndex = 59;
-            this.btUserDelete.Text = "Delete";
+            this.btUserDelete.Text = "선택회원 삭제";
             this.btUserDelete.UseVisualStyleBackColor = true;
             // 
             // btUserAdd
             // 
-            this.btUserAdd.Location = new System.Drawing.Point(758, 509);
+            this.btUserAdd.Location = new System.Drawing.Point(638, 611);
             this.btUserAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserAdd.Name = "btUserAdd";
-            this.btUserAdd.Size = new System.Drawing.Size(86, 29);
+            this.btUserAdd.Size = new System.Drawing.Size(113, 29);
             this.btUserAdd.TabIndex = 58;
-            this.btUserAdd.Text = "Add";
+            this.btUserAdd.Text = "신규회원 추가";
             this.btUserAdd.UseVisualStyleBackColor = true;
             // 
             // txtUserMoney
@@ -101,20 +101,20 @@
             this.txtUserMoney.Size = new System.Drawing.Size(235, 25);
             this.txtUserMoney.TabIndex = 57;
             // 
-            // txtPassword
+            // txtPw
             // 
-            this.txtPassword.Location = new System.Drawing.Point(516, 545);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(235, 25);
-            this.txtPassword.TabIndex = 56;
+            this.txtPw.Location = new System.Drawing.Point(516, 545);
+            this.txtPw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPw.Name = "txtPw";
+            this.txtPw.Size = new System.Drawing.Size(235, 25);
+            this.txtPw.TabIndex = 56;
             // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(516, 511);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(235, 25);
+            this.txtId.Size = new System.Drawing.Size(236, 25);
             this.txtId.TabIndex = 55;
             // 
             // label10
@@ -151,7 +151,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(621, 482);
+            this.label8.Location = new System.Drawing.Point(587, 482);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 20);
             this.label8.TabIndex = 51;
@@ -179,12 +179,12 @@
             // 
             // btUserRefresh
             // 
-            this.btUserRefresh.Location = new System.Drawing.Point(758, 615);
+            this.btUserRefresh.Location = new System.Drawing.Point(516, 611);
             this.btUserRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserRefresh.Name = "btUserRefresh";
-            this.btUserRefresh.Size = new System.Drawing.Size(86, 29);
+            this.btUserRefresh.Size = new System.Drawing.Size(116, 29);
             this.btUserRefresh.TabIndex = 60;
-            this.btUserRefresh.Text = "Refresh";
+            this.btUserRefresh.Text = "초기화";
             this.btUserRefresh.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -373,7 +373,7 @@
             this.Controls.Add(this.btUserDelete);
             this.Controls.Add(this.btUserAdd);
             this.Controls.Add(this.txtUserMoney);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtPw);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -413,7 +413,7 @@
         private System.Windows.Forms.Button btUserDelete;
         private System.Windows.Forms.Button btUserAdd;
         private System.Windows.Forms.TextBox txtUserMoney;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtPw;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

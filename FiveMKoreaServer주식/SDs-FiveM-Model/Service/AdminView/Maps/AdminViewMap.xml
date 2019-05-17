@@ -2,10 +2,15 @@
 <sqlMap namespace="SDs.FiveM.Model.Service.AdminView.Maps.AdminViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
     <typeAlias alias="adminViewItem"  type="SDs.FiveM.Model.Item.AdminView.AdminViewItem" />
+    <typeAlias alias="loginItem"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
   </alias>
   <statements>
     <select id="select-CompanyList"  resultClass="adminViewItem">
       SELECT * FROM companylist
+    </select>
+
+    <select id="select-UserList"  resultClass="loginItem">
+      SELECT * FROM user
     </select>
 
     <insert id="insert-NewCompany" parameterClass="adminViewItem">
@@ -16,13 +21,25 @@
     <update id="update-Company" parameterClass="adminViewItem">
       UPDATE companylist
       SET JuMoney=#JuMoney#
-      AND LeftCnt=#LeftCnt#
-      AND CompanyName=#CompanyName#
+      , LeftCnt=#LeftCnt#
+      , CompanyName=#CompanyName#
       WHERE No=#No#
     </update>
+    
+    <update id="update-User" parameterClass="loginItem">
+      UPDATE user
+      SET id=#id#
+      , pw=#pw#
+      , money=#money#
+      WHERE no=#no#
+    </update>
 
-      <delete id="delete-Company" parameterClass="adminViewItem">
+    <delete id="delete-Company" parameterClass="adminViewItem">
       DELETE FROM companylist where No = #No#
+    </delete>
+
+    <delete id="delete-User" parameterClass="loginItem">
+      DELETE FROM user where no = #no#
     </delete>
   </statements>
 </sqlMap>
