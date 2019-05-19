@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.ChartView.Maps.ChartViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="userCompanyBuyItem"  type="SDs.FiveM.Model.Item.ChartView.UserCompanyBuyItem" />
+  </alias>
+  <statements>
+    <select id="select-UserCompanyBuyList"  resultClass="userCompanyBuyItem">
+      select * from user_company_buy 
+      where userid = #userid# AND
+      company = #company#
+    </select>
+    
+    <insert id="insert-UserCompanyBuy" parameterClass="userCompanyBuyItem">
+      INSERT INTO user_company_buy (`userid`, `company`, `won`, `ju`)
+      VALUES (#userid#, #company#, #won#, #ju#)
+    </insert>
+
+    <update id="update-UserCompanyBuy" parameterClass="userCompanyBuyItem">
+      UPDATE user_company_buy SET ju =#JU#
+      WHERE userid =#USERID# AND company =#COMAPNY#
+    </update>
+  </statements>
+</sqlMap>

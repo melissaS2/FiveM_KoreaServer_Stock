@@ -1,5 +1,6 @@
 ﻿using SDs.FiveM.Controller.Controller.ChartView;
 using SDs.FiveM.Model.Item.AdminView;
+using SDs.FiveM.Model.Item.ChartView;
 using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace SDs.FiveM.View.View
     public partial class ChartView : Form
     {
         #region PROPERTY AREA ******************************
+        public PublicLoginViewInterface publicLoginView { get; set; }
+
         private ChartViewController controller = null;
 
         private int currRowIndex { get; set; }
@@ -23,24 +26,118 @@ namespace SDs.FiveM.View.View
         #endregion
 
         #region CONTRUCT AREA ******************************
-        public ChartView()
+        public ChartView(PublicLoginViewInterface view)
         {
             InitializeComponent();
+            this.publicLoginView = view;
 
             this.currRowIndex = 0;
             this.currColIndex = 0;
 
             this.controller = new ChartViewController();
+            this.SetBindingControls();
             this.AddEventHandler();
         }
         #endregion
 
         #region METHOD AREA *********************************
+        private void SetBindingControls()
+        {
+            this.txtId.Text = this.publicLoginView.LOGIN_ID;
+            this.txtMoney.Text = this.publicLoginView.MONEY.ToString();
+        }
         private void AddEventHandler()
         {
             this.Load += ChartView_Load;
 
             this.grd_StockStatusList.CellClick += Grd_StockStatusList_CellClick;
+
+            this.btnExit.Click += BtnExit_Click;
+            this.btnLogOut.Click += BtnLogOut_Click;
+            this.btnBuyStock.Click += BtnBuyStock_Click;
+        }
+
+        private void BtnBuyStock_Click(object sender, EventArgs e)
+        {
+            UserCompanyBuyItem userCompanyBuyItem = new UserCompanyBuyItem();
+
+            string msgBoxText = "";
+            string msgBoxCaption = "";
+
+            string companyName = this.tbxBuyCompanyName.Text;
+            long ju = FiveMUtilClass.StringToParseLong(this.tbxBuyStockCount.Text);
+            long userMoney = this.publicLoginView.MONEY; // 사용자 보유 돈
+            long buyStockPrice = FiveMUtilClass.StringToParseLong(this.tbxBuyMoney.Text); // 매수액
+            long JuMoney = FiveMUtilClass.StringToParseLong(this.grd_StockStatusList.Rows[currRowIndex].Cells[2].FormattedValue.ToString()); // 구매단가
+
+            if(JuMoney < 0)
+            {
+                msgBoxText = "해당 주식은 현재 구매할 수 없습니다.";
+                msgBoxCaption = "경고";
+                FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (this.tbxBuyMoney.Text == "")
+            {
+                msgBoxText = "먼저 매수 할 회사를 선택하셔야 됩니다.";
+                msgBoxCaption = "경고";
+                FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (userMoney < buyStockPrice)
+            {
+                msgBoxText = "보유 자금이 부족합니다.";
+                msgBoxCaption = "경고";
+                FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            else if (userMoney >= buyStockPrice)
+            {
+                long leftMoney = userMoney - buyStockPrice;
+                //msgBoxText = "구매 하시겠습니까? \r\n 회사명 : " + companyName + " \r\n 주 : " + ju + "개 \r\n 구매단가 : " + 구매단가;
+                //msgBoxCaption = "매수 알림";
+                //if (Util.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    userCompanyBuyItem.userid = this.publicLoginView.LOGIN_ID;
+                    userCompanyBuyItem.company = companyName;
+                    userCompanyBuyItem.won = JuMoney;
+                    //userCompanyBuyItem.ju = ju;
+                    IList <UserCompanyBuyItem> list = this.controller.DoGetCompanyJuCnt(userCompanyBuyItem);
+                    if (list.Count > 1)
+                    {
+                        msgBoxText = "데이터 조작 오류 발생 \r\n 관리자 문의 바랍니다.";
+                        msgBoxCaption = "데이터 오류";
+                        //유저 : 회사 > 1:1 관계에서 1: N 관계로 데이터 조작 오류 발생. 1:1관계로 변경 필요
+                        FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    else if(list.Count == 0){ 
+                        this.controller.DoInsertCompanyJu(userCompanyBuyItem);
+                    }
+
+                    else if(list.Count == 1) {
+                        userCompanyBuyItem.ju = ju + userCompanyBuyItem.ju; // 가지고 있던 주 갯수 + 새로 살 갯수
+                        this.controller.DoUpdateCompanyJu(userCompanyBuyItem);
+                    }
+
+
+                }
+            }
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            PublicLoginView view = new PublicLoginView();
+            view.Show();
         }
 
         private void DoRetriveJusikData() // Do not direct call

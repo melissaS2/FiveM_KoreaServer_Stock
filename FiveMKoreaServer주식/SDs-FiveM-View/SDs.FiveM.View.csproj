@@ -85,6 +85,7 @@
     <Compile Include="View\PublicLoginView.Designer.cs">
       <DependentUpon>PublicLoginView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PublicLoginViewInterface.cs" />
     <Compile Include="View\Sample\SampleView.cs">
       <SubType>Form</SubType>
     </Compile>

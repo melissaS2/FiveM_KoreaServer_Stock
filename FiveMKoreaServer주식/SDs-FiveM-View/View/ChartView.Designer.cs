@@ -57,8 +57,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.moneyview = new System.Windows.Forms.TextBox();
-            this.idview = new System.Windows.Forms.TextBox();
+            this.txtMoney = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.money = new System.Windows.Forms.Label();
             this.idlabel = new System.Windows.Forms.Label();
             this.grd_StockStatusList = new System.Windows.Forms.DataGridView();
@@ -382,27 +382,28 @@
             this.btnLogOut.Text = "로 그 아 웃";
             this.btnLogOut.UseVisualStyleBackColor = true;
             // 
-            // moneyview
+            // txtMoney
             // 
-            this.moneyview.BackColor = System.Drawing.Color.White;
-            this.moneyview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.moneyview.Location = new System.Drawing.Point(683, 54);
-            this.moneyview.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.moneyview.Name = "moneyview";
-            this.moneyview.ReadOnly = true;
-            this.moneyview.Size = new System.Drawing.Size(213, 18);
-            this.moneyview.TabIndex = 38;
+            this.txtMoney.BackColor = System.Drawing.Color.White;
+            this.txtMoney.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMoney.Enabled = false;
+            this.txtMoney.Location = new System.Drawing.Point(683, 54);
+            this.txtMoney.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.ReadOnly = true;
+            this.txtMoney.Size = new System.Drawing.Size(213, 18);
+            this.txtMoney.TabIndex = 38;
             // 
-            // idview
+            // txtId
             // 
-            this.idview.BackColor = System.Drawing.Color.White;
-            this.idview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.idview.Location = new System.Drawing.Point(683, 20);
-            this.idview.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.idview.Name = "idview";
-            this.idview.ReadOnly = true;
-            this.idview.Size = new System.Drawing.Size(213, 18);
-            this.idview.TabIndex = 37;
+            this.txtId.BackColor = System.Drawing.Color.White;
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtId.Location = new System.Drawing.Point(683, 20);
+            this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(213, 18);
+            this.txtId.TabIndex = 37;
             // 
             // money
             // 
@@ -455,8 +456,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogOut);
-            this.Controls.Add(this.moneyview);
-            this.Controls.Add(this.idview);
+            this.Controls.Add(this.txtMoney);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.money);
             this.Controls.Add(this.idlabel);
             this.Controls.Add(this.grd_StockStatusList);
@@ -505,8 +506,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.TextBox moneyview;
-        private System.Windows.Forms.TextBox idview;
+        private System.Windows.Forms.TextBox txtMoney;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label money;
         private System.Windows.Forms.Label idlabel;
         private System.Windows.Forms.DataGridView grd_StockStatusList;

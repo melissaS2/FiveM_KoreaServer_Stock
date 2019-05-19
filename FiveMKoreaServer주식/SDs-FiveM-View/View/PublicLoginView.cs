@@ -13,9 +13,12 @@ using System.Windows.Forms;
 
 namespace SDs.FiveM.View.View
 {
-    public partial class PublicLoginView : Form
+    public partial class PublicLoginView : Form , PublicLoginViewInterface
     {
         #region PROPERTY AREA ******************************
+        public string LOGIN_ID { get; set; }
+        public long MONEY { get; set; }
+
         private PublicLoginViewController controller = null;
         #endregion
 
@@ -83,7 +86,10 @@ namespace SDs.FiveM.View.View
                 if (item != null)
                 {
                     this.Hide();
-                    ChartView view = new ChartView();
+                    this.LOGIN_ID = item.id;
+                    this.MONEY = item.money;
+
+                    ChartView view = new ChartView(this);
                     view.Show();
                 }
             }
