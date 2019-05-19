@@ -2,8 +2,20 @@
 <sqlMap namespace="SDs.FiveM.Model.Service.ChartView.Maps.ChartViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
     <typeAlias alias="userCompanyBuyItem"  type="SDs.FiveM.Model.Item.ChartView.UserCompanyBuyItem" />
+    <typeAlias alias="historyItem"  type="SDs.FiveM.Model.Item.ChartView.HistoryItem" />
+    <typeAlias alias="loginItem2"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
   </alias>
   <statements>
+    <select id="select-HistorySell"  parameterType="String" resultClass="historyItem">
+      SELECT * FROM jusik_history_sell
+      WHERE user_id = #loginId#
+    </select>
+
+    <select id="select-HistoryBuy"  parameterType="String" resultClass="historyItem">
+      SELECT * FROM jusik_history_buy
+      WHERE user_id = #loginId#
+    </select>
+
     <select id="select-UserCompanyBuyList"  resultClass="userCompanyBuyItem">
       select * from user_company_buy 
       where userid = #userid# AND
@@ -15,9 +27,19 @@
       VALUES (#userid#, #company#, #won#, #ju#)
     </insert>
 
+    <insert id="insert-HistoryBuy" parameterClass="userCompanyBuyItem">
+      INSERT INTO jusik_history_buy
+      VALUES (#userid#,#company#,#won#,#ju#,#totalprice#,NOW())
+    </insert>
+
     <update id="update-UserCompanyBuy" parameterClass="userCompanyBuyItem">
-      UPDATE user_company_buy SET ju =#JU#
-      WHERE userid =#USERID# AND company =#COMAPNY#
+      UPDATE user_company_buy SET ju =#ju#
+      WHERE userid =#userid# AND company =#company#
+    </update>
+
+    <update id="update-UserMoney" parameterClass="loginItem2">
+      UPDATE user SET money=#money#
+      WHERE id=#id#
     </update>
   </statements>
 </sqlMap>

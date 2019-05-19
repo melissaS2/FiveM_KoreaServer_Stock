@@ -44,8 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.gridSell = new System.Windows.Forms.DataGridView();
-            this.gridBuy = new System.Windows.Forms.DataGridView();
+            this.grid_SellHistory = new System.Windows.Forms.DataGridView();
+            this.grid_BuyHistory = new System.Windows.Forms.DataGridView();
             this.btnRefill = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tbxSellMoney = new System.Windows.Forms.TextBox();
@@ -63,8 +63,8 @@
             this.idlabel = new System.Windows.Forms.Label();
             this.grd_StockStatusList = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSell)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBuy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_SellHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_BuyHistory)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_StockStatusList)).BeginInit();
             this.SuspendLayout();
@@ -232,35 +232,35 @@
             this.label10.TabIndex = 48;
             this.label10.Text = "매수 기록";
             // 
-            // gridSell
+            // grid_SellHistory
             // 
-            this.gridSell.AllowUserToOrderColumns = true;
-            this.gridSell.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gridSell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSell.Location = new System.Drawing.Point(916, 294);
-            this.gridSell.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridSell.MultiSelect = false;
-            this.gridSell.Name = "gridSell";
-            this.gridSell.ReadOnly = true;
-            this.gridSell.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gridSell.RowTemplate.Height = 23;
-            this.gridSell.Size = new System.Drawing.Size(600, 224);
-            this.gridSell.TabIndex = 47;
+            this.grid_SellHistory.AllowUserToOrderColumns = true;
+            this.grid_SellHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grid_SellHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_SellHistory.Location = new System.Drawing.Point(916, 294);
+            this.grid_SellHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grid_SellHistory.MultiSelect = false;
+            this.grid_SellHistory.Name = "grid_SellHistory";
+            this.grid_SellHistory.ReadOnly = true;
+            this.grid_SellHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grid_SellHistory.RowTemplate.Height = 23;
+            this.grid_SellHistory.Size = new System.Drawing.Size(600, 224);
+            this.grid_SellHistory.TabIndex = 47;
             // 
-            // gridBuy
+            // grid_BuyHistory
             // 
-            this.gridBuy.AllowUserToOrderColumns = true;
-            this.gridBuy.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gridBuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridBuy.Location = new System.Drawing.Point(917, 39);
-            this.gridBuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridBuy.MultiSelect = false;
-            this.gridBuy.Name = "gridBuy";
-            this.gridBuy.ReadOnly = true;
-            this.gridBuy.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gridBuy.RowTemplate.Height = 23;
-            this.gridBuy.Size = new System.Drawing.Size(600, 231);
-            this.gridBuy.TabIndex = 46;
+            this.grid_BuyHistory.AllowUserToOrderColumns = true;
+            this.grid_BuyHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grid_BuyHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_BuyHistory.Location = new System.Drawing.Point(917, 39);
+            this.grid_BuyHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grid_BuyHistory.MultiSelect = false;
+            this.grid_BuyHistory.Name = "grid_BuyHistory";
+            this.grid_BuyHistory.ReadOnly = true;
+            this.grid_BuyHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grid_BuyHistory.RowTemplate.Height = 23;
+            this.grid_BuyHistory.Size = new System.Drawing.Size(600, 231);
+            this.grid_BuyHistory.TabIndex = 46;
             // 
             // btnRefill
             // 
@@ -446,8 +446,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.gridSell);
-            this.Controls.Add(this.gridBuy);
+            this.Controls.Add(this.grid_SellHistory);
+            this.Controls.Add(this.grid_BuyHistory);
             this.Controls.Add(this.btnRefill);
             this.Controls.Add(this.btnRecordRefresh);
             this.Controls.Add(this.groupBox1);
@@ -465,8 +465,8 @@
             this.Text = "ChartView";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSell)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBuy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_SellHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_BuyHistory)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_StockStatusList)).EndInit();
@@ -493,8 +493,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView gridSell;
-        private System.Windows.Forms.DataGridView gridBuy;
+        private System.Windows.Forms.DataGridView grid_SellHistory;
+        private System.Windows.Forms.DataGridView grid_BuyHistory;
         private System.Windows.Forms.Button btnRefill;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxSellMoney;

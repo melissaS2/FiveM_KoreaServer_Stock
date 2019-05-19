@@ -49,7 +49,8 @@
   <ItemGroup>
     <Compile Include="Item\AdminLoginView\AdminLoginItem.cs" />
     <Compile Include="Item\AdminView\AdminViewItem.cs" />
-    <Compile Include="Item\ChartView\UserCompanyBuyItem.cs" />
+    <Compile Include="Item\ChartView\HistoryItem.cs" />
+    <Compile Include="Item\ChartView\UserCompanyItem.cs" />
     <Compile Include="Item\PublicLoginView\LoginItem.cs" />
     <Compile Include="Item\Sample\AdminUserItem.cs" />
     <Compile Include="Param\AdminLoginView\AdminLoginParam.cs" />
