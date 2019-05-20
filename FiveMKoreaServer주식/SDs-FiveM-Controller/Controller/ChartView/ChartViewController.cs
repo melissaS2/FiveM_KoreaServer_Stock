@@ -68,6 +68,11 @@ namespace SDs.FiveM.Controller.Controller.ChartView
             object call = Mapper.Instance().Insert("insert-HistoryBuy", param);
         }
 
+        public void DoInsertSellHistory(UserCompanyItem param)
+        {
+            object call = Mapper.Instance().Insert("insert-HistorySell", param);
+        }
+
 
         public IList<UserCompanyItem> DoGetCompanyJuCnt(UserCompanyItem item)
         {

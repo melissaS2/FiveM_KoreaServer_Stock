@@ -11,9 +11,27 @@ namespace SDs.FiveM.View.View
 {
     public partial class ChargeWithdrawView : Form
     {
+        #region PROPERTY AREA ******************************
+        #endregion
+
+        #region CONTRUCT AREA ******************************
         public ChargeWithdrawView()
         {
             InitializeComponent();
+            this.AddEventHandler();
         }
+        #endregion
+
+        #region METHOD AREA *********************************
+        private void AddEventHandler()
+        {
+
+        }
+        #endregion
+
+        #region EVENT AREA **********************************
+        #endregion
+
+
     }
 }

@@ -51,5 +51,18 @@ namespace SDs.FiveM.Model.Util
 
             return flag;
         }
+
+        public static Form GetForm(string formName)
+        {
+            foreach(Form form in Application.OpenForms)
+            {
+                if(form.Name == formName)
+                {
+                    return form;
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace SDs.FiveM.View.View
         private void AddEventHandler()
         {
             //this.Load += ChartView_Load;
+            this.FormClosed += ChartView_FormClosed;
 
             this.grd_StockStatusList.CellClick += Grd_StockStatusList_CellClick;
             this.btnExit.Click += BtnExit_Click;
@@ -73,13 +74,34 @@ namespace SDs.FiveM.View.View
 
             //기록 화면
             this.btnRecordRefresh.Click += BtnRecordRefresh_Click;
+            this.btnRefill.Click += BtnRefill_Click;
+        }
+
+        private void ChartView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void BtnRefill_Click(object sender, EventArgs e)
+        {
+            Form frm = FiveMUtilClass.GetForm("ChargeWithdrawView");
+            if(frm == null)
+            {
+                ChargeWithdrawView view = new ChargeWithdrawView();
+                view.Name = "ChargeWithdrawView";
+                view.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void BtnSellStock_Click(object sender, EventArgs e)
         {
             try
             {
-                UserCompanyItem userCompanyBuyItem = new UserCompanyItem();
+                UserCompanyItem userCompanySellItem = new UserCompanyItem();
 
                 string msgBoxText = "";
                 string msgBoxCaption = "";
@@ -90,10 +112,11 @@ namespace SDs.FiveM.View.View
                 long sellStockPrice = FiveMUtilClass.StringToParseLong(this.tbxSellMoney.Text); // 매도액
                 long JuMoney = FiveMUtilClass.StringToParseLong(this.grd_StockStatusList.Rows[currRowIndex].Cells[2].FormattedValue.ToString()); // 판매단가
 
-                userCompanyBuyItem.userid = this.publicLoginView.LOGIN_ID;
-                userCompanyBuyItem.company = companyName;
+                userCompanySellItem.userid = this.publicLoginView.LOGIN_ID;
+                userCompanySellItem.company = companyName;
+                userCompanySellItem.won = JuMoney;
 
-                IList<UserCompanyItem> list = this.controller.DoGetCompanyJuCnt(userCompanyBuyItem);
+                IList<UserCompanyItem> list = this.controller.DoGetCompanyJuCnt(userCompanySellItem);
 
                 if(list.Count > 1)
                 {
@@ -157,8 +180,15 @@ namespace SDs.FiveM.View.View
                     //msgBoxText = "매도 하시겠습니까? \r\n 회사명 : " + companyName + " \r\n 주 : " + ju + "개 \r\n 매도단가 : " + 판매단가;
                     //msgBoxCaption = "매도 알림";
                     //if (Util.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    userCompanySellItem.ju = list[0].ju - ju;
+                    userCompanySellItem.totalprice = sellStockPrice;
                     {
-
+                        //STEP 1. Upddate User's Ju Count Where Company
+                        this.controller.DoUpdateCompanyJu(userCompanySellItem);
+                        //STEP 2. Insert History Table
+                        this.controller.DoInsertSellHistory(userCompanySellItem);
+                        //STEP 3. UPDATE USER LEFT MONEY
+                        this.DoUpdateUserMoney(leftMoney);
                     }
                 }
             }
@@ -190,7 +220,7 @@ namespace SDs.FiveM.View.View
             grid.Columns[4].HeaderText = "단가 * 갯수";
             grid.Columns[5].HeaderText = "거래 시간";
 
-            grid.Columns[0].Width = 0;
+            grid.Columns[0].Visible = false;
             grid.Columns[5].Width = 120;
             //grid.DataSource = cars;
         }

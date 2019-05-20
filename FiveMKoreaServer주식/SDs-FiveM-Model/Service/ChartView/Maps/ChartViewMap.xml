@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="SDs.FiveM.Model.Service.ChartView.Maps.ChartViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
-    <typeAlias alias="userCompanyBuyItem"  type="SDs.FiveM.Model.Item.ChartView.UserCompanyBuyItem" />
+    <typeAlias alias="userCompanyBuyItem"  type="SDs.FiveM.Model.Item.ChartView.UserCompanyItem" />
     <typeAlias alias="historyItem"  type="SDs.FiveM.Model.Item.ChartView.HistoryItem" />
     <typeAlias alias="loginItem2"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
   </alias>
@@ -29,6 +29,11 @@
 
     <insert id="insert-HistoryBuy" parameterClass="userCompanyBuyItem">
       INSERT INTO jusik_history_buy
+      VALUES (#userid#,#company#,#won#,#ju#,#totalprice#,NOW())
+    </insert>
+
+    <insert id="insert-HistorySell" parameterClass="userCompanyBuyItem">
+      INSERT INTO jusik_history_sell
       VALUES (#userid#,#company#,#won#,#ju#,#totalprice#,NOW())
     </insert>
 

@@ -49,7 +49,7 @@ namespace FiveMKoreaServer주식
             //this.Refresh.Click += Refresh_Click;
             //this.Refresh1.Click += Refresh_Click;
             //this.btBuyStock.Click += BtBuyStock_Click; // 매수 //
-            this.btSellStock.Click += BtSellStock_Click; // 매도
+            //this.btSellStock.Click += BtSellStock_Click; // 매도
             //this.btRecord.Click += btRecord_Click;
             this.btnRefill.Click += BtnRefill_Click;
         }
