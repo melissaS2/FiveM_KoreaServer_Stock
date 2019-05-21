@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpView));
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -138,8 +139,9 @@
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SignUpView";
-            this.Text = "SignUpView";
+            this.Text = "회원가입";
             this.ResumeLayout(false);
             this.PerformLayout();
 

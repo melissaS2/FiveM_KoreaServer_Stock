@@ -47,6 +47,7 @@ namespace SDs.FiveM.View.View
             this.txtId.Text = this.publicLoginView.LOGIN_ID;
             this.txtMoney.Text = this.publicLoginView.MONEY.ToString();
         }
+
         private void AddEventHandler()
         {
             //this.Load += ChartView_Load;
@@ -87,7 +88,7 @@ namespace SDs.FiveM.View.View
             Form frm = FiveMUtilClass.GetForm("ChargeWithdrawView");
             if(frm == null)
             {
-                ChargeWithdrawView view = new ChargeWithdrawView();
+                ChargeWithdrawView view = new ChargeWithdrawView(publicLoginView);
                 view.Name = "ChargeWithdrawView";
                 view.Show();
             }
@@ -408,6 +409,8 @@ namespace SDs.FiveM.View.View
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
+            this.Close();
+
             PublicLoginView view = new PublicLoginView();
             view.Show();
         }

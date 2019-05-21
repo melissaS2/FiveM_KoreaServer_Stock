@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminView));
             this.btUserSave = new System.Windows.Forms.Button();
             this.btUserDelete = new System.Windows.Forms.Button();
             this.btUserAdd = new System.Windows.Forms.Button();
@@ -397,6 +398,7 @@
             this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.txtCompany);
             this.Controls.Add(this.grd_StockCompany);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminView";
             this.Text = "주식 관리 ";
             this.groupBox1.ResumeLayout(false);

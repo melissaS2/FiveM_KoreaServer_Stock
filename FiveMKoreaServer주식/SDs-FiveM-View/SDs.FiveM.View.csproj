@@ -114,6 +114,9 @@
     <EmbeddedResource Include="View\AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ChargeWithdrawView.resx">
+      <DependentUpon>ChargeWithdrawView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ChartView.resx">
       <DependentUpon>ChartView.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +153,21 @@
       <Project>{3f500506-492f-46f9-bc44-50e4d33e1cf6}</Project>
       <Name>SDs.FiveM.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_configuration_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_TComboBox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mnu_ContainerTypeandSize16_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mnuGauge_Trend_Cargo32x32.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

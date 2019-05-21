@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChartView));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuyRefresh = new System.Windows.Forms.Button();
             this.btnBuyStock = new System.Windows.Forms.Button();
@@ -461,8 +462,9 @@
             this.Controls.Add(this.money);
             this.Controls.Add(this.idlabel);
             this.Controls.Add(this.grd_StockStatusList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChartView";
-            this.Text = "ChartView";
+            this.Text = "FiveM 주식 ";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_SellHistory)).EndInit();

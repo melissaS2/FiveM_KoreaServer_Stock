@@ -59,5 +59,55 @@ namespace SDs.FiveM.View.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon Dashboard {
+            get {
+                object obj = ResourceManager.GetObject("Dashboard", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon menu_configuration_icon {
+            get {
+                object obj = ResourceManager.GetObject("menu_configuration_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon menu_TComboBox {
+            get {
+                object obj = ResourceManager.GetObject("menu_TComboBox", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon mnu_ContainerTypeandSize16_icon {
+            get {
+                object obj = ResourceManager.GetObject("mnu_ContainerTypeandSize16_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Icon mnuGauge_Trend_Cargo32x32 {
+            get {
+                object obj = ResourceManager.GetObject("mnuGauge_Trend_Cargo32x32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
