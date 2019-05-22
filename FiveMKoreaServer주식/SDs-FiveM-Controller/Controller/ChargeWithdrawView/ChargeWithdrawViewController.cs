@@ -14,21 +14,21 @@ namespace SDs.FiveM.Controller.Controller.ChargeWithdrawView
         {
 
         }
+        
+        public IList<LoginItem> DoRetriveGameMoney(int user_id)
+        {
+            IList<LoginItem> list = null;
+            try
+            {
+                list = Mapper.Instance().QueryForList<LoginItem>("select-GameMoneyList", user_id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return list;
+        }
 
-        //public IList<LoginItem> DoRetriveGameMoney()
-        //{
-        //    IList<LoginItem> list = null;
-        //    try
-        //    {
-        //        list = Mapper.Instance().QueryForList<LoginItem>("select-UserList", null);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-
-        //    return list;
-        //}
 
         public IList<LoginItem> DoRetriveStockMoney(string userId)
         {

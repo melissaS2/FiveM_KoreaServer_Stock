@@ -13,11 +13,12 @@ using System.Windows.Forms;
 
 namespace SDs.FiveM.View.View
 {
-    public partial class PublicLoginView : Form , PublicLoginViewInterface
+    public partial class PublicLoginView : Form, PublicLoginViewInterface
     {
         #region PROPERTY AREA ******************************
         public string LOGIN_ID { get; set; }
         public long MONEY { get; set; }
+        public int user_id { get; set; }
 
         private PublicLoginViewController controller = null;
         #endregion
@@ -63,11 +64,18 @@ namespace SDs.FiveM.View.View
         }
         private void BtnSingUp_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
-            SignUpView view = new SignUpView();
-            view.StartPosition = FormStartPosition.Manual;
-            view.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
-            view.ShowDialog();
+            try
+            {
+                //throw new NotImplementedException();
+                SignUpView view = new SignUpView();
+                view.StartPosition = FormStartPosition.Manual;
+                view.Location = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+                view.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void BtnExit_Click(object sender, EventArgs e)
         {
@@ -88,6 +96,7 @@ namespace SDs.FiveM.View.View
                     this.Hide();
                     this.LOGIN_ID = item.id;
                     this.MONEY = item.money;
+                    this.user_id = item.user_id;
 
                     ChartView view = new ChartView(this);
                     view.Show();

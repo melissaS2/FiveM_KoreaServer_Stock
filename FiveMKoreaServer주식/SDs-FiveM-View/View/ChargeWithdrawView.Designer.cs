@@ -41,7 +41,7 @@
             this.txtStockRefill = new System.Windows.Forms.TextBox();
             this.txtStockMoney = new System.Windows.Forms.TextBox();
             this.txtGameRefill = new System.Windows.Forms.TextBox();
-            this.tbxGameMoney = new System.Windows.Forms.TextBox();
+            this.txtGameMoney = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.txtStockRefill);
             this.panel1.Controls.Add(this.txtStockMoney);
             this.panel1.Controls.Add(this.txtGameRefill);
-            this.panel1.Controls.Add(this.tbxGameMoney);
+            this.panel1.Controls.Add(this.txtGameMoney);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -160,14 +160,14 @@
             this.txtGameRefill.Size = new System.Drawing.Size(246, 25);
             this.txtGameRefill.TabIndex = 1;
             // 
-            // tbxGameMoney
+            // txtGameMoney
             // 
-            this.tbxGameMoney.Enabled = false;
-            this.tbxGameMoney.Location = new System.Drawing.Point(129, 24);
-            this.tbxGameMoney.Name = "tbxGameMoney";
-            this.tbxGameMoney.ReadOnly = true;
-            this.tbxGameMoney.Size = new System.Drawing.Size(246, 25);
-            this.tbxGameMoney.TabIndex = 0;
+            this.txtGameMoney.Enabled = false;
+            this.txtGameMoney.Location = new System.Drawing.Point(129, 24);
+            this.txtGameMoney.Name = "txtGameMoney";
+            this.txtGameMoney.ReadOnly = true;
+            this.txtGameMoney.Size = new System.Drawing.Size(246, 25);
+            this.txtGameMoney.TabIndex = 0;
             // 
             // ChargeWithdrawView
             // 
@@ -198,6 +198,6 @@
         private System.Windows.Forms.TextBox txtStockRefill;
         private System.Windows.Forms.TextBox txtStockMoney;
         private System.Windows.Forms.TextBox txtGameRefill;
-        private System.Windows.Forms.TextBox tbxGameMoney;
+        private System.Windows.Forms.TextBox txtGameMoney;
     }
 }

@@ -14,6 +14,9 @@ namespace SDs.FiveM.View.View
     public partial class ChargeWithdrawView : Form
     {
         #region PROPERTY AREA ******************************
+        public string LOGIN_ID { get; set; }
+        public  int user_id { get; set; } // 고유번호
+
         public PublicLoginViewInterface view { get; set; }
         public ChargeWithdrawViewController controller { get; set; }
         #endregion
@@ -75,11 +78,13 @@ namespace SDs.FiveM.View.View
 
         private void ChargeWithdrawView_Load(object sender, EventArgs e)
         {
-            //this.controller.DoRetriveGameMoney(); 확인 필요
+            IList<LoginItem> selectGameMoneyList = this.controller.DoRetriveGameMoney(view.user_id);
+            this.txtGameMoney.Text = selectGameMoneyList[0].bank.ToString();
+
 
             //Init txtStockMoney 
-            IList<LoginItem> list = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
-            this.txtStockMoney.Text = list[0].money.ToString();
+            IList<LoginItem> selectStockMoneyList = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
+            this.txtStockMoney.Text = selectStockMoneyList[0].money.ToString();
         }
         #endregion
 

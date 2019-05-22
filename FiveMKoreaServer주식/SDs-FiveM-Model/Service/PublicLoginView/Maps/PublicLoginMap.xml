@@ -10,9 +10,14 @@
     <select id="SelectLoginPw"  resultClass="loginItems">
       select * from user where id = #id# and pw = #pw#
     </select>
-
+    <select id="select-UniquePhoneNo"  resultClass="loginItems">
+      SELECT * 
+      FROM VRP_USER_IDENTITIES
+      WHERE user_id = #user_id# and phone = #phone#
+    </select>
     <insert id="InsertNewMember" parameterClass="loginItems">
-      INSERT INTO USER (id,pw,money) values(#id#,#pw#,#money#)
+      INSERT INTO USER (id,pw,money,user_id) 
+      VALUES(#id#,#pw#,#money#,#user_id#)
     </insert>
   </statements>
 </sqlMap>

@@ -12,5 +12,11 @@ namespace SDs.FiveM.Model.Item.PublicLoginView
         public string id { get; set; }
         public string pw { get; set; }
         public long money { get; set; }
+
+        public int user_id { get; set; }
+        public string phone { get; set; }
+
+        public int wallet { get; set; }
+        public int bank { get; set; }
     }
 }

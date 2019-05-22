@@ -16,23 +16,46 @@ namespace SDs.FiveM.Controller.Controller.SignUpView
         {
         }
 
-        public void DoNewMemberSignUp(LoginItem param)
+        public bool DoNewMemberSignUp(LoginItem param)
         {
+            bool isSuccess = true;
             try
             {
-                bool isSuccess = this.DoExistIdCheck(param); //
+                isSuccess = this.DoCheckUniquePhoneNo(param);
                 if (isSuccess)
                 {
-                    this.DoCreateNewMember(param);
-                    //Insert Id
-                    FiveMUtilClass.GetMessageBox("신규회원 등록이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    isSuccess = this.DoExistIdCheck(param); //
+                    if (isSuccess)
+                    {
+                        this.DoCreateNewMember(param);
+                        //Insert Id
+                        FiveMUtilClass.GetMessageBox("신규회원 등록이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                return false;
             }
+
+            return isSuccess;
         }
+        public bool DoCheckUniquePhoneNo(LoginItem param)
+        {
+            bool isSuccess = true;
+
+            IList<LoginItem> list = Mapper.Instance().QueryForList<LoginItem>("select-UniquePhoneNo", param);
+
+            if (list.Count <= 0)
+            {
+                FiveMUtilClass.GetMessageBox("고유 번호 &  폰번호 인증 오류.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return isSuccess;
+        }
+
         public void DoCreateNewMember(LoginItem param)
         {
             object call = Mapper.Instance().Insert("InsertNewMember", param);
@@ -47,7 +70,8 @@ namespace SDs.FiveM.Controller.Controller.SignUpView
             {
                 FiveMUtilClass.GetMessageBox("이미 사용중인 아이디 입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-            }else if (list.Count <= 0)
+            }
+            else if (list.Count <= 0)
             {
                 return true;
             }
