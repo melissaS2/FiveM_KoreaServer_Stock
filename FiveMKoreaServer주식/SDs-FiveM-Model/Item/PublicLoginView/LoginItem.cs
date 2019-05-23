@@ -18,5 +18,8 @@ namespace SDs.FiveM.Model.Item.PublicLoginView
 
         public int wallet { get; set; }
         public int bank { get; set; }
+
+        public int refillMoney { get; set; }
+        public string type { get; set; }
     }
 }

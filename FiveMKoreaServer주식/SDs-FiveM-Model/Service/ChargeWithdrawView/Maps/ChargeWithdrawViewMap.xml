@@ -15,5 +15,25 @@
       FROM vrp_user_moneys
       WHERE user_id = #user_id#
     </select>
+
+    <insert id="insert-RefillMoney" parameterClass="loginItem3">
+      INSERT INTO REFILL_MONEY_APPLICATION (`id`, `user_id`, `refillMoney`, `type`)
+      VALUES (#id#, #user_id#, #refillMoney#, #type#)
+    </insert>
+
+    <insert id="insert-RefillStock" parameterClass="loginItem3">
+      INSERT INTO REFILL_MONEY_APPLICATION (`id`, `user_id`, `refillMoney`, `type`)
+      VALUES (#id#, #user_id#, #refillMoney#, #type#)
+    </insert>
+
+    <update id="update-GameMoney" parameterClass="loginItem3">
+      UPDATE vrp_user_moneys SET bank =#bank#
+      WHERE user_id =#user_id#
+    </update>
+    
+    <update id="update-StockMoney" parameterClass="loginItem3">
+      UPDATE user SET money =#money#
+      WHERE id =#id#
+    </update>
   </statements>
 </sqlMap>

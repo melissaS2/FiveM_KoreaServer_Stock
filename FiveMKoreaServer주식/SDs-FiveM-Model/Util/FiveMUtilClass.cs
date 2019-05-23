@@ -39,6 +39,26 @@ namespace SDs.FiveM.Model.Util
             return temp;
         }
 
+        public static int StringToParseInt(string text)
+        {
+
+            int temp = 0;
+            try
+            {
+                if (text == "")
+                {
+                    return 0;
+                }
+                temp = int.Parse(text);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+
+            return temp;
+        }
+
         public static bool CheckProcess()
         {
             bool flag = false;

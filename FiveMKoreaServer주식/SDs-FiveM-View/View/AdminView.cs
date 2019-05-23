@@ -119,8 +119,10 @@ namespace SDs.FiveM.View.View
 
         private void Grd_User_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //throw new NotImplementedException();
-            if (e.RowIndex == this.grd_User.RowCount)
+            try
+            {
+                //throw new NotImplementedException();
+                if (e.RowIndex == this.grd_User.RowCount)
             {
                 return;
             }
@@ -140,6 +142,11 @@ namespace SDs.FiveM.View.View
 
             this.userGridCurrRowIdx = e.RowIndex;//현재 선택 Index
             this.userGridCurrColIdx = e.ColumnIndex;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void BtUserDelete_Click(object sender, EventArgs e)

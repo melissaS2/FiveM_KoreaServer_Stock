@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\FiveMConstants.cs" />
     <Compile Include="Item\AdminLoginView\AdminLoginItem.cs" />
     <Compile Include="Item\AdminView\AdminViewItem.cs" />
     <Compile Include="Item\ChartView\HistoryItem.cs" />
