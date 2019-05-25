@@ -44,6 +44,20 @@ namespace SDs.FiveM.View.View
             this.btnInit.Click += BtnInit_Click;
             this.btnExit.Click += BtnExit_Click;
         }
+
+        private void DoRetriveDataGrid()
+        {
+            try
+            {
+                //IList<AdminViewItem> list = this.controller.DoRetriveJusikData();
+                //this.grd_StockStatusList.DataSource = list;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         #endregion
 
         #region EVENT AREA **********************************

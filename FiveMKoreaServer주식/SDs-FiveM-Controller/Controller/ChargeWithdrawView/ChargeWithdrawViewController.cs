@@ -17,12 +17,12 @@ namespace SDs.FiveM.Controller.Controller.ChargeWithdrawView
         
         public void DoInsertStockMoneyRefill(LoginItem item)
         {
-            object call = Mapper.Instance().Update("insert-RefillStock", item);
+            object call = Mapper.Instance().Insert("insert-RefillStock", item);
         }
 
         public void DoInsertInGameMoneyRefill(LoginItem item)
         {
-            object call = Mapper.Instance().Update("insert-RefillMoney", item);
+            object call = Mapper.Instance().Insert("insert-RefillMoney", item);
         }
 
         public void DoUpdateInStockMoney(LoginItem item)
