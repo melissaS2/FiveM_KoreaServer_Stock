@@ -1,5 +1,6 @@
 ﻿using SDs.FiveM.Controller.Controller.ChargeWithdrawView;
 using SDs.FiveM.Model.Constants;
+using SDs.FiveM.Model.Item.ChargeWithdrawView;
 using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Util;
 using System;
@@ -38,25 +39,122 @@ namespace SDs.FiveM.View.View
         {
             this.Load += ChargeWithdrawView_Load;
 
+            this.txtStockRefill.TextChanged += TxtStockRefill_TextChanged;
+            this.txtGameRefill.TextChanged += TxtGameRefill_TextChanged;
+
             this.btnRefillStock.Click += BtnRefillStock_Click;
             this.btnRefillGame.Click += BtnRefillGame_Click;
 
+            this.btnCancel.Click += BtnCancel_Click;
             this.btnInit.Click += BtnInit_Click;
             this.btnExit.Click += BtnExit_Click;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            int activeTab = this.tabStockMoneyRefill.SelectedIndex;
+
+            DataGridView grid = null;
+
+            if (activeTab == 0)
+                grid = this.grid_GameMoney;
+            else if(activeTab == 1)
+                grid = this.grid_StockMoney;
+
+            for(int i = 0; i < grid.RowCount; i++)
+            {
+                string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
+                if(text == "True")
+                {
+                    int no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[0].FormattedValue.ToString());
+                    //this.controller.DoDeleteGameMoneyRefillData(no);
+                }
+                else
+                {
+
+                }
+            }
+
+        }
+
+        private void TxtStockRefill_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox txtbox = (TextBox)sender;
+                if (txtbox.Text == "" || txtbox.Text == null || txtbox.Text == "0")
+                {
+                    txtbox.Text = "1";
+                }
+
+                else if (FiveMUtilClass.StringToParseLong(txtbox.Text) > 
+                    FiveMUtilClass.StringToParseLong(this.txtGameMoney.Text))
+                {
+                    txtbox.Text = this.txtGameMoney.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        private void TxtGameRefill_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextBox txtbox = (TextBox)sender;
+                if (txtbox.Text == "" || txtbox.Text == null || txtbox.Text == "0")
+                {
+                    txtbox.Text = "1";
+                }
+
+                else if (FiveMUtilClass.StringToParseLong(txtbox.Text) >
+                    FiveMUtilClass.StringToParseLong(this.txtStockMoney.Text))
+                {
+                    txtbox.Text = this.txtStockMoney.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         private void DoRetriveDataGrid()
         {
             try
             {
-                //IList<AdminViewItem> list = this.controller.DoRetriveJusikData();
-                //this.grd_StockStatusList.DataSource = list;
+                RefillMoneyApplicationItem item = new RefillMoneyApplicationItem();
 
+                item.id = this.view.LOGIN_ID;
+                item.type = "S";
+
+                IList<RefillMoneyApplicationItem> gaemMoneylist = this.controller.DoRetriveGameMoneyRefillData(item);
+
+                item.type = "I";
+                IList<RefillMoneyApplicationItem> stockMoneylist = this.controller.DoRetriveGameMoneyRefillData(item);
+                this.grid_GameMoney.DataSource = gaemMoneylist;
+                this.grid_StockMoney.DataSource = stockMoneylist;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void GridColumnHandler(DataGridView grid)
+        {
+            //grid.Columns[0].HeaderText = "아이디";
+            grid.Columns[1].HeaderText = "회사명";
+            grid.Columns[2].HeaderText = "거래단가";
+            grid.Columns[3].HeaderText = "거래갯수";
+            grid.Columns[4].HeaderText = "단가 * 갯수";
+            grid.Columns[5].HeaderText = "거래 시간";
+
+            grid.Columns[0].Visible = false;
+            grid.Columns[5].Width = 120;
+            //grid.DataSource = cars;
         }
         #endregion
 
@@ -74,7 +172,7 @@ namespace SDs.FiveM.View.View
                 IList<LoginItem> selectGameMoneyList = this.controller.DoRetriveGameMoney(view.user_id);
                 if (selectGameMoneyList[0].bank >= FiveMUtilClass.StringToParseInt(this.txtStockRefill.Text))
                 {
-                    int newMoney = selectGameMoneyList[0].bank - FiveMUtilClass.StringToParseInt(this.txtGameRefill.Text);
+                    int newMoney = selectGameMoneyList[0].bank - FiveMUtilClass.StringToParseInt(this.txtStockRefill.Text);
 
                     LoginItem item = new LoginItem();
 
@@ -99,6 +197,8 @@ namespace SDs.FiveM.View.View
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            this.DoRefresh();
         }
 
 
@@ -115,7 +215,7 @@ namespace SDs.FiveM.View.View
                 IList<LoginItem> selectStockMoneyList = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
                 if (selectStockMoneyList[0].money >= FiveMUtilClass.StringToParseInt(this.txtGameRefill.Text))
                 {
-                    long newMoney = selectStockMoneyList[0].money - FiveMUtilClass.StringToParseInt(this.txtStockMoney.Text);
+                    long newMoney = selectStockMoneyList[0].money - FiveMUtilClass.StringToParseInt(this.txtGameRefill.Text);
 
                     LoginItem item = new LoginItem();
 
@@ -140,6 +240,8 @@ namespace SDs.FiveM.View.View
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            this.DoRefresh();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -157,19 +259,36 @@ namespace SDs.FiveM.View.View
         {
             try
             {
-                //Init txtGameMoney 인게임머니
-                IList<LoginItem> selectGameMoneyList = this.controller.DoRetriveGameMoney(view.user_id);
-                this.txtGameMoney.Text = selectGameMoneyList[0].bank.ToString();
+                //Timer timer = new Timer();
+                //timer.Interval = 1000; // 1 초
+                //timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
+                //timer.Start();
 
-
-                //Init txtStockMoney 보유 투자 자금
-                IList<LoginItem> selectStockMoneyList = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
-                this.txtStockMoney.Text = selectStockMoneyList[0].money.ToString();
+                this.DoRefresh();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void NewEventArgsTimer_Tick(object sender, EventArgs e)
+        {
+            this.DoRefresh();
+        }
+
+        private void DoRefresh()
+        {
+            //Init txtGameMoney 인게임머니
+            IList<LoginItem> selectGameMoneyList = this.controller.DoRetriveGameMoney(view.user_id);
+            this.txtGameMoney.Text = selectGameMoneyList[0].bank.ToString();
+
+
+            //Init txtStockMoney 보유 투자 자금
+            IList<LoginItem> selectStockMoneyList = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
+            this.txtStockMoney.Text = selectStockMoneyList[0].money.ToString();
+
+            this.DoRetriveDataGrid();
         }
         #endregion
 

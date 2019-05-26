@@ -1,4 +1,5 @@
 ﻿using IBatisNet.DataMapper;
+using SDs.FiveM.Model.Item.ChargeWithdrawView;
 using SDs.FiveM.Model.Item.PublicLoginView;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace SDs.FiveM.Controller.Controller.ChargeWithdrawView
         {
 
         }
-        
+
         public void DoInsertStockMoneyRefill(LoginItem item)
         {
             object call = Mapper.Instance().Insert("insert-RefillStock", item);
@@ -34,7 +35,19 @@ namespace SDs.FiveM.Controller.Controller.ChargeWithdrawView
         {
             object call = Mapper.Instance().Update("update-GameMoney", item);
         }
-
+        public IList<RefillMoneyApplicationItem> DoRetriveGameMoneyRefillData(RefillMoneyApplicationItem item)
+        {
+            IList<RefillMoneyApplicationItem> list = null;
+            try
+            {
+                list = Mapper.Instance().QueryForList<RefillMoneyApplicationItem>("select-GameMoneyRefill", item);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return list;
+        }
         public IList<LoginItem> DoRetriveGameMoney(int user_id)
         {
             IList<LoginItem> list = null;

@@ -2,6 +2,7 @@
 <sqlMap namespace="SDs.FiveM.Model.Service.ChartWithdrawView.Maps.ChargeWithdrawViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
     <typeAlias alias="loginItem3"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
+    <typeAlias alias="refillMoneyApplicationItem"  type="SDs.FiveM.Model.Item.ChargeWithdrawView.RefillMoneyApplicationItem" />
   </alias>
   <statements>
     <select id="select-StockUserList"  parameterType="String" resultClass="loginItem3">
@@ -16,7 +17,13 @@
       WHERE user_id = #user_id#
     </select>
 
-    <insert id="insert-RefillMoney" parameterClass="loginItem3">
+    <select id="select-GameMoneyRefill"  resultClass="refillMoneyApplicationItem">
+      SELECT *
+      FROM refill_money_application
+      WHERE id=#id# and type=#type#
+    </select>
+
+  <insert id="insert-RefillMoney" parameterClass="loginItem3">
       INSERT INTO REFILL_MONEY_APPLICATION (`id`, `user_id`, `refillMoney`, `type`)
       VALUES (#id#, #user_id#, #refillMoney#, #type#)
     </insert>

@@ -51,6 +51,8 @@
             this.grid_GameMoney = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grid_StockMoney = new System.Windows.Forms.DataGridView();
+            this.grd_game_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.grd_stock_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -186,6 +188,7 @@
             this.txtGameRefill.Name = "txtGameRefill";
             this.txtGameRefill.Size = new System.Drawing.Size(246, 25);
             this.txtGameRefill.TabIndex = 15;
+            this.txtGameRefill.Tag = "txtStockMoney";
             // 
             // txtStockMoney
             // 
@@ -202,6 +205,7 @@
             this.txtStockRefill.Name = "txtStockRefill";
             this.txtStockRefill.Size = new System.Drawing.Size(246, 25);
             this.txtStockRefill.TabIndex = 13;
+            this.txtStockRefill.Tag = "txtGameMoney";
             // 
             // txtGameMoney
             // 
@@ -256,6 +260,8 @@
             // grid_GameMoney
             // 
             this.grid_GameMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_GameMoney.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grd_game_checkbox});
             this.grid_GameMoney.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_GameMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_GameMoney.Name = "grid_GameMoney";
@@ -277,12 +283,26 @@
             // grid_StockMoney
             // 
             this.grid_StockMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_StockMoney.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grd_stock_checkbox});
             this.grid_StockMoney.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_StockMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_StockMoney.Name = "grid_StockMoney";
             this.grid_StockMoney.RowTemplate.Height = 27;
             this.grid_StockMoney.Size = new System.Drawing.Size(450, 262);
             this.grid_StockMoney.TabIndex = 0;
+            // 
+            // grd_game_checkbox
+            // 
+            this.grd_game_checkbox.HeaderText = "";
+            this.grd_game_checkbox.Name = "grd_game_checkbox";
+            this.grd_game_checkbox.Width = 40;
+            // 
+            // grd_stock_checkbox
+            // 
+            this.grd_stock_checkbox.HeaderText = "";
+            this.grd_stock_checkbox.Name = "grd_stock_checkbox";
+            this.grd_stock_checkbox.Width = 40;
             // 
             // ChargeWithdrawView
             // 
@@ -331,5 +351,7 @@
         private System.Windows.Forms.DataGridView grid_GameMoney;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView grid_StockMoney;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn grd_game_checkbox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn grd_stock_checkbox;
     }
 }

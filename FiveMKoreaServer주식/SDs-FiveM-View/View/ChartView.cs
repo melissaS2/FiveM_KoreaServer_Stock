@@ -50,7 +50,7 @@ namespace SDs.FiveM.View.View
 
         private void AddEventHandler()
         {
-            //this.Load += ChartView_Load;
+            this.Load += ChartView_Load;
             this.FormClosed += ChartView_FormClosed;
 
             this.grd_StockStatusList.CellClick += Grd_StockStatusList_CellClick;
@@ -102,10 +102,19 @@ namespace SDs.FiveM.View.View
         {
             try
             {
-                UserCompanyItem userCompanySellItem = new UserCompanyItem();
-
                 string msgBoxText = "";
                 string msgBoxCaption = "";
+
+
+                if (currRowIndex == -1)
+                {
+                    msgBoxText = "회사를 먼저 선택하세요.";
+                    msgBoxCaption = "경고";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                UserCompanyItem userCompanySellItem = new UserCompanyItem();
 
                 string companyName = this.tbxSellCompanyName.Text;
                 long ju = FiveMUtilClass.StringToParseLong(this.tbxSellStockCount.Text);
@@ -301,10 +310,19 @@ namespace SDs.FiveM.View.View
         {
             try
             {
-                UserCompanyItem userCompanyBuyItem = new UserCompanyItem();
-
                 string msgBoxText = "";
                 string msgBoxCaption = "";
+
+
+                if (currRowIndex == -1)
+                {
+                    msgBoxText = "회사를 먼저 선택하세요.";
+                    msgBoxCaption = "경고";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                UserCompanyItem userCompanyBuyItem = new UserCompanyItem();
 
                 string companyName = this.tbxBuyCompanyName.Text;
                 long ju = FiveMUtilClass.StringToParseLong(this.tbxBuyStockCount.Text);
@@ -470,7 +488,7 @@ namespace SDs.FiveM.View.View
             Timer timer = new Timer();
             timer.Interval = 1000; // 1 초
             timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
-            timer.Start();
+            //timer.Start();
         }
 
         private void NewEventArgsTimer_Tick(object sender, EventArgs e)

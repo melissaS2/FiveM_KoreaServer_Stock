@@ -50,6 +50,7 @@
     <Compile Include="Constants\FiveMConstants.cs" />
     <Compile Include="Item\AdminLoginView\AdminLoginItem.cs" />
     <Compile Include="Item\AdminView\AdminViewItem.cs" />
+    <Compile Include="Item\ChargeWithdrawView\RefillMoneyApplicationItem.cs" />
     <Compile Include="Item\ChartView\HistoryItem.cs" />
     <Compile Include="Item\ChartView\UserCompanyItem.cs" />
     <Compile Include="Item\PublicLoginView\LoginItem.cs" />
