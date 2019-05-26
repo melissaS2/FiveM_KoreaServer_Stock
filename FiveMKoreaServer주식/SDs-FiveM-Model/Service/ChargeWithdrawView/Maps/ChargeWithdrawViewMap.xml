@@ -42,5 +42,11 @@
       UPDATE user SET money =#money#
       WHERE id =#id#
     </update>
+
+    <delete id="delete-RefillMoney" parameterType="Int">
+      DELETE FROM refill_money_application
+      WHERE no = #no#
+    </delete>
+    
   </statements>
 </sqlMap>

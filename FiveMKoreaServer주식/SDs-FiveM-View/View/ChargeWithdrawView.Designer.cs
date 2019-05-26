@@ -45,7 +45,6 @@
             this.txtStockRefill = new System.Windows.Forms.TextBox();
             this.txtGameMoney = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.tabStockMoneyRefill = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grid_GameMoney = new System.Windows.Forms.DataGridView();
@@ -53,6 +52,7 @@
             this.grid_StockMoney = new System.Windows.Forms.DataGridView();
             this.grd_game_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grd_stock_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,14 +79,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tabStockMoneyRefill, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tabStockMoneyRefill, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 204F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 547);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
@@ -148,19 +148,19 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(255, 161);
+            this.btnExit.Location = new System.Drawing.Point(344, 161);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
-            this.btnExit.TabIndex = 19;
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "닫기";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
             // btnInit
             // 
-            this.btnInit.Location = new System.Drawing.Point(149, 161);
+            this.btnInit.Location = new System.Drawing.Point(238, 161);
             this.btnInit.Name = "btnInit";
             this.btnInit.Size = new System.Drawing.Size(100, 30);
-            this.btnInit.TabIndex = 18;
+            this.btnInit.TabIndex = 2;
             this.btnInit.Text = "초기화";
             this.btnInit.UseVisualStyleBackColor = true;
             // 
@@ -169,7 +169,7 @@
             this.btnRefillGame.Location = new System.Drawing.Point(369, 99);
             this.btnRefillGame.Name = "btnRefillGame";
             this.btnRefillGame.Size = new System.Drawing.Size(75, 54);
-            this.btnRefillGame.TabIndex = 17;
+            this.btnRefillGame.TabIndex = 1;
             this.btnRefillGame.Text = "출금";
             this.btnRefillGame.UseVisualStyleBackColor = true;
             // 
@@ -178,7 +178,7 @@
             this.btnRefillStock.Location = new System.Drawing.Point(369, 3);
             this.btnRefillStock.Name = "btnRefillStock";
             this.btnRefillStock.Size = new System.Drawing.Size(75, 54);
-            this.btnRefillStock.TabIndex = 16;
+            this.btnRefillStock.TabIndex = 0;
             this.btnRefillStock.Text = "충전";
             this.btnRefillStock.UseVisualStyleBackColor = true;
             // 
@@ -189,6 +189,7 @@
             this.txtGameRefill.Size = new System.Drawing.Size(246, 25);
             this.txtGameRefill.TabIndex = 15;
             this.txtGameRefill.Tag = "txtStockMoney";
+            this.txtGameRefill.Text = "0";
             // 
             // txtStockMoney
             // 
@@ -198,6 +199,7 @@
             this.txtStockMoney.ReadOnly = true;
             this.txtStockMoney.Size = new System.Drawing.Size(246, 25);
             this.txtStockMoney.TabIndex = 14;
+            this.txtStockMoney.Text = "0";
             // 
             // txtStockRefill
             // 
@@ -206,6 +208,7 @@
             this.txtStockRefill.Size = new System.Drawing.Size(246, 25);
             this.txtStockRefill.TabIndex = 13;
             this.txtStockRefill.Tag = "txtGameMoney";
+            this.txtStockRefill.Text = "0";
             // 
             // txtGameMoney
             // 
@@ -215,32 +218,24 @@
             this.txtGameMoney.ReadOnly = true;
             this.txtGameMoney.Size = new System.Drawing.Size(246, 25);
             this.txtGameMoney.TabIndex = 12;
+            this.txtGameMoney.Text = "0";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnCancel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 204);
+            this.panel3.Location = new System.Drawing.Point(0, 507);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(470, 40);
             this.panel3.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(358, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 30);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "신청취소";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // tabStockMoneyRefill
             // 
             this.tabStockMoneyRefill.Controls.Add(this.tabPage1);
             this.tabStockMoneyRefill.Controls.Add(this.tabPage2);
             this.tabStockMoneyRefill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabStockMoneyRefill.Location = new System.Drawing.Point(3, 247);
+            this.tabStockMoneyRefill.Location = new System.Drawing.Point(3, 207);
             this.tabStockMoneyRefill.Name = "tabStockMoneyRefill";
             this.tabStockMoneyRefill.SelectedIndex = 0;
             this.tabStockMoneyRefill.Size = new System.Drawing.Size(464, 297);
@@ -304,6 +299,15 @@
             this.grd_stock_checkbox.Name = "grd_stock_checkbox";
             this.grd_stock_checkbox.Width = 40;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(363, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 30);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "신청취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // ChargeWithdrawView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -311,6 +315,9 @@
             this.ClientSize = new System.Drawing.Size(470, 547);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(488, 594);
+            this.MinimumSize = new System.Drawing.Size(488, 594);
             this.Name = "ChargeWithdrawView";
             this.Text = "충전 및 출금 신청";
             this.panel1.ResumeLayout(false);
@@ -345,7 +352,6 @@
         private System.Windows.Forms.TextBox txtStockRefill;
         private System.Windows.Forms.TextBox txtGameMoney;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TabControl tabStockMoneyRefill;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView grid_GameMoney;
@@ -353,5 +359,6 @@
         private System.Windows.Forms.DataGridView grid_StockMoney;
         private System.Windows.Forms.DataGridViewCheckBoxColumn grd_game_checkbox;
         private System.Windows.Forms.DataGridViewCheckBoxColumn grd_stock_checkbox;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

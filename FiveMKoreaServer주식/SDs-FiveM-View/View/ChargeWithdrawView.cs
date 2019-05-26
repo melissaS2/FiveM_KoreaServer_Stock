@@ -61,20 +61,38 @@ namespace SDs.FiveM.View.View
             else if(activeTab == 1)
                 grid = this.grid_StockMoney;
 
+            int money = 0;
             for(int i = 0; i < grid.RowCount; i++)
+            {
+                string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
+                if (text == "True")
+                {
+                    money += FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[4].FormattedValue.ToString());
+                }
+            }
+
+            LoginItem item = new LoginItem();
+            item.user_id = view.user_id;
+            item.bank = money;
+
+            this.controller.DoUpdateInGameMoney(item);
+
+            for (int i = 0; i < grid.RowCount; i++)
             {
                 string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
                 if(text == "True")
                 {
-                    int no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[0].FormattedValue.ToString());
-                    //this.controller.DoDeleteGameMoneyRefillData(no);
-                }
-                else
-                {
-
+                    int no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[1].FormattedValue.ToString());
+                    this.controller.DoDeleteGameMoneyRefillData(no);
                 }
             }
 
+            string msgBoxText = "신청 취소 완료";
+            string msgBoxCaption = "알림";
+            FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+
+            this.DoRefresh();
         }
 
         private void TxtStockRefill_TextChanged(object sender, EventArgs e)
@@ -136,6 +154,9 @@ namespace SDs.FiveM.View.View
                 IList<RefillMoneyApplicationItem> stockMoneylist = this.controller.DoRetriveGameMoneyRefillData(item);
                 this.grid_GameMoney.DataSource = gaemMoneylist;
                 this.grid_StockMoney.DataSource = stockMoneylist;
+
+                this.GridColumnHandler(this.grid_GameMoney);
+                this.GridColumnHandler(this.grid_StockMoney);
             }
             catch (Exception ex)
             {
@@ -145,15 +166,16 @@ namespace SDs.FiveM.View.View
 
         private void GridColumnHandler(DataGridView grid)
         {
-            //grid.Columns[0].HeaderText = "아이디";
-            grid.Columns[1].HeaderText = "회사명";
-            grid.Columns[2].HeaderText = "거래단가";
-            grid.Columns[3].HeaderText = "거래갯수";
-            grid.Columns[4].HeaderText = "단가 * 갯수";
-            grid.Columns[5].HeaderText = "거래 시간";
 
-            grid.Columns[0].Visible = false;
-            grid.Columns[5].Width = 120;
+            grid.Columns[1].Visible = false;
+            grid.Columns[2].Visible = false;
+            grid.Columns[3].Visible = false;
+            grid.Columns[5].Visible = false;
+
+            grid.Columns[0].HeaderText = "신청 취소";
+            grid.Columns[4].HeaderText = "신청 금액";
+            grid.Columns[0].Width = 100;
+            grid.Columns[4].Width = 200;
             //grid.DataSource = cars;
         }
         #endregion
@@ -167,6 +189,8 @@ namespace SDs.FiveM.View.View
         /// 충전
         private void BtnRefillStock_Click(object sender, EventArgs e)
         {
+            string msgBoxText = "";
+            string msgBoxCaption = "";
             try
             {
                 IList<LoginItem> selectGameMoneyList = this.controller.DoRetriveGameMoney(view.user_id);
@@ -187,8 +211,8 @@ namespace SDs.FiveM.View.View
                 }
                 else if (selectGameMoneyList[0].bank < FiveMUtilClass.StringToParseLong(this.txtStockRefill.Text))
                 {
-                    string msgBoxText = "보유하고 계신 인게임 머니보다 많은 금액을 충전신청 하였습니다.";
-                    string msgBoxCaption = "경고";
+                    msgBoxText = "보유하고 계신 인게임 머니보다 많은 금액을 충전신청 하였습니다.";
+                    msgBoxCaption = "경고";
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -198,9 +222,13 @@ namespace SDs.FiveM.View.View
                 MessageBox.Show(ex.ToString());
             }
 
+            msgBoxText = "신청 완료";
+            msgBoxCaption = "알림";
+            FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+
             this.DoRefresh();
         }
-
 
         /// <summary>
         /// [기존 보유 투자 자금 => 인게임머니]
@@ -210,6 +238,8 @@ namespace SDs.FiveM.View.View
         /// 출금
         private void BtnRefillGame_Click(object sender, EventArgs e)
         {
+            string msgBoxText = "";
+            string msgBoxCaption = "";
             try
             {
                 IList<LoginItem> selectStockMoneyList = this.controller.DoRetriveStockMoney(view.LOGIN_ID);
@@ -230,8 +260,8 @@ namespace SDs.FiveM.View.View
                 }
                 else if (selectStockMoneyList[0].money < FiveMUtilClass.StringToParseLong(this.txtGameRefill.Text))
                 {
-                    string msgBoxText = "보유 한 투자가능 금액보다 많은 금액을 출금신청 하였습니다.";
-                    string msgBoxCaption = "경고";
+                    msgBoxText = "보유 한 투자가능 금액보다 많은 금액을 출금신청 하였습니다.";
+                    msgBoxCaption = "경고";
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -240,6 +270,11 @@ namespace SDs.FiveM.View.View
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            msgBoxText = "신청 완료";
+            msgBoxCaption = "알림";
+            FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
 
             this.DoRefresh();
         }

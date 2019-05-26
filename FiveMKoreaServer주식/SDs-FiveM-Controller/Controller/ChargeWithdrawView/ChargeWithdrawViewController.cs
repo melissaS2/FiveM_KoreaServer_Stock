@@ -35,6 +35,11 @@ namespace SDs.FiveM.Controller.Controller.ChargeWithdrawView
         {
             object call = Mapper.Instance().Update("update-GameMoney", item);
         }
+        public void DoDeleteGameMoneyRefillData(int no)
+        {
+            object call = Mapper.Instance().Delete("delete-RefillMoney", no);
+        }
+
         public IList<RefillMoneyApplicationItem> DoRetriveGameMoneyRefillData(RefillMoneyApplicationItem item)
         {
             IList<RefillMoneyApplicationItem> list = null;
