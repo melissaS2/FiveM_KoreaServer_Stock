@@ -301,11 +301,11 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(363, 3);
+            this.btnCancel.Location = new System.Drawing.Point(300, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 30);
+            this.btnCancel.Size = new System.Drawing.Size(163, 30);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "신청취소";
+            this.btnCancel.Text = "신청취소 / 새로고침";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // ChargeWithdrawView
