@@ -46,6 +46,7 @@ namespace SDs.FiveM.View.View
         {
             this.Load += AdminView_Load;
             this.btRefresh.Click += BtRefresh_Click;
+            this.btnChargeWithdrawView.Click += BtnChargeWithdrawView_Click;
             this.btExit.Click += BtExit_Click;
             this.btAdd.Click += BtAdd_Click;
 
@@ -61,13 +62,27 @@ namespace SDs.FiveM.View.View
 
             this.ButtonEnabled(true);
 
-
             this.grd_User.CellClick += Grd_User_CellClick;
 
             this.btUserAdd.Click += BtUserAdd_Click;
             this.btUserDelete.Click += BtUserDelete_Click;
             this.btUserRefresh.Click += BtUserRefresh_Click;
             this.btUserSave.Click += BtUserSave_Click;
+        }
+
+        private void BtnChargeWithdrawView_Click(object sender, EventArgs e)
+        {
+            Form frm = FiveMUtilClass.GetForm("AdminChargeWithdrawView");
+            if (frm == null)
+            {
+                AdminChargeWithdrawView view = new AdminChargeWithdrawView();
+                view.Name = "AdminChargeWithdrawView";
+                view.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void BtStop_Click(object sender, EventArgs e)

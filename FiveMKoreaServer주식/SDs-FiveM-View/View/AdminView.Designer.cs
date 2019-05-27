@@ -59,6 +59,7 @@
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.grd_StockCompany = new System.Windows.Forms.DataGridView();
+            this.btnChargeWithdrawView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_StockCompany)).BeginInit();
@@ -66,7 +67,7 @@
             // 
             // btUserSave
             // 
-            this.btUserSave.Location = new System.Drawing.Point(516, 648);
+            this.btUserSave.Location = new System.Drawing.Point(523, 692);
             this.btUserSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserSave.Name = "btUserSave";
             this.btUserSave.Size = new System.Drawing.Size(116, 29);
@@ -76,7 +77,7 @@
             // 
             // btUserDelete
             // 
-            this.btUserDelete.Location = new System.Drawing.Point(638, 648);
+            this.btUserDelete.Location = new System.Drawing.Point(645, 692);
             this.btUserDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserDelete.Name = "btUserDelete";
             this.btUserDelete.Size = new System.Drawing.Size(113, 29);
@@ -86,7 +87,7 @@
             // 
             // btUserAdd
             // 
-            this.btUserAdd.Location = new System.Drawing.Point(638, 611);
+            this.btUserAdd.Location = new System.Drawing.Point(645, 655);
             this.btUserAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserAdd.Name = "btUserAdd";
             this.btUserAdd.Size = new System.Drawing.Size(113, 29);
@@ -96,7 +97,7 @@
             // 
             // txtUserMoney
             // 
-            this.txtUserMoney.Location = new System.Drawing.Point(516, 578);
+            this.txtUserMoney.Location = new System.Drawing.Point(523, 622);
             this.txtUserMoney.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUserMoney.Name = "txtUserMoney";
             this.txtUserMoney.Size = new System.Drawing.Size(235, 25);
@@ -104,7 +105,7 @@
             // 
             // txtPw
             // 
-            this.txtPw.Location = new System.Drawing.Point(516, 545);
+            this.txtPw.Location = new System.Drawing.Point(523, 589);
             this.txtPw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPw.Name = "txtPw";
             this.txtPw.Size = new System.Drawing.Size(235, 25);
@@ -112,7 +113,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(516, 511);
+            this.txtId.Location = new System.Drawing.Point(523, 555);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(236, 25);
@@ -121,7 +122,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(459, 582);
+            this.label10.Location = new System.Drawing.Point(466, 626);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 54;
@@ -131,7 +132,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(438, 549);
+            this.label9.Location = new System.Drawing.Point(445, 593);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 15);
             this.label9.TabIndex = 53;
@@ -141,7 +142,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(491, 515);
+            this.label7.Location = new System.Drawing.Point(498, 559);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 15);
             this.label7.TabIndex = 52;
@@ -152,7 +153,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(587, 482);
+            this.label8.Location = new System.Drawing.Point(594, 526);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 20);
             this.label8.TabIndex = 51;
@@ -180,7 +181,7 @@
             // 
             // btUserRefresh
             // 
-            this.btUserRefresh.Location = new System.Drawing.Point(516, 611);
+            this.btUserRefresh.Location = new System.Drawing.Point(523, 655);
             this.btUserRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUserRefresh.Name = "btUserRefresh";
             this.btUserRefresh.Size = new System.Drawing.Size(116, 29);
@@ -192,7 +193,7 @@
             // 
             this.groupBox1.Controls.Add(this.btStop);
             this.groupBox1.Controls.Add(this.btPlay);
-            this.groupBox1.Location = new System.Drawing.Point(291, 490);
+            this.groupBox1.Location = new System.Drawing.Point(298, 534);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -203,7 +204,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(188, 672);
+            this.btDelete.Location = new System.Drawing.Point(195, 716);
             this.btDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(114, 38);
@@ -213,7 +214,7 @@
             // 
             // btUpdate
             // 
-            this.btUpdate.Location = new System.Drawing.Point(68, 672);
+            this.btUpdate.Location = new System.Drawing.Point(75, 716);
             this.btUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btUpdate.Name = "btUpdate";
             this.btUpdate.Size = new System.Drawing.Size(114, 38);
@@ -225,7 +226,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(556, 16);
+            this.label6.Location = new System.Drawing.Point(556, 55);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(172, 20);
             this.label6.TabIndex = 47;
@@ -235,7 +236,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(133, 16);
+            this.label5.Location = new System.Drawing.Point(133, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 46;
@@ -246,7 +247,7 @@
             this.grd_User.AllowUserToOrderColumns = true;
             this.grd_User.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grd_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd_User.Location = new System.Drawing.Point(440, 63);
+            this.grd_User.Location = new System.Drawing.Point(440, 102);
             this.grd_User.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grd_User.MultiSelect = false;
             this.grd_User.Name = "grd_User";
@@ -257,10 +258,10 @@
             // 
             // btExit
             // 
-            this.btExit.Location = new System.Drawing.Point(758, 12);
+            this.btExit.Location = new System.Drawing.Point(758, 8);
             this.btExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(89, 31);
+            this.btExit.Size = new System.Drawing.Size(89, 27);
             this.btExit.TabIndex = 44;
             this.btExit.Text = "종 료";
             this.btExit.UseVisualStyleBackColor = true;
@@ -269,7 +270,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(87, 482);
+            this.label4.Location = new System.Drawing.Point(94, 526);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(201, 20);
             this.label4.TabIndex = 43;
@@ -277,7 +278,7 @@
             // 
             // btRefresh
             // 
-            this.btRefresh.Location = new System.Drawing.Point(68, 627);
+            this.btRefresh.Location = new System.Drawing.Point(75, 671);
             this.btRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(114, 38);
@@ -287,7 +288,7 @@
             // 
             // btAdd
             // 
-            this.btAdd.Location = new System.Drawing.Point(188, 627);
+            this.btAdd.Location = new System.Drawing.Point(195, 671);
             this.btAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(114, 38);
@@ -298,7 +299,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 600);
+            this.label3.Location = new System.Drawing.Point(24, 644);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 40;
@@ -307,7 +308,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 566);
+            this.label2.Location = new System.Drawing.Point(24, 610);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 39;
@@ -316,7 +317,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 532);
+            this.label1.Location = new System.Drawing.Point(24, 576);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 38;
@@ -325,7 +326,7 @@
             // txtLeftCnt
             // 
             this.txtLeftCnt.BackColor = System.Drawing.Color.White;
-            this.txtLeftCnt.Location = new System.Drawing.Point(75, 595);
+            this.txtLeftCnt.Location = new System.Drawing.Point(82, 639);
             this.txtLeftCnt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLeftCnt.Name = "txtLeftCnt";
             this.txtLeftCnt.Size = new System.Drawing.Size(204, 25);
@@ -335,7 +336,7 @@
             // txtMoney
             // 
             this.txtMoney.BackColor = System.Drawing.Color.White;
-            this.txtMoney.Location = new System.Drawing.Point(75, 562);
+            this.txtMoney.Location = new System.Drawing.Point(82, 606);
             this.txtMoney.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.Size = new System.Drawing.Size(204, 25);
@@ -344,7 +345,7 @@
             // 
             // txtCompany
             // 
-            this.txtCompany.Location = new System.Drawing.Point(75, 529);
+            this.txtCompany.Location = new System.Drawing.Point(82, 573);
             this.txtCompany.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(204, 25);
@@ -355,7 +356,7 @@
             this.grd_StockCompany.AllowUserToOrderColumns = true;
             this.grd_StockCompany.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grd_StockCompany.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd_StockCompany.Location = new System.Drawing.Point(12, 63);
+            this.grd_StockCompany.Location = new System.Drawing.Point(12, 102);
             this.grd_StockCompany.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grd_StockCompany.MultiSelect = false;
             this.grd_StockCompany.Name = "grd_StockCompany";
@@ -365,11 +366,21 @@
             this.grd_StockCompany.Size = new System.Drawing.Size(407, 406);
             this.grd_StockCompany.TabIndex = 34;
             // 
+            // btnChargeWithdrawView
+            // 
+            this.btnChargeWithdrawView.Location = new System.Drawing.Point(12, 12);
+            this.btnChargeWithdrawView.Name = "btnChargeWithdrawView";
+            this.btnChargeWithdrawView.Size = new System.Drawing.Size(160, 23);
+            this.btnChargeWithdrawView.TabIndex = 62;
+            this.btnChargeWithdrawView.Text = "충전/출금 신청 관리";
+            this.btnChargeWithdrawView.UseVisualStyleBackColor = true;
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 725);
+            this.ClientSize = new System.Drawing.Size(863, 770);
+            this.Controls.Add(this.btnChargeWithdrawView);
             this.Controls.Add(this.btUserSave);
             this.Controls.Add(this.btUserDelete);
             this.Controls.Add(this.btUserAdd);
@@ -441,5 +452,6 @@
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.DataGridView grd_StockCompany;
+        private System.Windows.Forms.Button btnChargeWithdrawView;
     }
 }

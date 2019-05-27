@@ -31,19 +31,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabStock = new System.Windows.Forms.TabPage();
+            this.grid_GameMoney = new System.Windows.Forms.DataGridView();
+            this.tabGame = new System.Windows.Forms.TabPage();
+            this.grid_StockMoney = new System.Windows.Forms.DataGridView();
+            this.grid_GameMoney_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.grid_StockMoney_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_GameMoney)).BeginInit();
+            this.tabGame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_StockMoney)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,7 +57,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(643, 409);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -60,113 +65,143 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridView2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 409);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnRefresh);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnApply);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 40);
+            this.panel2.Size = new System.Drawing.Size(643, 40);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
+            // btnRefresh
             // 
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 225);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 40);
-            this.panel3.TabIndex = 1;
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(318, 7);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(100, 30);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "새로고침";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // btnCancel
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(794, 179);
-            this.dataGridView1.TabIndex = 2;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(530, 7);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 30);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "거절";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // btnApply
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 268);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(794, 179);
-            this.dataGridView2.TabIndex = 3;
+            this.btnApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApply.Location = new System.Drawing.Point(424, 7);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(100, 30);
+            this.btnApply.TabIndex = 0;
+            this.btnApply.Text = "수락";
+            this.btnApply.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // tabControl
             // 
-            this.button1.Location = new System.Drawing.Point(582, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "수락";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabControl.Controls.Add(this.tabStock);
+            this.tabControl.Controls.Add(this.tabGame);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(3, 43);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(637, 363);
+            this.tabControl.TabIndex = 2;
             // 
-            // button2
+            // tabStock
             // 
-            this.button2.Location = new System.Drawing.Point(688, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "거절";
-            this.button2.UseVisualStyleBackColor = true;
+            this.tabStock.Controls.Add(this.grid_GameMoney);
+            this.tabStock.Location = new System.Drawing.Point(4, 25);
+            this.tabStock.Name = "tabStock";
+            this.tabStock.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStock.Size = new System.Drawing.Size(629, 334);
+            this.tabStock.TabIndex = 0;
+            this.tabStock.Text = "충전신청";
+            this.tabStock.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // grid_GameMoney
             // 
-            this.button3.Location = new System.Drawing.Point(582, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 30);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "수락";
-            this.button3.UseVisualStyleBackColor = true;
+            this.grid_GameMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_GameMoney.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_GameMoney_CheckBox});
+            this.grid_GameMoney.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_GameMoney.Location = new System.Drawing.Point(3, 3);
+            this.grid_GameMoney.Name = "grid_GameMoney";
+            this.grid_GameMoney.RowTemplate.Height = 27;
+            this.grid_GameMoney.Size = new System.Drawing.Size(623, 328);
+            this.grid_GameMoney.TabIndex = 0;
             // 
-            // button4
+            // tabGame
             // 
-            this.button4.Location = new System.Drawing.Point(688, 7);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 30);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "거절";
-            this.button4.UseVisualStyleBackColor = true;
+            this.tabGame.Controls.Add(this.grid_StockMoney);
+            this.tabGame.Location = new System.Drawing.Point(4, 25);
+            this.tabGame.Name = "tabGame";
+            this.tabGame.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGame.Size = new System.Drawing.Size(629, 334);
+            this.tabGame.TabIndex = 1;
+            this.tabGame.Text = "출금신청";
+            this.tabGame.UseVisualStyleBackColor = true;
+            // 
+            // grid_StockMoney
+            // 
+            this.grid_StockMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_StockMoney.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_StockMoney_CheckBox});
+            this.grid_StockMoney.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_StockMoney.Location = new System.Drawing.Point(3, 3);
+            this.grid_StockMoney.Name = "grid_StockMoney";
+            this.grid_StockMoney.RowTemplate.Height = 27;
+            this.grid_StockMoney.Size = new System.Drawing.Size(623, 328);
+            this.grid_StockMoney.TabIndex = 0;
+            // 
+            // grid_GameMoney_CheckBox
+            // 
+            this.grid_GameMoney_CheckBox.HeaderText = "";
+            this.grid_GameMoney_CheckBox.Name = "grid_GameMoney_CheckBox";
+            // 
+            // grid_StockMoney_CheckBox
+            // 
+            this.grid_StockMoney_CheckBox.HeaderText = "";
+            this.grid_StockMoney_CheckBox.Name = "grid_StockMoney_CheckBox";
             // 
             // AdminChargeWithdrawView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(643, 409);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "AdminChargeWithdrawView";
-            this.Text = "AdminChargeWithdrawView";
+            this.Text = "충전/출금 신청 관리";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabStock.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_GameMoney)).EndInit();
+            this.tabGame.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_StockMoney)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,12 +211,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabStock;
+        private System.Windows.Forms.TabPage tabGame;
+        private System.Windows.Forms.DataGridView grid_GameMoney;
+        private System.Windows.Forms.DataGridView grid_StockMoney;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn grid_GameMoney_CheckBox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn grid_StockMoney_CheckBox;
     }
 }

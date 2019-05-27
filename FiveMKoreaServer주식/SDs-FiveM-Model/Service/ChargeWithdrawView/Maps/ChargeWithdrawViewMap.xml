@@ -20,7 +20,14 @@
     <select id="select-GameMoneyRefill"  resultClass="refillMoneyApplicationItem">
       SELECT *
       FROM refill_money_application
-      WHERE id=#id# and type=#type#
+    <dynamic prepend="where">
+      <isNotNull property="type">
+        type = #type#
+      </isNotNull>
+      <isNotNull property="id">
+        AND id = #id#
+      </isNotNull>
+    </dynamic>
     </select>
 
   <insert id="insert-RefillMoney" parameterClass="loginItem3">
