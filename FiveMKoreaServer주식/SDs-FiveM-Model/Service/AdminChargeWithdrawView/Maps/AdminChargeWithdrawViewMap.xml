@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.AdminChartWithdrawView.Maps.AdminChargeWithdrawViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="reFillItem"  type="SDs.FiveM.Model.Item.ChargeWithdrawView.RefillMoneyApplicationItem" />
+  </alias>
+  <statements>
+    <update id="update-RefillMoneyStock" parameterClass="reFillItem">
+      UPDATE vrp_user_moneys SET bank =bank + #refillMoney#
+      WHERE user_id =#user_id#
+    </update>
+
+    <update id="update-RefillMoneyGame" parameterClass="reFillItem">
+      UPDATE user SET money =money + #refillMoney#
+      WHERE user_id =#user_id#
+    </update>
+
+    <delete id="delete-RefillMoneyStock" parameterClass="reFillItem">
+      DELETE FROM refill_money_application
+      WHERE no = #no#
+    </delete>
+  </statements>
+</sqlMap>

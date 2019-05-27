@@ -81,6 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Param\SignUpView\" />
+    <Folder Include="Service\AdminChargeWithdrawView\Dao\" />
+    <Folder Include="Service\AdminChargeWithdrawView\Service\" />
     <Folder Include="Service\AdminLoginView\Dao\" />
     <Folder Include="Service\AdminLoginView\Service\" />
     <Folder Include="Service\AdminView\Dao\" />
@@ -121,6 +123,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service\ChargeWithdrawView\Maps\ChargeWithdrawViewMap.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service\AdminChargeWithdrawView\Maps\AdminChargeWithdrawViewMap.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

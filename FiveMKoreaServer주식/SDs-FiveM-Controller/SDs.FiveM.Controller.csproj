@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AdminChargeWithdrawView\AdminChargeWithdrawViewController.cs" />
     <Compile Include="Controller\AdminLoginView\AdminLoginViewController.cs" />
     <Compile Include="Controller\AdminView\AdminViewController.cs" />
     <Compile Include="Controller\ChargeWithdrawView\ChargeWithdrawViewController.cs" />
