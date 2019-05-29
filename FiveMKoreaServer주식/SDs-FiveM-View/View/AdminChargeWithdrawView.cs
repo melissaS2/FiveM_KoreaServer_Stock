@@ -70,10 +70,12 @@ namespace SDs.FiveM.View.View
                         refillItem.refillMoney = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[4].FormattedValue.ToString()); ;
                         refillItem.type = grid.Rows[i].Cells[5].FormattedValue.ToString();
 
-                        this.controller.DoUpdateRefillMoney(refillItem);
+                        this.controller.DoCancelUpdateRefillMoney(refillItem);
                         this.controller.DoDeleteRefillMoney(refillItem);
                     }
                 }
+
+                this.DoRefresh();
 
                 if (isTrue)
                 {
@@ -81,8 +83,6 @@ namespace SDs.FiveM.View.View
                     string msgBoxCaption = "알림";
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                this.DoRefresh();
             }
             catch (Exception ex)
             {
@@ -92,7 +92,52 @@ namespace SDs.FiveM.View.View
 
         private void BtnApply_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                bool isTrue = false;
+                int activeTab = this.tabControl.SelectedIndex;
+
+                DataGridView grid = null;
+
+                if (activeTab == 0)
+                    grid = this.grid_GameMoney;
+                else if (activeTab == 1)
+                    grid = this.grid_StockMoney;
+
+                for (int i = 0; i < grid.RowCount; i++)
+                {
+                    string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
+                    if (text == "True")
+                    {
+                        isTrue = true;
+                        RefillMoneyApplicationItem refillItem = new RefillMoneyApplicationItem();
+                        //no , id , refillMoney , Type 
+                        //Type S  , I 인지에 따라 Controller에서 map파일 다르게 ㄱ
+                        //S 일때 수락 시 주식 돈 증가 , I 일때 수락 시 인게임 돈 증가
+                        refillItem.no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[1].FormattedValue.ToString());
+                        refillItem.id = grid.Rows[i].Cells[2].FormattedValue.ToString();
+                        refillItem.user_id = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[3].FormattedValue.ToString());
+                        refillItem.refillMoney = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[4].FormattedValue.ToString());
+                        refillItem.type = grid.Rows[i].Cells[5].FormattedValue.ToString();
+
+                        this.controller.DoApplyUpdateRefillMoney(refillItem);
+                        this.controller.DoDeleteRefillMoney(refillItem);
+                    }
+                }
+
+                this.DoRefresh();
+
+                if (isTrue)
+                {
+                    string msgBoxText = "수락 완료";
+                    string msgBoxCaption = "알림";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void DoRefresh()

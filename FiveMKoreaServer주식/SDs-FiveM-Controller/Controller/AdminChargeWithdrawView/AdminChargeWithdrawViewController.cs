@@ -16,7 +16,7 @@ namespace SDs.FiveM.Controller.Controller.AdminChargeWithdrawView
 
         }
 
-        public void DoUpdateRefillMoney(RefillMoneyApplicationItem item)
+        public void DoCancelUpdateRefillMoney(RefillMoneyApplicationItem item)
         {
             try
             {
@@ -34,6 +34,25 @@ namespace SDs.FiveM.Controller.Controller.AdminChargeWithdrawView
                 MessageBox.Show(ex.ToString());
             }
         }
+        public void DoApplyUpdateRefillMoney(RefillMoneyApplicationItem item)
+        {
+            try
+            {
+                if (item.type.Equals(FiveMConstants.RefillTypeStock)) // S
+                {
+                    object call = Mapper.Instance().Update("update-RefillMoneyGame", item);
+                }
+                else if (item.type.Equals(FiveMConstants.RefillTypeGame)) // I
+                {
+                    object call = Mapper.Instance().Update("update-RefillMoneyStock", item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         public void DoDeleteRefillMoney(RefillMoneyApplicationItem item)
         {
             try
