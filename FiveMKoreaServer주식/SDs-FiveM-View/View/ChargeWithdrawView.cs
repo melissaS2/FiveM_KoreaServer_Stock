@@ -63,36 +63,38 @@ namespace SDs.FiveM.View.View
                 else if (activeTab == 1)
                     grid = this.grid_StockMoney;
 
-                int money = 0;
-                for (int i = 0; i < grid.RowCount; i++)
+                if (grid.RowCount > 0)
                 {
-                    string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
-                    if (text == "True")
+                    int money = 0;
+                    for (int i = 0; i < grid.RowCount; i++)
                     {
-                        money += FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[4].FormattedValue.ToString());
+                        string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
+                        if (text == "True")
+                        {
+                            money += FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[4].FormattedValue.ToString());
+                        }
                     }
-                }
 
-                LoginItem item = new LoginItem();
-                item.user_id = view.user_id;
-                item.bank = money;
+                    LoginItem item = new LoginItem();
+                    item.user_id = view.user_id;
+                    item.bank = money;
 
-                this.controller.DoUpdateInGameMoney(item);
+                    this.controller.DoUpdateInGameMoney(item);
 
-                for (int i = 0; i < grid.RowCount; i++)
-                {
-                    string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
-                    if (text == "True")
+                    for (int i = 0; i < grid.RowCount; i++)
                     {
-                        int no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[1].FormattedValue.ToString());
-                        this.controller.DoDeleteGameMoneyRefillData(no);
+                        string text = grid.Rows[i].Cells[0].FormattedValue.ToString();
+                        if (text == "True")
+                        {
+                            int no = FiveMUtilClass.StringToParseInt(grid.Rows[i].Cells[1].FormattedValue.ToString());
+                            this.controller.DoDeleteGameMoneyRefillData(no);
+                        }
                     }
-                }
 
-                string msgBoxText = "신청 취소 완료";
-                string msgBoxCaption = "알림";
-                FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                    string msgBoxText = "신청 취소 완료";
+                    string msgBoxCaption = "알림";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 this.DoRefresh();
             }catch(Exception ex)
@@ -243,7 +245,6 @@ namespace SDs.FiveM.View.View
             msgBoxText = "신청 완료";
             msgBoxCaption = "알림";
             FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
 
             this.DoRefresh();
         }
@@ -303,9 +304,9 @@ namespace SDs.FiveM.View.View
             msgBoxText = "신청 완료";
             msgBoxCaption = "알림";
             FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
-
+            
             this.DoRefresh();
+
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

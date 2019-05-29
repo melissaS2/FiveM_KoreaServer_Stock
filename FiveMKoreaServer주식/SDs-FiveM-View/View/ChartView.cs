@@ -488,7 +488,7 @@ namespace SDs.FiveM.View.View
             Timer timer = new Timer();
             timer.Interval = 1000; // 1 초
             timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
-            //timer.Start();
+            timer.Start();
         }
 
         private void NewEventArgsTimer_Tick(object sender, EventArgs e)
