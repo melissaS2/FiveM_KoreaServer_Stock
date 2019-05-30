@@ -436,6 +436,7 @@
             this.grd_StockStatusList.ReadOnly = true;
             this.grd_StockStatusList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grd_StockStatusList.RowTemplate.Height = 23;
+            this.grd_StockStatusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_StockStatusList.Size = new System.Drawing.Size(573, 502);
             this.grd_StockStatusList.TabIndex = 34;
             // 

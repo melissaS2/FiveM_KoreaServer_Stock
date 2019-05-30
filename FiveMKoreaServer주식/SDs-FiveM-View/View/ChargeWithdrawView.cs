@@ -222,7 +222,7 @@ namespace SDs.FiveM.View.View
 
                 else if ((long)selectGameMoneyList[0].bank >= FiveMUtilClass.StringToParseLong(this.txtStockRefill.Text))
                 {
-                    int newMoney = selectGameMoneyList[0].bank - FiveMUtilClass.StringToParseInt(this.txtStockRefill.Text);
+                    long newMoney = selectGameMoneyList[0].bank - FiveMUtilClass.StringToParseLong(this.txtStockRefill.Text);
 
                     LoginItem item = new LoginItem();
 

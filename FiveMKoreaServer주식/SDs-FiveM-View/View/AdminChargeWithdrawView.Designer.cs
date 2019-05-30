@@ -37,9 +37,9 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabStock = new System.Windows.Forms.TabPage();
             this.grid_GameMoney = new System.Windows.Forms.DataGridView();
+            this.grid_GameMoney_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabGame = new System.Windows.Forms.TabPage();
             this.grid_StockMoney = new System.Windows.Forms.DataGridView();
-            this.grid_GameMoney_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grid_StockMoney_CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -150,8 +150,14 @@
             this.grid_GameMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_GameMoney.Name = "grid_GameMoney";
             this.grid_GameMoney.RowTemplate.Height = 27;
+            this.grid_GameMoney.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_GameMoney.Size = new System.Drawing.Size(623, 328);
             this.grid_GameMoney.TabIndex = 0;
+            // 
+            // grid_GameMoney_CheckBox
+            // 
+            this.grid_GameMoney_CheckBox.HeaderText = "";
+            this.grid_GameMoney_CheckBox.Name = "grid_GameMoney_CheckBox";
             // 
             // tabGame
             // 
@@ -173,13 +179,9 @@
             this.grid_StockMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_StockMoney.Name = "grid_StockMoney";
             this.grid_StockMoney.RowTemplate.Height = 27;
+            this.grid_StockMoney.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_StockMoney.Size = new System.Drawing.Size(623, 328);
             this.grid_StockMoney.TabIndex = 0;
-            // 
-            // grid_GameMoney_CheckBox
-            // 
-            this.grid_GameMoney_CheckBox.HeaderText = "";
-            this.grid_GameMoney_CheckBox.Name = "grid_GameMoney_CheckBox";
             // 
             // grid_StockMoney_CheckBox
             // 

@@ -18,6 +18,11 @@ namespace SDs.FiveM.Controller.Controller.ChartView
 
         }
 
+        public void DoUpdateCompanyLeftJuCnt(AdminViewItem item)
+        {
+            object call = Mapper.Instance().Update("update-CompanyJuLeftCnt", item);
+        }
+
         public IList<HistoryItem> DoRefreshSellHistory(string loginId)
         {
             IList<HistoryItem> list = null;

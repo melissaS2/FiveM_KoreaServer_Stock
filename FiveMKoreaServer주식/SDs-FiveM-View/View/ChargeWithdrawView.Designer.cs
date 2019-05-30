@@ -45,14 +45,14 @@
             this.txtStockRefill = new System.Windows.Forms.TextBox();
             this.txtGameMoney = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tabStockMoneyRefill = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grid_GameMoney = new System.Windows.Forms.DataGridView();
+            this.grd_game_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grid_StockMoney = new System.Windows.Forms.DataGridView();
-            this.grd_game_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grd_stock_checkbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -230,6 +230,15 @@
             this.panel3.Size = new System.Drawing.Size(470, 40);
             this.panel3.TabIndex = 1;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(300, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(163, 30);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "신청취소 / 새로고침";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // tabStockMoneyRefill
             // 
             this.tabStockMoneyRefill.Controls.Add(this.tabPage1);
@@ -261,8 +270,15 @@
             this.grid_GameMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_GameMoney.Name = "grid_GameMoney";
             this.grid_GameMoney.RowTemplate.Height = 27;
+            this.grid_GameMoney.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_GameMoney.Size = new System.Drawing.Size(450, 262);
             this.grid_GameMoney.TabIndex = 0;
+            // 
+            // grd_game_checkbox
+            // 
+            this.grd_game_checkbox.HeaderText = "";
+            this.grd_game_checkbox.Name = "grd_game_checkbox";
+            this.grd_game_checkbox.Width = 40;
             // 
             // tabPage2
             // 
@@ -284,29 +300,15 @@
             this.grid_StockMoney.Location = new System.Drawing.Point(3, 3);
             this.grid_StockMoney.Name = "grid_StockMoney";
             this.grid_StockMoney.RowTemplate.Height = 27;
+            this.grid_StockMoney.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_StockMoney.Size = new System.Drawing.Size(450, 262);
             this.grid_StockMoney.TabIndex = 0;
-            // 
-            // grd_game_checkbox
-            // 
-            this.grd_game_checkbox.HeaderText = "";
-            this.grd_game_checkbox.Name = "grd_game_checkbox";
-            this.grd_game_checkbox.Width = 40;
             // 
             // grd_stock_checkbox
             // 
             this.grd_stock_checkbox.HeaderText = "";
             this.grd_stock_checkbox.Name = "grd_stock_checkbox";
             this.grd_stock_checkbox.Width = 40;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(300, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(163, 30);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "신청취소 / 새로고침";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // ChargeWithdrawView
             // 

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="SDs.FiveM.Model.Service.ChartView.Maps.ChartViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
+    <typeAlias alias="adminViewItem2"  type="SDs.FiveM.Model.Item.AdminView.AdminViewItem" />
     <typeAlias alias="userCompanyBuyItem"  type="SDs.FiveM.Model.Item.ChartView.UserCompanyItem" />
     <typeAlias alias="historyItem"  type="SDs.FiveM.Model.Item.ChartView.HistoryItem" />
     <typeAlias alias="loginItem2"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
@@ -45,6 +46,11 @@
     <update id="update-UserMoney" parameterClass="loginItem2">
       UPDATE user SET money=#money#
       WHERE id=#id#
+    </update>
+
+    <update id="update-CompanyJuLeftCnt" parameterClass="adminViewItem2">
+      UPDATE companylist SET LeftCnt=#LeftCnt#
+      WHERE No=#No# AND CompanyName = #CompanyName#
     </update>
   </statements>
 </sqlMap>

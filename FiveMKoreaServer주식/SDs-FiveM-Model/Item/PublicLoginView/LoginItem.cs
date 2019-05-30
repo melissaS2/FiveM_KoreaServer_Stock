@@ -17,7 +17,7 @@ namespace SDs.FiveM.Model.Item.PublicLoginView
         public string phone { get; set; }
 
         public int wallet { get; set; }
-        public int bank { get; set; }
+        public long bank { get; set; }
 
         public int refillMoney { get; set; }
         public string type { get; set; }
