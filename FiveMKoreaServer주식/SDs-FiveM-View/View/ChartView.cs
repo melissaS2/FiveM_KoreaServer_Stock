@@ -146,7 +146,7 @@ namespace SDs.FiveM.View.View
             //그리드 뷰 젤앞열 지우기
             grid.RowHeadersVisible = false;
             //그리드 뷰 컬럼폭 채우기
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             //데이터 그리드 뷰 가득 채우기
             //grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             //마지막 행 삭제
