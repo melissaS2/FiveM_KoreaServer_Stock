@@ -20,6 +20,7 @@ namespace SDs.FiveM.View.View
         public string LOGIN_ID { get; set; }
         public long MONEY { get; set; }
         public int user_id { get; set; }
+        public long lotto_money { get; set; }
 
         private PublicLoginViewController controller = null;
         #endregion
@@ -98,13 +99,14 @@ namespace SDs.FiveM.View.View
                     this.LOGIN_ID = item.id;
                     this.MONEY = item.money;
                     this.user_id = item.user_id;
+                    this.lotto_money = item.lotto_money;
 
                     //주식프로그램
                     //ChartView view = new ChartView(this);
                     //view.Show();
 
                     //로또프로그램
-                    LottoMakerView view = new LottoMakerView();
+                    LottoMakerView view = new LottoMakerView(this);
                     view.Show();
                 }
             }

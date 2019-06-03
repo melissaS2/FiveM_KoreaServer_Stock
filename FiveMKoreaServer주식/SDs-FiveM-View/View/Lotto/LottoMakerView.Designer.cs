@@ -122,36 +122,41 @@
             // 
             this.txtFive.Location = new System.Drawing.Point(39, 278);
             this.txtFive.Name = "txtFive";
+            this.txtFive.ReadOnly = true;
             this.txtFive.Size = new System.Drawing.Size(372, 25);
-            this.txtFive.TabIndex = 21;
+            this.txtFive.TabIndex = 9;
             // 
             // txtFour
             // 
             this.txtFour.Location = new System.Drawing.Point(39, 247);
             this.txtFour.Name = "txtFour";
+            this.txtFour.ReadOnly = true;
             this.txtFour.Size = new System.Drawing.Size(372, 25);
-            this.txtFour.TabIndex = 20;
+            this.txtFour.TabIndex = 8;
             // 
             // txtThree
             // 
             this.txtThree.Location = new System.Drawing.Point(39, 216);
             this.txtThree.Name = "txtThree";
+            this.txtThree.ReadOnly = true;
             this.txtThree.Size = new System.Drawing.Size(372, 25);
-            this.txtThree.TabIndex = 19;
+            this.txtThree.TabIndex = 7;
             // 
             // txtTwo
             // 
             this.txtTwo.Location = new System.Drawing.Point(39, 185);
             this.txtTwo.Name = "txtTwo";
+            this.txtTwo.ReadOnly = true;
             this.txtTwo.Size = new System.Drawing.Size(372, 25);
-            this.txtTwo.TabIndex = 18;
+            this.txtTwo.TabIndex = 6;
             // 
             // txtOne
             // 
             this.txtOne.Location = new System.Drawing.Point(39, 154);
             this.txtOne.Name = "txtOne";
+            this.txtOne.ReadOnly = true;
             this.txtOne.Size = new System.Drawing.Size(372, 25);
-            this.txtOne.TabIndex = 17;
+            this.txtOne.TabIndex = 5;
             // 
             // label9
             // 
@@ -211,7 +216,7 @@
             this.btnFive.Location = new System.Drawing.Point(336, 111);
             this.btnFive.Name = "btnFive";
             this.btnFive.Size = new System.Drawing.Size(75, 30);
-            this.btnFive.TabIndex = 10;
+            this.btnFive.TabIndex = 4;
             this.btnFive.Tag = "5";
             this.btnFive.Text = "5개 생성";
             this.btnFive.UseVisualStyleBackColor = true;
@@ -221,7 +226,7 @@
             this.btnFour.Location = new System.Drawing.Point(255, 111);
             this.btnFour.Name = "btnFour";
             this.btnFour.Size = new System.Drawing.Size(75, 30);
-            this.btnFour.TabIndex = 9;
+            this.btnFour.TabIndex = 3;
             this.btnFour.Tag = "4";
             this.btnFour.Text = "4개 생성";
             this.btnFour.UseVisualStyleBackColor = true;
@@ -231,7 +236,7 @@
             this.btnThree.Location = new System.Drawing.Point(174, 111);
             this.btnThree.Name = "btnThree";
             this.btnThree.Size = new System.Drawing.Size(75, 30);
-            this.btnThree.TabIndex = 8;
+            this.btnThree.TabIndex = 2;
             this.btnThree.Tag = "3";
             this.btnThree.Text = "3개 생성";
             this.btnThree.UseVisualStyleBackColor = true;
@@ -241,7 +246,7 @@
             this.btnTwo.Location = new System.Drawing.Point(93, 111);
             this.btnTwo.Name = "btnTwo";
             this.btnTwo.Size = new System.Drawing.Size(75, 30);
-            this.btnTwo.TabIndex = 7;
+            this.btnTwo.TabIndex = 1;
             this.btnTwo.Tag = "2";
             this.btnTwo.Text = "2개 생성";
             this.btnTwo.UseVisualStyleBackColor = true;
@@ -251,7 +256,7 @@
             this.btnOne.Location = new System.Drawing.Point(12, 111);
             this.btnOne.Name = "btnOne";
             this.btnOne.Size = new System.Drawing.Size(75, 30);
-            this.btnOne.TabIndex = 6;
+            this.btnOne.TabIndex = 0;
             this.btnOne.Tag = "1";
             this.btnOne.Text = "1개 생성";
             this.btnOne.UseVisualStyleBackColor = true;
@@ -260,6 +265,7 @@
             // 
             this.txtUniqueNo.Location = new System.Drawing.Point(150, 42);
             this.txtUniqueNo.Name = "txtUniqueNo";
+            this.txtUniqueNo.ReadOnly = true;
             this.txtUniqueNo.Size = new System.Drawing.Size(261, 25);
             this.txtUniqueNo.TabIndex = 5;
             // 
@@ -267,6 +273,7 @@
             // 
             this.txtMoney.Location = new System.Drawing.Point(150, 73);
             this.txtMoney.Name = "txtMoney";
+            this.txtMoney.ReadOnly = true;
             this.txtMoney.Size = new System.Drawing.Size(261, 25);
             this.txtMoney.TabIndex = 4;
             // 
@@ -274,6 +281,7 @@
             // 
             this.txtNikName.Location = new System.Drawing.Point(150, 11);
             this.txtNikName.Name = "txtNikName";
+            this.txtNikName.ReadOnly = true;
             this.txtNikName.Size = new System.Drawing.Size(261, 25);
             this.txtNikName.TabIndex = 3;
             // 

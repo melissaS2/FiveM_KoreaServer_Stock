@@ -91,6 +91,8 @@
     <Folder Include="Service\ChargeWithdrawView\Service\" />
     <Folder Include="Service\ChartView\Dao\" />
     <Folder Include="Service\ChartView\Service\" />
+    <Folder Include="Service\Lotto\LottoMakerView\Dao\" />
+    <Folder Include="Service\Lotto\LottoMakerView\Service\" />
     <Folder Include="Service\PublicLoginView\Dao\" />
     <Folder Include="Service\PublicLoginView\Service\" />
     <Folder Include="Service\Sample\Dao\" />
@@ -128,6 +130,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service\AdminChargeWithdrawView\Maps\AdminChargeWithdrawViewMap.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service\Lotto\LottoMakerView\Maps\LottoMakerViewMap.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

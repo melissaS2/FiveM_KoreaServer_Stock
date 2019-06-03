@@ -10,5 +10,6 @@ namespace SDs.FiveM.View.View
         string LOGIN_ID { get; set; }
         long MONEY { get; set; }
         int user_id { get; set; } // 고유번호
+        long lotto_money { get; set; }
     }
 }
