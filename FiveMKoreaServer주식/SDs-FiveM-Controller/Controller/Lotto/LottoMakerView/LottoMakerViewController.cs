@@ -1,4 +1,5 @@
 ﻿using IBatisNet.DataMapper;
+using SDs.FiveM.Model.Item.Lotto.LottoMakerView;
 using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Param.PublicLoginView;
 using SDs.FiveM.Model.Util;
@@ -16,7 +17,10 @@ namespace SDs.FiveM.Controller.Controller.Lotto.LottoMakerView
         {
 
         }
-
+        public void DoInsertLottoHistory(LottoItem item)
+        {
+            object call = Mapper.Instance().Insert("insert-LottoHistory", item);
+        }
         public LoginItem DoSelectUserInfo(LoginParam param)
         {
             IList<LoginItem> list = null;
@@ -41,6 +45,25 @@ namespace SDs.FiveM.Controller.Controller.Lotto.LottoMakerView
             }
 
             return new LoginItem();
+        }
+        public IList<LottoItem> DoRetriveLottoHistory(LottoItem param)
+        {
+            IList<LottoItem> list = null;
+            try
+            {
+                list = Mapper.Instance().QueryForList<LottoItem>("select-LottoHistory", param);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            return list;
+        }
+
+        public void DoUpdateUserMoney(LoginParam param)
+        {
+            object call = Mapper.Instance().Update("update-UserLottoMoney", param);
         }
     }
 }

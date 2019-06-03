@@ -50,7 +50,7 @@
             this.btnOne = new System.Windows.Forms.Button();
             this.txtUniqueNo = new System.Windows.Forms.TextBox();
             this.txtMoney = new System.Windows.Forms.TextBox();
-            this.txtNikName = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,7 +81,7 @@
             this.panel1.Controls.Add(this.btnOne);
             this.panel1.Controls.Add(this.txtUniqueNo);
             this.panel1.Controls.Add(this.txtMoney);
-            this.panel1.Controls.Add(this.txtNikName);
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -277,13 +277,13 @@
             this.txtMoney.Size = new System.Drawing.Size(261, 25);
             this.txtMoney.TabIndex = 4;
             // 
-            // txtNikName
+            // txtId
             // 
-            this.txtNikName.Location = new System.Drawing.Point(150, 11);
-            this.txtNikName.Name = "txtNikName";
-            this.txtNikName.ReadOnly = true;
-            this.txtNikName.Size = new System.Drawing.Size(261, 25);
-            this.txtNikName.TabIndex = 3;
+            this.txtId.Location = new System.Drawing.Point(150, 11);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(261, 25);
+            this.txtId.TabIndex = 3;
             // 
             // label3
             // 
@@ -310,7 +310,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "닉네임";
+            this.label1.Text = "아이디";
             // 
             // LottoMakerView
             // 
@@ -351,7 +351,7 @@
         private System.Windows.Forms.Button btnOne;
         private System.Windows.Forms.TextBox txtUniqueNo;
         private System.Windows.Forms.TextBox txtMoney;
-        private System.Windows.Forms.TextBox txtNikName;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

@@ -11,6 +11,7 @@ using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Param.PublicLoginView;
 using SDs.FiveM.Controller.Controller.Lotto.LottoMakerView;
 using SDs.FiveM.Model.Util;
+using SDs.FiveM.Model.Item.Lotto.LottoMakerView;
 
 namespace SDs.FiveM.View.View.Lotto
 {
@@ -34,24 +35,81 @@ namespace SDs.FiveM.View.View.Lotto
             this.view = view;
             this.AddEventHandler();
         }
+
+        #endregion
+
+        #region METHOD AREA *********************************
         private void AddEventHandler()
         {
-            foreach(Button btn in buttonList)
+            foreach (Button btn in buttonList)
             {
                 btn.Click += CreateButtonClick;
             }
 
             this.btnExit.Click += BtnExit_Click;
+            this.btnRefresh.Click += BtnRefresh_Click;
+
+
             this.FormClosed += LottoMakerView_FormClosed;
             this.Load += LottoMakerView_Load;
         }
-        
+
+        private void GridColumnChange(DataGridView grid)
+        {
+            grid.Columns[0].Visible = false;
+            grid.Columns[1].Visible = false;
+            grid.Columns[2].Visible = false;
+
+            grid.Columns[3].HeaderText = "날짜";
+            grid.Columns[4].HeaderText = "(1)";
+            grid.Columns[5].HeaderText = "(2)";
+            grid.Columns[6].HeaderText = "(3)";
+            grid.Columns[7].HeaderText = "(4)";
+            grid.Columns[8].HeaderText = "(5)";
+            grid.Columns[9].HeaderText = "보너스";
+
+            grid.Columns[3].Width = 80;
+            grid.Columns[4].Width = 40;
+            grid.Columns[5].Width = 40;
+            grid.Columns[6].Width = 40;
+            grid.Columns[7].Width = 40;
+            grid.Columns[8].Width = 40;
+            grid.Columns[9].Width = 65;
+        }
+
+        private void GridPropertyChange(DataGridView grid)
+        {
+            //그리드 뷰 전체 선택 할 수 있도록
+            grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //그리드 뷰 젤앞열 지우기
+            grid.RowHeadersVisible = false;
+            //그리드 뷰 컬럼폭 채우기
+            //grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //데이터 그리드 뷰 가득 채우기
+            //grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //마지막 행 삭제
+            //grid.AllowUserToAddRows = false;
+        }
+
+        private void DoRefresh()
+        {
+            LottoItem param = new LottoItem();
+            param.ID = view.LOGIN_ID;
+            param.USER_ID = view.user_id;
+
+            IList<LottoItem> list = this.controller.DoRetriveLottoHistory(param);
+            this.dataGridView1.DataSource = list;
+
+            this.GridColumnChange(dataGridView1);
+            this.GridPropertyChange(dataGridView1);
+        }
+
         private void DoInit()
         {
-            
             param.id = view.LOGIN_ID;
+            param.user_id = view.user_id;
 
-            this.txtNikName.Text = view.LOGIN_ID;
+            this.txtId.Text = view.LOGIN_ID;
             this.txtUniqueNo.Text = view.user_id.ToString();
             this.txtMoney.Text = view.lotto_money.ToString();
         }
@@ -72,9 +130,7 @@ namespace SDs.FiveM.View.View.Lotto
             buttonList.Add(this.btnFour);
             buttonList.Add(this.btnFive);
         }
-        #endregion
 
-        #region METHOD AREA *********************************
         private List<E> ShuffleList<E>(List<E> inputList)
         {
             List<E> randomList = new List<E>();
@@ -91,10 +147,20 @@ namespace SDs.FiveM.View.View.Lotto
             return randomList; //return the new random list
         }
 
+        private LottoItem CreateLottoItem()
+        {
+            LottoItem item = new LottoItem();
+            item.ID = view.LOGIN_ID;
+            item.USER_ID = view.user_id;
+            return item;
+        }
+
         private void CreateLottoNumber(List<TextBox> list)
         {
             for(int i = 0; i < list.Count; i++)
             {
+                LottoItem item = this.CreateLottoItem();
+
                 var num = new List<int>(Enumerable.Range(1, 45));
 
                 //for (int i = 1; i <= 45; i++)
@@ -105,23 +171,62 @@ namespace SDs.FiveM.View.View.Lotto
                 string text = string.Empty;
                 for (int j = 0; j < selected.Count; j++)
                 {
-                    if (j == selected.Count - 1)
+                    switch (j)
                     {
-                        text += " 보너스 번호 : ";
-                        text += selected[j];
-                        break;
+                        case 0:
+                            item.LOTTO_ONE = selected[j];
+                            text += selected[j];
+                            text += " | ";
+                            break;
+                        case 1:
+                            item.LOTTO_TWO = selected[j];
+                            text += selected[j];
+                            text += " | ";
+                            break;
+                        case 2:
+                            item.LOTTO_THREE = selected[j];
+                            text += selected[j];
+                            text += " | ";
+                            break;
+                        case 3:
+                            item.LOTTO_FOUR = selected[j];
+                            text += selected[j];
+                            text += " | ";
+                            break;
+                        case 4:
+                            item.LOTTO_FIVE = selected[j];
+                            text += selected[j];
+                            text += " | ";
+                            break;
+                        case 5:
+                            item.LOTTO_BONUS= selected[j];
+                            text += " 보너스 번호 : ";
+                            text += selected[j];
+                            break;
                     }
-                    text += selected[j];
-                    text += " | ";
+                    //if (j == selected.Count - 1)
+                    //{
+                    //    text += " 보너스 번호 : ";
+                    //    text += selected[j];
+                    //    break;
+                    //}
+                    //text += selected[j];
+                    //text += " | ";
                 }
 
                 list[i].Text = text;
+                this.controller.DoInsertLottoHistory(item);
                 Thread.Sleep(50);
             }
         }
         #endregion
 
         #region EVENT AREA **********************************
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            this.DoRefresh();
+        }
+
         private void LottoMakerView_Load(object sender, EventArgs e)
         {
             this.DoInit();
@@ -139,8 +244,18 @@ namespace SDs.FiveM.View.View.Lotto
         private void DoLoad(object param)
         {
             LoginItem item = this.controller.DoSelectUserInfo(this.param);
-            this.txtMoney.Text = item.lotto_money.ToString();
 
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    this.txtMoney.Text = item.LOTTO_MONEY.ToString();
+                }));
+            }
+            else
+            {
+                this.txtMoney.Text = item.LOTTO_MONEY.ToString();
+            }
             //Console.WriteLine("타이머 쓰레드" + DateTime.Now);
         }
 
@@ -156,27 +271,42 @@ namespace SDs.FiveM.View.View.Lotto
 
         private void CreateButtonClick(object sender, EventArgs e)
         {
-            Button textBox = (Button)sender;
-            int cnt = int.Parse(textBox.Tag.ToString());
-
-            LoginItem item = this.controller.DoSelectUserInfo(param);
-            long needMoney = cnt * 1000; // 생성하고자 하는 로또 갯수 * 1000원
-            if(needMoney > item.lotto_money)
+            try
             {
-                string msgBoxText = "보유중인 후원금액이 부족합니다. \r\n 필요금액 : " 
-                    + needMoney + "\r\n 현재 보유중인 후원금액 : " 
-                    + item.lotto_money;
-                string msgBoxCaption = "경고";
-                FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                Button textBox = (Button)sender;
+                int cnt = int.Parse(textBox.Tag.ToString());
 
-            for (int i = 0; i < txtBoxList.Count; i++) {
-                txtBoxList[i].Text = "";
+                LoginItem item = this.controller.DoSelectUserInfo(param);
+                long needMoney = cnt * 1000; // 생성하고자 하는 로또 갯수 * 1000원
+                if (needMoney > item.LOTTO_MONEY)
+                {
+                    string msgBoxText = "보유중인 후원금액이 부족합니다. \r\n 필요금액 : "
+                        + needMoney + "\r\n 현재 보유중인 후원금액 : "
+                        + item.LOTTO_MONEY;
+                    string msgBoxCaption = "경고";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                long newMoney = item.LOTTO_MONEY - needMoney;
+
+                param.money = newMoney;
+                this.controller.DoUpdateUserMoney(param);
+                
+
+                for (int i = 0; i < txtBoxList.Count; i++)
+                {
+                    txtBoxList[i].Text = "";
+                }
+
+                List<TextBox> newTextBoxList = txtBoxList.GetRange(0, cnt);
+                this.CreateLottoNumber(newTextBoxList);
+                this.DoRefresh();
             }
-            
-            List<TextBox> newTextBoxList = txtBoxList.GetRange(0, cnt);
-            this.CreateLottoNumber(newTextBoxList);
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         #endregion
     }

@@ -2,11 +2,27 @@
 <sqlMap namespace="SDs.FiveM.Model.Service.Lotto.LottoMakerView.Maps.LottoMakerViewMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
   <alias>
     <typeAlias alias="UserInfoItem"  type="SDs.FiveM.Model.Item.PublicLoginView.LoginItem" />
+    <typeAlias alias="LottoItem"  type="SDs.FiveM.Model.Item.Lotto.LottoMakerView.LottoItem" />
   </alias>
   <statements>
     <select id="select-UserInfo"  resultClass="UserInfoItem">
       SELECT * FROM user
       WHERE id = #id#
     </select>
+
+    <select id="select-LottoHistory"  resultClass="LottoItem">
+      SELECT * FROM tb_lotto
+      WHERE ID = #ID# AND USER_ID = #USER_ID#
+    </select>
+
+    <update id="update-UserLottoMoney" parameterClass="UserInfoItem">
+      UPDATE user SET lotto_money =#money#
+      WHERE id = #id# AND user_id = #user_id#
+    </update>
+
+    <insert id="insert-LottoHistory" parameterClass="LottoItem">
+      INSERT INTO tb_lotto (`ID`, `USER_ID`, `UPDATE_TIME`,`LOTTO_ONE`, `LOTTO_TWO`, `LOTTO_THREE`, `LOTTO_FOUR`, `LOTTO_FIVE`,`LOTTO_BONUS`)
+      VALUES (#ID#, #USER_ID#, NOW(), #LOTTO_ONE#, #LOTTO_TWO#, #LOTTO_THREE#, #LOTTO_FOUR#, #LOTTO_FIVE#, #LOTTO_BONUS#)
+    </insert>
   </statements>
 </sqlMap>

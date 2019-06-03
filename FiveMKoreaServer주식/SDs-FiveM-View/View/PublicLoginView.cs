@@ -99,7 +99,7 @@ namespace SDs.FiveM.View.View
                     this.LOGIN_ID = item.id;
                     this.MONEY = item.money;
                     this.user_id = item.user_id;
-                    this.lotto_money = item.lotto_money;
+                    this.lotto_money = item.LOTTO_MONEY;
 
                     //주식프로그램
                     //ChartView view = new ChartView(this);

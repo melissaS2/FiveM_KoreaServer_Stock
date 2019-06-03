@@ -53,6 +53,7 @@
     <Compile Include="Item\ChargeWithdrawView\RefillMoneyApplicationItem.cs" />
     <Compile Include="Item\ChartView\HistoryItem.cs" />
     <Compile Include="Item\ChartView\UserCompanyItem.cs" />
+    <Compile Include="Item\Lotto\LottoMakerView\LottoItem.cs" />
     <Compile Include="Item\PublicLoginView\LoginItem.cs" />
     <Compile Include="Item\Sample\AdminUserItem.cs" />
     <Compile Include="Param\AdminLoginView\AdminLoginParam.cs" />

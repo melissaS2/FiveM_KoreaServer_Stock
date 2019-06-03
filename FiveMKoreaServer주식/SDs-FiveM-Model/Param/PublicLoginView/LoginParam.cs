@@ -11,6 +11,8 @@ namespace SDs.FiveM.Model.Param.PublicLoginView
         public int no { get; set; }
         public string id { get; set; }
         public string pw { get; set; }
+        public int user_id { get; set; }
         public long money { get; set; }
+
     }
 }
