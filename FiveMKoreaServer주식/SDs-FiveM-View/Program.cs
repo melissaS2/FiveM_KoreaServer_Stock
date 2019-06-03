@@ -1,4 +1,5 @@
 ﻿using SDs.FiveM.View.View;
+using SDs.FiveM.View.View.Lotto;
 using SDs.FiveM.View.View.Sample;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,11 @@ namespace SDs_FiveM_View
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new SampleView());
+
+            //주식프로그램
             Application.Run(new PublicLoginView());
+            //로또프로그램
+            //Application.Run(new LottoMakerView());
         }
     }
 }

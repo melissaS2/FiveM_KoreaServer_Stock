@@ -28,12 +28,324 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtFive = new System.Windows.Forms.TextBox();
+            this.txtFour = new System.Windows.Forms.TextBox();
+            this.txtThree = new System.Windows.Forms.TextBox();
+            this.txtTwo = new System.Windows.Forms.TextBox();
+            this.txtOne = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnFive = new System.Windows.Forms.Button();
+            this.btnFour = new System.Windows.Forms.Button();
+            this.btnThree = new System.Windows.Forms.Button();
+            this.btnTwo = new System.Windows.Forms.Button();
+            this.btnOne = new System.Windows.Forms.Button();
+            this.txtUniqueNo = new System.Windows.Forms.TextBox();
+            this.txtMoney = new System.Windows.Forms.TextBox();
+            this.txtNikName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.txtFive);
+            this.panel1.Controls.Add(this.txtFour);
+            this.panel1.Controls.Add(this.txtThree);
+            this.panel1.Controls.Add(this.txtTwo);
+            this.panel1.Controls.Add(this.txtOne);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btnFive);
+            this.panel1.Controls.Add(this.btnFour);
+            this.panel1.Controls.Add(this.btnThree);
+            this.panel1.Controls.Add(this.btnTwo);
+            this.panel1.Controls.Add(this.btnOne);
+            this.panel1.Controls.Add(this.txtUniqueNo);
+            this.panel1.Controls.Add(this.txtMoney);
+            this.panel1.Controls.Add(this.txtNikName);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(429, 596);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(255, 557);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 30);
+            this.btnRefresh.TabIndex = 24;
+            this.btnRefresh.Text = "새로고침";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(336, 557);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 30);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "종료";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 309);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(399, 242);
+            this.dataGridView1.TabIndex = 22;
+            // 
+            // txtFive
+            // 
+            this.txtFive.Location = new System.Drawing.Point(39, 278);
+            this.txtFive.Name = "txtFive";
+            this.txtFive.Size = new System.Drawing.Size(372, 25);
+            this.txtFive.TabIndex = 21;
+            // 
+            // txtFour
+            // 
+            this.txtFour.Location = new System.Drawing.Point(39, 247);
+            this.txtFour.Name = "txtFour";
+            this.txtFour.Size = new System.Drawing.Size(372, 25);
+            this.txtFour.TabIndex = 20;
+            // 
+            // txtThree
+            // 
+            this.txtThree.Location = new System.Drawing.Point(39, 216);
+            this.txtThree.Name = "txtThree";
+            this.txtThree.Size = new System.Drawing.Size(372, 25);
+            this.txtThree.TabIndex = 19;
+            // 
+            // txtTwo
+            // 
+            this.txtTwo.Location = new System.Drawing.Point(39, 185);
+            this.txtTwo.Name = "txtTwo";
+            this.txtTwo.Size = new System.Drawing.Size(372, 25);
+            this.txtTwo.TabIndex = 18;
+            // 
+            // txtOne
+            // 
+            this.txtOne.Location = new System.Drawing.Point(39, 154);
+            this.txtOne.Name = "txtOne";
+            this.txtOne.Size = new System.Drawing.Size(372, 25);
+            this.txtOne.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(51, 164);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 15);
+            this.label9.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 281);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 15);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "5)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 250);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "4)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 219);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "3)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 188);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "2)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 15);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "1)";
+            // 
+            // btnFive
+            // 
+            this.btnFive.Location = new System.Drawing.Point(336, 111);
+            this.btnFive.Name = "btnFive";
+            this.btnFive.Size = new System.Drawing.Size(75, 30);
+            this.btnFive.TabIndex = 10;
+            this.btnFive.Tag = "5";
+            this.btnFive.Text = "5개 생성";
+            this.btnFive.UseVisualStyleBackColor = true;
+            // 
+            // btnFour
+            // 
+            this.btnFour.Location = new System.Drawing.Point(255, 111);
+            this.btnFour.Name = "btnFour";
+            this.btnFour.Size = new System.Drawing.Size(75, 30);
+            this.btnFour.TabIndex = 9;
+            this.btnFour.Tag = "4";
+            this.btnFour.Text = "4개 생성";
+            this.btnFour.UseVisualStyleBackColor = true;
+            // 
+            // btnThree
+            // 
+            this.btnThree.Location = new System.Drawing.Point(174, 111);
+            this.btnThree.Name = "btnThree";
+            this.btnThree.Size = new System.Drawing.Size(75, 30);
+            this.btnThree.TabIndex = 8;
+            this.btnThree.Tag = "3";
+            this.btnThree.Text = "3개 생성";
+            this.btnThree.UseVisualStyleBackColor = true;
+            // 
+            // btnTwo
+            // 
+            this.btnTwo.Location = new System.Drawing.Point(93, 111);
+            this.btnTwo.Name = "btnTwo";
+            this.btnTwo.Size = new System.Drawing.Size(75, 30);
+            this.btnTwo.TabIndex = 7;
+            this.btnTwo.Tag = "2";
+            this.btnTwo.Text = "2개 생성";
+            this.btnTwo.UseVisualStyleBackColor = true;
+            // 
+            // btnOne
+            // 
+            this.btnOne.Location = new System.Drawing.Point(12, 111);
+            this.btnOne.Name = "btnOne";
+            this.btnOne.Size = new System.Drawing.Size(75, 30);
+            this.btnOne.TabIndex = 6;
+            this.btnOne.Tag = "1";
+            this.btnOne.Text = "1개 생성";
+            this.btnOne.UseVisualStyleBackColor = true;
+            // 
+            // txtUniqueNo
+            // 
+            this.txtUniqueNo.Location = new System.Drawing.Point(150, 42);
+            this.txtUniqueNo.Name = "txtUniqueNo";
+            this.txtUniqueNo.Size = new System.Drawing.Size(261, 25);
+            this.txtUniqueNo.TabIndex = 5;
+            // 
+            // txtMoney
+            // 
+            this.txtMoney.Location = new System.Drawing.Point(150, 73);
+            this.txtMoney.Name = "txtMoney";
+            this.txtMoney.Size = new System.Drawing.Size(261, 25);
+            this.txtMoney.TabIndex = 4;
+            // 
+            // txtNikName
+            // 
+            this.txtNikName.Location = new System.Drawing.Point(150, 11);
+            this.txtNikName.Name = "txtNikName";
+            this.txtNikName.Size = new System.Drawing.Size(261, 25);
+            this.txtNikName.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "보유중인 후원금액";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(74, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "고유번호";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(89, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "닉네임";
+            // 
+            // LottoMakerView
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LottoMakerView";
+            this.ClientSize = new System.Drawing.Size(429, 596);
+            this.Controls.Add(this.panel1);
+            this.Name = "LottoMakerView";
+            this.Text = "Korea Server 로또번호 발급 프로그램";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtFive;
+        private System.Windows.Forms.TextBox txtFour;
+        private System.Windows.Forms.TextBox txtThree;
+        private System.Windows.Forms.TextBox txtTwo;
+        private System.Windows.Forms.TextBox txtOne;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnFive;
+        private System.Windows.Forms.Button btnFour;
+        private System.Windows.Forms.Button btnThree;
+        private System.Windows.Forms.Button btnTwo;
+        private System.Windows.Forms.Button btnOne;
+        private System.Windows.Forms.TextBox txtUniqueNo;
+        private System.Windows.Forms.TextBox txtMoney;
+        private System.Windows.Forms.TextBox txtNikName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

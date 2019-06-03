@@ -2,6 +2,7 @@
 using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Param.PublicLoginView;
 using SDs.FiveM.Model.Util;
+using SDs.FiveM.View.View.Lotto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,7 +99,12 @@ namespace SDs.FiveM.View.View
                     this.MONEY = item.money;
                     this.user_id = item.user_id;
 
-                    ChartView view = new ChartView(this);
+                    //주식프로그램
+                    //ChartView view = new ChartView(this);
+                    //view.Show();
+
+                    //로또프로그램
+                    LottoMakerView view = new LottoMakerView();
                     view.Show();
                 }
             }

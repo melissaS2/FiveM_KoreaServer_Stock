@@ -86,11 +86,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(39, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(470, 24);
+            this.label3.Size = new System.Drawing.Size(411, 24);
             this.label3.TabIndex = 17;
-            this.label3.Text = "GTA5 FiveM Korea Server 주식 프로그램";
+            this.label3.Text = "GTA5 FiveM Korea Server 프로그램";
             // 
             // btnExit
             // 

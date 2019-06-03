@@ -7,7 +7,7 @@
     <ProjectGuid>{B8B4A48C-1F30-4949-A063-986760553A02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SDs.FiveM.View</RootNamespace>
-    <AssemblyName>FiveM주식프로그램</AssemblyName>
+    <AssemblyName>로또프로그램</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -168,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChartView.resx">
       <DependentUpon>ChartView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lotto\LottoMakerView.resx">
+      <DependentUpon>LottoMakerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PublicLoginView.resx">
       <DependentUpon>PublicLoginView.cs</DependentUpon>
