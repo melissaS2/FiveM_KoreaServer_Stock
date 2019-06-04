@@ -102,12 +102,12 @@ namespace SDs.FiveM.View.View
                     this.lotto_money = item.LOTTO_MONEY;
 
                     //주식프로그램
-                    //ChartView view = new ChartView(this);
-                    //view.Show();
+                    ChartView view = new ChartView(this);
+                    view.Show();
 
                     //로또프로그램
-                    LottoMakerView view = new LottoMakerView(this);
-                    view.Show();
+                    //LottoMakerView view = new LottoMakerView(this);
+                    //view.Show();
                 }
             }
             catch (Exception ex)

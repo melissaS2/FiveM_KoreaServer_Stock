@@ -7,7 +7,7 @@
     <ProjectGuid>{B8B4A48C-1F30-4949-A063-986760553A02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SDs.FiveM.View</RootNamespace>
-    <AssemblyName>로또프로그램</AssemblyName>
+    <AssemblyName>주식프로그램</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -101,11 +101,17 @@
     <Compile Include="View\AdminLoginView.Designer.cs">
       <DependentUpon>AdminLoginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminView.cs">
+    <Compile Include="View\AdminView\AdminView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdminView.Designer.cs">
+    <Compile Include="View\AdminView\AdminView.Designer.cs">
       <DependentUpon>AdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminView\SettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminView\SettingView.Designer.cs">
+      <DependentUpon>SettingView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ChargeWithdrawView.cs">
       <SubType>Form</SubType>
@@ -160,8 +166,11 @@
     <EmbeddedResource Include="View\AdminLoginView.resx">
       <DependentUpon>AdminLoginView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AdminView.resx">
+    <EmbeddedResource Include="View\AdminView\AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminView\SettingView.resx">
+      <DependentUpon>SettingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChargeWithdrawView.resx">
       <DependentUpon>ChargeWithdrawView.cs</DependentUpon>

@@ -55,7 +55,8 @@ namespace SDs.FiveM.View.View
                 if (item != null)
                 {
                     this.Hide();
-                    AdminView view = new AdminView();
+                    SDs.FiveM.View.View.AdminView.AdminView view = 
+                        new SDs.FiveM.View.View.AdminView.AdminView();
                     view.Show();
                 }
             }

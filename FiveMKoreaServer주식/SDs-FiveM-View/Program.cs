@@ -1,4 +1,5 @@
-﻿using SDs.FiveM.View.View;
+﻿using SDs.FiveM.Model.Setting;
+using SDs.FiveM.View.View;
 using SDs.FiveM.View.View.Lotto;
 using SDs.FiveM.View.View.Sample;
 using System;
@@ -30,7 +31,8 @@ namespace SDs_FiveM_View
             {
                 //현재 일 보다 느리면
             }
-
+            //FiveMConfigXMLHandler cfgHdl = new FiveMConfigXMLHandler();
+            //cfgHdl.Load();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -40,6 +42,8 @@ namespace SDs_FiveM_View
             Application.Run(new PublicLoginView());
             //로또프로그램
             //Application.Run(new LottoMakerView());
+
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SDs.FiveM.View.View
+﻿namespace SDs.FiveM.View.View.AdminView
 {
     partial class AdminView
     {
@@ -60,6 +60,7 @@
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.grd_StockCompany = new System.Windows.Forms.DataGridView();
             this.btnChargeWithdrawView = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_StockCompany)).BeginInit();
@@ -375,11 +376,21 @@
             this.btnChargeWithdrawView.Text = "충전/출금 신청 관리";
             this.btnChargeWithdrawView.UseVisualStyleBackColor = true;
             // 
+            // btnSetting
+            // 
+            this.btnSetting.Location = new System.Drawing.Point(178, 12);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnSetting.TabIndex = 63;
+            this.btnSetting.Text = "설정";
+            this.btnSetting.UseVisualStyleBackColor = true;
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(863, 770);
+            this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnChargeWithdrawView);
             this.Controls.Add(this.btUserSave);
             this.Controls.Add(this.btUserDelete);
@@ -453,5 +464,6 @@
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.DataGridView grd_StockCompany;
         private System.Windows.Forms.Button btnChargeWithdrawView;
+        private System.Windows.Forms.Button btnSetting;
     }
 }

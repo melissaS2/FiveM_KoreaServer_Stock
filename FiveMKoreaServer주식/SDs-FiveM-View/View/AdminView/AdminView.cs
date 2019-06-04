@@ -1,6 +1,7 @@
 ﻿using SDs.FiveM.Controller.Controller.AdminView;
 using SDs.FiveM.Model.Item.AdminView;
 using SDs.FiveM.Model.Item.PublicLoginView;
+using SDs.FiveM.Model.Setting;
 using SDs.FiveM.Model.Util;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SDs.FiveM.View.View
+namespace SDs.FiveM.View.View.AdminView
 {
     public partial class AdminView : Form
     {
@@ -60,7 +61,7 @@ namespace SDs.FiveM.View.View
             
             this.FormClosed += AdminView_FormClosed;
 
-            this.ButtonEnabled(true);
+            this.ButtonEnabled(false);
 
             this.grd_User.CellClick += Grd_User_CellClick;
 
@@ -68,6 +69,23 @@ namespace SDs.FiveM.View.View
             this.btUserDelete.Click += BtUserDelete_Click;
             this.btUserRefresh.Click += BtUserRefresh_Click;
             this.btUserSave.Click += BtUserSave_Click;
+
+            this.btnSetting.Click += BtnSetting_Click;
+        }
+
+        private void BtnSetting_Click(object sender, EventArgs e)
+        {
+            Form frm = FiveMUtilClass.GetForm("SettingView");
+            if (frm == null)
+            {
+                SettingView view = new SettingView();
+                view.Name = "SettingView";
+                view.ShowDialog();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void BtnChargeWithdrawView_Click(object sender, EventArgs e)
@@ -234,11 +252,12 @@ namespace SDs.FiveM.View.View
 
         private void ButtonEnabled(bool flag)
         {
-
             this.btPlay.Enabled = !flag;
-            this.btStop.Enabled = flag;
+            this.btnSetting.Enabled = !flag;
             this.btDelete.Enabled = !flag;
             this.btUpdate.Enabled = !flag;
+
+            this.btStop.Enabled = flag;
         }
 
         private void DoTimer(object param)
@@ -260,7 +279,7 @@ namespace SDs.FiveM.View.View
         {
             try
             {
-                Console.WriteLine("newEventArgsTimer_Tick " + DateTime.Now);
+                //Console.WriteLine("newEventArgsTimer_Tick " + DateTime.Now);
                 //100까지 있을때 1~20 나오면은 
                 /*
                  1~100 랜덤 돌리는데
@@ -268,6 +287,7 @@ namespace SDs.FiveM.View.View
                     20 % = - 100  ( 11~30)
                     5 % = + 1000  ( 31~35)
                  * */
+                Console.WriteLine("Timer Count "+ DateTime.Now);
                 for (int i = 0; i < this.grd_StockCompany.Rows.Count - 1; i++)
                 {
                     int num = rndNum.Next(1, 215);
@@ -275,76 +295,90 @@ namespace SDs.FiveM.View.View
                     string companyName = this.grd_StockCompany.Rows[i].Cells[1].FormattedValue.ToString();
                     long value = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[2].FormattedValue.ToString());
                     long leftCnt = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[3].FormattedValue.ToString());
-                    
+
                     //Console.WriteLine("Grid Row: " + (i + 1) + " Value :  " + value);
 
                     #region 주가변동
-                    if (num >= 1 & num <= 30) // 30 % = + 4000  (1)
-                    {
-                        value = value + 20;
-                    }
-                    else if (num >= 31 & num <= 100) // 70 % = - 300  ( 2~11)
-                    {
-                        value = value - 10;
-                    }
-                    else if (num >= 101 & num <= 101) // 1 % = + 150  ( 12~22)
-                    {
-                        value = value - 100;
-                    }
-                    else if (num >= 102 & num <= 102) // 1 % = + 150  ( 12~22)
-                    {
-                        value = value + 500;
-                    }
-                    // 51%
+                    //if (num >= 1 & num <= 30) // 30 % = + 4000  (1)
+                    //{
+                    //    value = value + 20;
+                    //}
+                    //else if (num >= 31 & num <= 100) // 70 % = - 300  ( 2~11)
+                    //{
+                    //    value = value - 10;
+                    //}
+                    //else if (num >= 101 & num <= 101) // 1 % = + 150  ( 12~22)
+                    //{
+                    //    value = value - 100;
+                    //}
+                    //else if (num >= 102 & num <= 102) // 1 % = + 150  ( 12~22)
+                    //{
+                    //    value = value + 500;
+                    //}
+                    //// 51%
                     #endregion
 
+                    Console.WriteLine("FiveMConfig.ThirtyPercent_1 " + FiveMConfig.ThirtyPercent_1);
+                    Console.WriteLine("FiveMConfig.ThirtyPercent_2 " + FiveMConfig.ThirtyPercent_2);
                     if (num >= 1 & num <= 30) // 30 %
                     {
-                        value = value + 1;
+                        //value = value + 1;
+                        value = value + FiveMConfig.ThirtyPercent_1;
                     }
                     else if (num >= 31 & num <= 60) // 30 %
                     {
-                        value = value - 1;
+                        //value = value - 1;
+                        value = value + FiveMConfig.ThirtyPercent_2;
                     }
                     else if (num >= 61 & num <= 100) // 40 %
                     {
-                        value = value - 2;
+                        //value = value - 2;
+                        value = value + FiveMConfig.FourtyPercent_1;
                     }
                     else if (num >= 101 & num <= 140) // 40 %
                     {
-                        value = value + 2;
+                        //value = value + 2;
+                        value = value + FiveMConfig.FourtyPercent_2;
                     }
                     else if (num >= 141 & num <= 141) // 1 %
                     {
-                        value = value + 20;
+                        //value = value + 20;
+                        value = value + FiveMConfig.OnePercent_1;
                     }
                     else if (num >= 142 & num <= 142) // 1 %
                     {
-                        value = value - 20;
+                        //value = value - 20;
+                        value = value + FiveMConfig.OnePercent_2;
                     }
                     else if (num >= 143 & num <= 163) // 20 %
                     {
-                        value = value - 5;
+                        //value = value - 5;
+                        value = value + FiveMConfig.TwentyPercent_1;
                     }
                     else if (num >= 164 & num <= 184) // 20 %
                     {
-                        value = value + 5;
+                        //value = value + 5;
+                        value = value + FiveMConfig.TwentyPercent_2;
                     }
                     else if (num >= 185 & num <= 200) // 15 %
                     {
-                        value = value + 4;
+                        //value = value + 4;
+                        value = value + FiveMConfig.FifteenPercent_1;
                     }
                     else if (num >= 201 & num <= 215) // 15 %
                     {
-                        value = value + 4;
+                        //value = value + 4;
+                        value = value + FiveMConfig.FifteenPercent_2;
                     }
                     else if (num >= 216 & num <= 220) // 4 %
                     {
-                        value = value - 300;
+                        //value = value - 300;
+                        value = value + FiveMConfig.FourPercent_1;
                     }
                     else if (num >= 221 & num <= 221) // 1 %
                     {
-                        value = value - 5000;
+                        //value = value - 5000;
+                        value = value + FiveMConfig.OnePercent_3;
                     }
                     //Console.WriteLine((i + 1) + " 번째 데이터 " + value);
 
@@ -355,10 +389,10 @@ namespace SDs.FiveM.View.View
                     param.LeftCnt = leftCnt;
 
                     this.controller.DoUpdateCompany(param);
-
-                    this.DoRetriveJusikData();
-                    this.DoRetriveUserData();
                 }
+
+                this.DoRetriveJusikData();
+                this.DoRetriveUserData();
 
             }
             catch (Exception ex)
@@ -377,7 +411,8 @@ namespace SDs.FiveM.View.View
                 if (timer == null)
                 {
                     System.Threading.TimerCallback callback = DoTimer;
-                    timer = new System.Threading.Timer(callback, 1, 1000, 5 * 1000);
+                    //timer = new System.Threading.Timer(callback, null, 0,500000);
+                    timer = new System.Threading.Timer(callback, null, 0, FiveMConfig.TimerSecond * 100000);
                 }
             }
             catch (Exception ex)
