@@ -13,6 +13,7 @@
     <select id="select-LottoHistory"  resultClass="LottoItem">
       SELECT * FROM tb_lotto
       WHERE ID = #ID# AND USER_ID = #USER_ID#
+      ORDER BY UPDATE_TIME DESC
     </select>
 
     <update id="update-UserLottoMoney" parameterClass="UserInfoItem">

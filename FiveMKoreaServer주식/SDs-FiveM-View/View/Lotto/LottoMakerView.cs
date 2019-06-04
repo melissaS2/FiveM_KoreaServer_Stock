@@ -19,6 +19,7 @@ namespace SDs.FiveM.View.View.Lotto
     {
         #region PROPERTY AREA ******************************
         private LoginParam param { get; set; }
+        private System.Threading.Timer recordTimer;
         private LottoMakerViewController controller = null;
         private List<TextBox> txtBoxList = null;
         private List<Button> buttonList = null;
@@ -68,7 +69,7 @@ namespace SDs.FiveM.View.View.Lotto
             grid.Columns[8].HeaderText = "(5)";
             grid.Columns[9].HeaderText = "보너스";
 
-            grid.Columns[3].Width = 80;
+            grid.Columns[3].Width = 130;
             grid.Columns[4].Width = 40;
             grid.Columns[5].Width = 40;
             grid.Columns[6].Width = 40;
@@ -100,8 +101,7 @@ namespace SDs.FiveM.View.View.Lotto
             IList<LottoItem> list = this.controller.DoRetriveLottoHistory(param);
             this.dataGridView1.DataSource = list;
 
-            this.GridColumnChange(dataGridView1);
-            this.GridPropertyChange(dataGridView1);
+            
         }
 
         private void DoInit()
@@ -225,16 +225,22 @@ namespace SDs.FiveM.View.View.Lotto
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             this.DoRefresh();
+
+            this.GridColumnChange(dataGridView1);
+            this.GridPropertyChange(dataGridView1);
         }
 
         private void LottoMakerView_Load(object sender, EventArgs e)
         {
             this.DoInit();
+            this.DoRefresh();
+            this.GridColumnChange(dataGridView1);
+            this.GridPropertyChange(dataGridView1);
 
             System.Threading.TimerCallback callBack = DoLoad;
-            System.Threading.Timer recordTimer = 
+            recordTimer = 
                 new System.Threading.Timer(callBack, null, 1000, 2000);
-
+            
             //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             //timer.Interval = 2000; // 2 초
             //timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
@@ -244,7 +250,7 @@ namespace SDs.FiveM.View.View.Lotto
         private void DoLoad(object param)
         {
             LoginItem item = this.controller.DoSelectUserInfo(this.param);
-
+            Console.WriteLine("타이머");
             if (this.InvokeRequired)
             {
                 this.BeginInvoke(new MethodInvoker(delegate
