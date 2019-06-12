@@ -7,6 +7,11 @@
   <statements>
     <select id="select-CompanyList"  resultClass="adminViewItem">
       SELECT * FROM companylist
+      <dynamic prepend="where">
+        <isNotNull property="CompanyName">
+          CompanyName = #CompanyName#
+        </isNotNull>
+      </dynamic>
     </select>
 
     <select id="select-UserList"  resultClass="loginItem">
@@ -36,6 +41,12 @@
 
     <delete id="delete-Company" parameterClass="adminViewItem">
       DELETE FROM companylist where No = #No#
+    </delete>
+
+    <delete id="update-CompanyTradingHistory" parameterClass="adminViewItem">
+      UPDATE user_company_buy
+      SET ju = 0
+      WHERE company = #CompanyName#
     </delete>
 
     <delete id="delete-User" parameterClass="loginItem">

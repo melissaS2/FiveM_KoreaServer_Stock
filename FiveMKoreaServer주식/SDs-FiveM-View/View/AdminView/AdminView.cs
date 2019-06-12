@@ -19,6 +19,7 @@ namespace SDs.FiveM.View.View.AdminView
         #region PROPERTY AREA ******************************
         private AdminViewController controller = null;
         private System.Threading.Timer timer;
+        private System.Threading.Timer recordTimer;
         private Random rndNum;
         //private UserItem item = null;
         private bool cellClick = false;
@@ -112,6 +113,8 @@ namespace SDs.FiveM.View.View.AdminView
                 timer.Dispose();
                 timer = null;
             }
+
+            this.DoGridRefresh();
         }
 
         private void BtUserSave_Click(object sender, EventArgs e)
@@ -287,39 +290,28 @@ namespace SDs.FiveM.View.View.AdminView
                     20 % = - 100  ( 11~30)
                     5 % = + 1000  ( 31~35)
                  * */
-                Console.WriteLine("Timer Count "+ DateTime.Now);
-                for (int i = 0; i < this.grd_StockCompany.Rows.Count - 1; i++)
+                //Console.WriteLine("Timer Count "+ DateTime.Now);
+                //Console.WriteLine("회사 갯수  " + this.grd_StockCompany.Rows.Count);
+                for (int i = 0; i < this.grd_StockCompany.Rows.Count; i++)
                 {
+                    AdminViewItem param = new AdminViewItem();
+                    
+
                     int num = rndNum.Next(1, 215);
                     int No = int.Parse(this.grd_StockCompany.Rows[i].Cells[0].FormattedValue.ToString());
                     string companyName = this.grd_StockCompany.Rows[i].Cells[1].FormattedValue.ToString();
                     long value = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[2].FormattedValue.ToString());
-                    long leftCnt = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[3].FormattedValue.ToString());
+                    //long leftCnt = FiveMUtilClass.StringToParseLong(this.grd_StockCompany.Rows[i].Cells[3].FormattedValue.ToString());
 
-                    //Console.WriteLine("Grid Row: " + (i + 1) + " Value :  " + value);
+                    param.No = No;
+                    param.CompanyName = companyName;
 
-                    #region 주가변동
-                    //if (num >= 1 & num <= 30) // 30 % = + 4000  (1)
-                    //{
-                    //    value = value + 20;
-                    //}
-                    //else if (num >= 31 & num <= 100) // 70 % = - 300  ( 2~11)
-                    //{
-                    //    value = value - 10;
-                    //}
-                    //else if (num >= 101 & num <= 101) // 1 % = + 150  ( 12~22)
-                    //{
-                    //    value = value - 100;
-                    //}
-                    //else if (num >= 102 & num <= 102) // 1 % = + 150  ( 12~22)
-                    //{
-                    //    value = value + 500;
-                    //}
-                    //// 51%
-                    #endregion
+                    long leftCnt = this.controller.DoRetriveJusikData(param)[0].LeftCnt;
+                    //ToDo leftCnt를 그리드에서 불러오는 게 아니라, 실시간으로 데이터 DB에서 불러와야 함
+                    //유저들이 LEFTCNT를 조절하기 때문에, 
+                    //그리드 타이머 랑 업데이트 타이머를 따로 돌리면 좋을 것 같다.
+                    //그리드 타이머는 1초 업데이트 타이머는 유저 권한
 
-                    Console.WriteLine("FiveMConfig.ThirtyPercent_1 " + FiveMConfig.ThirtyPercent_1);
-                    Console.WriteLine("FiveMConfig.ThirtyPercent_2 " + FiveMConfig.ThirtyPercent_2);
                     if (num >= 1 & num <= 30) // 30 %
                     {
                         //value = value + 1;
@@ -380,20 +372,15 @@ namespace SDs.FiveM.View.View.AdminView
                         //value = value - 5000;
                         value = value + FiveMConfig.OnePercent_3;
                     }
-                    //Console.WriteLine((i + 1) + " 번째 데이터 " + value);
-
-                    AdminViewItem param = new AdminViewItem();
-                    param.No = No;
-                    param.CompanyName = companyName;
+                    
                     param.JuMoney = value;
                     param.LeftCnt = leftCnt;
 
                     this.controller.DoUpdateCompany(param);
+                    this.controller.DoUpdateRubbishCompany(param);
                 }
 
-                this.DoRetriveJusikData();
-                this.DoRetriveUserData();
-
+                this.DoGridRefresh();
             }
             catch (Exception ex)
             {
@@ -401,10 +388,75 @@ namespace SDs.FiveM.View.View.AdminView
             }
         }
 
+        private void DoRetriveJusikData()
+        {
+            IList<AdminViewItem> list = this.controller.DoRetriveJusikData(new AdminViewItem());
+            this.grd_StockCompany.DataSource = list;
+
+            this.ColumnWidthHandler(this.grd_StockCompany);
+
+            if (this.grd_StockCompany.RowCount != 0)
+            {
+                this.grd_StockCompany.Rows[currRowIndex].Selected = true;
+                this.grd_StockCompany.Rows[0].Cells[0].Selected = false;
+                this.grd_StockCompany.Rows[currRowIndex].Cells[currColIndex].Selected = true;
+            }
+        }
+
+        private void DoRetriveUserData()
+        {
+            IList<LoginItem> list = this.controller.DoRetriveUserData();
+            this.grd_User.DataSource = list;
+
+            this.ColumnWidthHandler(this.grd_User);
+            if (this.grd_User.RowCount != 0)
+            {
+                this.grd_User.Rows[userGridCurrColIdx].Selected = true;
+                this.grd_User.Rows[0].Cells[0].Selected = false;
+                this.grd_User.Rows[userGridCurrRowIdx].Cells[userGridCurrColIdx].Selected = true;
+            }
+        }
+
+        private void ProgramExit()
+        {
+            Environment.Exit(0);
+        }
+
+        private void DoLoad(object param)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    this.DoGridRefresh();
+                }));
+            }
+            else
+            {
+                this.DoGridRefresh();
+            }
+        }
+        private void DoGridRefresh()
+        {
+            this.DoRetriveJusikData();
+            this.DoRetriveUserData();
+        }
+
+        private void ColumnWidthHandler(DataGridView grid)
+        {
+            grid.Columns[0].Width = 50;
+            grid.Columns[1].Width = 120;
+            grid.Columns[2].Width = 70;
+            grid.Columns[3].Width = 70;
+        }
+        #endregion
+
+        #region EVENT AREA **********************************
         private void BtPlay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             this.ButtonEnabled(true);
+            this.DoGridRefresh();
 
             try
             {
@@ -412,7 +464,7 @@ namespace SDs.FiveM.View.View.AdminView
                 {
                     System.Threading.TimerCallback callback = DoTimer;
                     //timer = new System.Threading.Timer(callback, null, 0,500000);
-                    timer = new System.Threading.Timer(callback, null, 0, FiveMConfig.TimerSecond * 100000);
+                    timer = new System.Threading.Timer(callback, null, 0, FiveMConfig.TimerSecond * 10000);
                 }
             }
             catch (Exception ex)
@@ -442,7 +494,7 @@ namespace SDs.FiveM.View.View.AdminView
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cellClick = false;
 
-                    this.DoRetriveJusikData();
+                    this.DoGridRefresh();
                 }
             }
         }
@@ -468,7 +520,7 @@ namespace SDs.FiveM.View.View.AdminView
                     currRowIndex = 0;
                     currColIndex = 0;
 
-                    this.DoRetriveJusikData();
+                    this.DoGridRefresh();
                 }
             }
             else
@@ -541,55 +593,12 @@ namespace SDs.FiveM.View.View.AdminView
             this.currColIndex = 0;
         }
 
-        private void DoRetriveJusikData()
-        {
-            IList<AdminViewItem> list = this.controller.DoRetriveJusikData();
-            this.grd_StockCompany.DataSource = list;
-
-            this.ColumnWidthHandler(this.grd_StockCompany);
-
-            if (this.grd_StockCompany.RowCount != 0)
-            {
-                this.grd_StockCompany.Rows[currRowIndex].Selected = true;
-                this.grd_StockCompany.Rows[0].Cells[0].Selected = false;
-                this.grd_StockCompany.Rows[currRowIndex].Cells[currColIndex].Selected = true;
-            }
-        }
-
-        private void DoRetriveUserData()
-        {
-            IList<LoginItem> list = this.controller.DoRetriveUserData();
-            this.grd_User.DataSource = list;
-
-            this.ColumnWidthHandler(this.grd_User);
-            if (this.grd_User.RowCount != 0)
-            {
-                this.grd_User.Rows[userGridCurrColIdx].Selected = true;
-                this.grd_User.Rows[0].Cells[0].Selected = false;
-                this.grd_User.Rows[userGridCurrRowIdx].Cells[userGridCurrColIdx].Selected = true;
-            }
-        }
-
-        private void ProgramExit()
-        {
-            Environment.Exit(0);
-        }
-        #endregion
-
-        #region EVENT AREA **********************************
         private void AdminView_Load(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            this.DoRetriveJusikData();
-            this.DoRetriveUserData();
-        }
-
-        private void ColumnWidthHandler(DataGridView grid)
-        {
-            grid.Columns[0].Width = 50;
-            grid.Columns[1].Width = 120;
-            grid.Columns[2].Width = 70;
-            grid.Columns[3].Width = 70;
+            //System.Threading.TimerCallback callBack = DoLoad;
+            //recordTimer =
+            //    new System.Threading.Timer(callBack, null, 1000, 1000);
         }
 
         private void AdminView_FormClosed(object sender, FormClosedEventArgs e)

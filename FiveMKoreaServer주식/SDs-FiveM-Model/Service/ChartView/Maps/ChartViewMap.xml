@@ -22,7 +22,12 @@
       where userid = #userid# AND
       company = #company#
     </select>
-    
+
+    <select id="select-CountJusikData" parameterType="String" resultClass="userCompanyBuyItem">
+      select * from user_company_buy
+      where userid = #loginId#
+    </select>
+
     <insert id="insert-UserCompanyBuy" parameterClass="userCompanyBuyItem">
       INSERT INTO user_company_buy (`userid`, `company`, `won`, `ju`)
       VALUES (#userid#, #company#, #won#, #ju#)

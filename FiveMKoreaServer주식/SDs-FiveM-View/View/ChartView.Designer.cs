@@ -53,9 +53,6 @@
             this.btnRecordRefresh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbxSellStockCount = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.txtMoney = new System.Windows.Forms.TextBox();
@@ -63,6 +60,7 @@
             this.money = new System.Windows.Forms.Label();
             this.idlabel = new System.Windows.Forms.Label();
             this.grd_StockStatusList = new System.Windows.Forms.DataGridView();
+            this.btnJuCountRetrive = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_SellHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_BuyHistory)).BeginInit();
@@ -80,7 +78,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.tbxBuyMoney);
             this.groupBox2.Controls.Add(this.tbxBuyStockCount);
-            this.groupBox2.Location = new System.Drawing.Point(592, 177);
+            this.groupBox2.Location = new System.Drawing.Point(592, 142);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -218,7 +216,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(913, 275);
+            this.label11.Location = new System.Drawing.Point(913, 276);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 15);
             this.label11.TabIndex = 49;
@@ -227,7 +225,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(914, 12);
+            this.label10.Location = new System.Drawing.Point(913, 41);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 15);
             this.label10.TabIndex = 48;
@@ -238,14 +236,14 @@
             this.grid_SellHistory.AllowUserToOrderColumns = true;
             this.grid_SellHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grid_SellHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_SellHistory.Location = new System.Drawing.Point(916, 294);
+            this.grid_SellHistory.Location = new System.Drawing.Point(915, 295);
             this.grid_SellHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grid_SellHistory.MultiSelect = false;
             this.grid_SellHistory.Name = "grid_SellHistory";
             this.grid_SellHistory.ReadOnly = true;
             this.grid_SellHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grid_SellHistory.RowTemplate.Height = 23;
-            this.grid_SellHistory.Size = new System.Drawing.Size(600, 224);
+            this.grid_SellHistory.Size = new System.Drawing.Size(600, 188);
             this.grid_SellHistory.TabIndex = 47;
             // 
             // grid_BuyHistory
@@ -253,22 +251,22 @@
             this.grid_BuyHistory.AllowUserToOrderColumns = true;
             this.grid_BuyHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grid_BuyHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_BuyHistory.Location = new System.Drawing.Point(917, 39);
+            this.grid_BuyHistory.Location = new System.Drawing.Point(916, 68);
             this.grid_BuyHistory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grid_BuyHistory.MultiSelect = false;
             this.grid_BuyHistory.Name = "grid_BuyHistory";
             this.grid_BuyHistory.ReadOnly = true;
             this.grid_BuyHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grid_BuyHistory.RowTemplate.Height = 23;
-            this.grid_BuyHistory.Size = new System.Drawing.Size(600, 231);
+            this.grid_BuyHistory.Size = new System.Drawing.Size(600, 184);
             this.grid_BuyHistory.TabIndex = 46;
             // 
             // btnRefill
             // 
-            this.btnRefill.Location = new System.Drawing.Point(1322, 6);
+            this.btnRefill.Location = new System.Drawing.Point(1408, 6);
             this.btnRefill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRefill.Name = "btnRefill";
-            this.btnRefill.Size = new System.Drawing.Size(194, 29);
+            this.btnRefill.Size = new System.Drawing.Size(108, 29);
             this.btnRefill.TabIndex = 51;
             this.btnRefill.Text = "충전 및 출금";
             this.btnRefill.UseVisualStyleBackColor = true;
@@ -295,10 +293,10 @@
             // 
             // btnRecordRefresh
             // 
-            this.btnRecordRefresh.Location = new System.Drawing.Point(1008, 6);
+            this.btnRecordRefresh.Location = new System.Drawing.Point(1261, 6);
             this.btnRecordRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRecordRefresh.Name = "btnRecordRefresh";
-            this.btnRecordRefresh.Size = new System.Drawing.Size(297, 29);
+            this.btnRecordRefresh.Size = new System.Drawing.Size(141, 29);
             this.btnRecordRefresh.TabIndex = 50;
             this.btnRecordRefresh.Text = "기록 새로고침";
             this.btnRecordRefresh.UseVisualStyleBackColor = true;
@@ -313,7 +311,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.tbxSellMoney);
             this.groupBox1.Controls.Add(this.tbxSellStockCount);
-            this.groupBox1.Location = new System.Drawing.Point(592, 349);
+            this.groupBox1.Location = new System.Drawing.Point(592, 314);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -329,39 +327,6 @@
             this.tbxSellStockCount.Name = "tbxSellStockCount";
             this.tbxSellStockCount.Size = new System.Drawing.Size(212, 25);
             this.tbxSellStockCount.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(632, 159);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 15);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "(테스트중)";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(632, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 15);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "매도는 전체 판매가 됩니다.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(632, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(286, 15);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "주가는 5초에 한번씩 업데이트 됩니다.";
             // 
             // btnExit
             // 
@@ -437,14 +402,24 @@
             this.grd_StockStatusList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grd_StockStatusList.RowTemplate.Height = 23;
             this.grd_StockStatusList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grd_StockStatusList.Size = new System.Drawing.Size(573, 502);
+            this.grd_StockStatusList.Size = new System.Drawing.Size(573, 467);
             this.grd_StockStatusList.TabIndex = 34;
+            // 
+            // btnJuCountRetrive
+            // 
+            this.btnJuCountRetrive.Location = new System.Drawing.Point(1106, 6);
+            this.btnJuCountRetrive.Name = "btnJuCountRetrive";
+            this.btnJuCountRetrive.Size = new System.Drawing.Size(149, 29);
+            this.btnJuCountRetrive.TabIndex = 52;
+            this.btnJuCountRetrive.Text = "현재 보유 주 조회";
+            this.btnJuCountRetrive.UseVisualStyleBackColor = true;
             // 
             // ChartView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1531, 527);
+            this.ClientSize = new System.Drawing.Size(1531, 496);
+            this.Controls.Add(this.btnJuCountRetrive);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -453,9 +428,6 @@
             this.Controls.Add(this.btnRefill);
             this.Controls.Add(this.btnRecordRefresh);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.txtMoney);
@@ -504,9 +476,6 @@
         private System.Windows.Forms.Button btnRecordRefresh;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbxSellStockCount;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.TextBox txtMoney;
@@ -514,5 +483,6 @@
         private System.Windows.Forms.Label money;
         private System.Windows.Forms.Label idlabel;
         private System.Windows.Forms.DataGridView grd_StockStatusList;
+        private System.Windows.Forms.Button btnJuCountRetrive;
     }
 }

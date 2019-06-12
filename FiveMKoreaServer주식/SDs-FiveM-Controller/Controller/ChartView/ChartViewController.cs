@@ -23,6 +23,21 @@ namespace SDs.FiveM.Controller.Controller.ChartView
             object call = Mapper.Instance().Update("update-CompanyJuLeftCnt", item);
         }
 
+        public IList<UserCompanyItem> DoRetriveCountData(string loginId)
+        {
+            IList<UserCompanyItem> list = null;
+            try
+            {
+                list = Mapper.Instance().QueryForList<UserCompanyItem>("select-CountJusikData", loginId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            return list;
+        }
+
         public IList<HistoryItem> DoRefreshSellHistory(string loginId)
         {
             IList<HistoryItem> list = null;

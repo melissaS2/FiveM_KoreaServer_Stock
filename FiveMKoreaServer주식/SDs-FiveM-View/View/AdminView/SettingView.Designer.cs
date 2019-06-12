@@ -31,6 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTimerSecond = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,9 +60,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtTimerSecond = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -121,6 +121,31 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "주가변동 설정";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(434, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 15);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "초";
+            // 
+            // txtTimerSecond
+            // 
+            this.txtTimerSecond.Location = new System.Drawing.Point(348, 10);
+            this.txtTimerSecond.Name = "txtTimerSecond";
+            this.txtTimerSecond.Size = new System.Drawing.Size(80, 25);
+            this.txtTimerSecond.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(210, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(132, 15);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "주가변동 시간주기";
             // 
             // label12
             // 
@@ -331,31 +356,6 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "종료";
             this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(210, 13);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 15);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "주가변동 시간주기";
-            // 
-            // txtTimerSecond
-            // 
-            this.txtTimerSecond.Location = new System.Drawing.Point(348, 10);
-            this.txtTimerSecond.Name = "txtTimerSecond";
-            this.txtTimerSecond.Size = new System.Drawing.Size(80, 25);
-            this.txtTimerSecond.TabIndex = 26;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(434, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 15);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "분";
             // 
             // SettingView
             // 

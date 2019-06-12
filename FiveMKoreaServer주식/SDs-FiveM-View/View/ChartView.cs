@@ -3,6 +3,7 @@ using SDs.FiveM.Model.Item.AdminView;
 using SDs.FiveM.Model.Item.ChartView;
 using SDs.FiveM.Model.Item.PublicLoginView;
 using SDs.FiveM.Model.Util;
+using SDs.FiveM.View.View.UserChartView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,8 +72,24 @@ namespace SDs.FiveM.View.View
             this.btnSellStock.Click += BtnSellStock_Click;
             this.btnSellRefresh.Click += BtnBuyRefresh_Click;
             //기록 화면
+            this.btnJuCountRetrive.Click += BtnJuCountRetrive_Click;
             this.btnRecordRefresh.Click += BtnRecordRefresh_Click;
             this.btnRefill.Click += BtnRefill_Click;
+        }
+
+        private void BtnJuCountRetrive_Click(object sender, EventArgs e)
+        {
+            Form frm = FiveMUtilClass.GetForm("UserJuCountView");
+            if (frm == null)
+            {
+                UserJuCountView view = new UserJuCountView(publicLoginView);
+                view.Name = "UserJuCountView";
+                view.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void DoLoad()
@@ -335,6 +352,14 @@ namespace SDs.FiveM.View.View
                     return;
                 }
 
+                if (juMoney <= 0)
+                {
+                    msgBoxText = "현재 해당 회사 주식은 구매할 수 없습니다\r\n주가가 - 일때는 매수가 불가합니다";
+                    msgBoxCaption = "경고";
+                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 else if (userMoney >= buyStockPrice)
                 {
                     long leftMoney = userMoney - buyStockPrice;
@@ -397,7 +422,6 @@ namespace SDs.FiveM.View.View
         {
             this.DoHistoryRefresh();
 
-            //throw new NotImplementedException();
             Timer timer = new Timer();
             timer.Interval = 1000; // 1 초
             timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
@@ -474,20 +498,22 @@ namespace SDs.FiveM.View.View
                 }
                 if (list.Count == 0)
                 {
-                    msgBoxText = "해당 회사 주식이 없습니다.";
+                    msgBoxText = "해당 회사의 보유중인 주식이 없습니다.";
                     msgBoxCaption = "경고";
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (JuMoney < 0)
-                {
-                    //주가가 마이너스 라서
-                    msgBoxText = "해당 주식은 현재 매도할 수 없습니다.";
-                    msgBoxCaption = "경고";
-                    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //19.06.12 
+                //주가가 마이너스 일 때도 매도는 되게 해달라는 요청
+                //if (JuMoney < 0)
+                //{
+                //    //주가가 마이너스 라서
+                //    msgBoxText = "해당 주식은 현재 매도할 수 없습니다.";
+                //    msgBoxCaption = "경고";
+                //    FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
                 if (this.tbxSellMoney.Text == "")
                 {

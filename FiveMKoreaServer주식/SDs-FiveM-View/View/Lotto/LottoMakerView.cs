@@ -250,7 +250,6 @@ namespace SDs.FiveM.View.View.Lotto
         private void DoLoad(object param)
         {
             LoginItem item = this.controller.DoSelectUserInfo(this.param);
-            Console.WriteLine("타이머");
             if (this.InvokeRequired)
             {
                 this.BeginInvoke(new MethodInvoker(delegate

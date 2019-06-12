@@ -31,12 +31,12 @@ namespace SDs.FiveM.Controller.Controller.AdminView
             return list;
         }
 
-        public IList<AdminViewItem> DoRetriveJusikData()
+        public IList<AdminViewItem> DoRetriveJusikData(AdminViewItem param)
         {
             IList<AdminViewItem> list = null;
             try
             {
-                list = Mapper.Instance().QueryForList<AdminViewItem>("select-CompanyList", null);
+                list = Mapper.Instance().QueryForList<AdminViewItem>("select-CompanyList", param);
             }
             catch (Exception ex)
             {
@@ -81,6 +81,26 @@ namespace SDs.FiveM.Controller.Controller.AdminView
 
             return isSuccess;
         }
+
+        public bool DoUpdateRubbishCompany(AdminViewItem param)
+        {
+            bool isSuccess = false;
+
+            try
+            {
+                object list = Mapper.Instance().Update("update-CompanyTradingHistory", param);
+                isSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                isSuccess = false;
+            }
+
+            return isSuccess;
+        }
+
+
         public bool DoUpdateCompany(AdminViewItem param)
         {
             bool isSuccess = false;
