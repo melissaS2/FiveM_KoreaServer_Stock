@@ -123,5 +123,20 @@ namespace SDs.FiveM.Controller.Controller.ChartView
 
             return list;
         }
+
+        public IList<AdminViewItem> DoRetriveJusikData(AdminViewItem param)
+        {
+            IList<AdminViewItem> list = null;
+            try
+            {
+                list = Mapper.Instance().QueryForList<AdminViewItem>("select-CompanyList", param);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            return list;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace SDs_FiveM_View
         [STAThread]
         static void Main()
         {
-            DateTime licenseTime = DateTime.Parse("2019-06-30");
+            DateTime licenseTime = DateTime.Parse("2019-07-12");
 
             if (licenseTime.CompareTo(System.DateTime.Now) < 0)
             {
@@ -37,13 +37,7 @@ namespace SDs_FiveM_View
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new SampleView());
-
-            //주식프로그램
             Application.Run(new PublicLoginView());
-            //로또프로그램
-            //Application.Run(new LottoMakerView());
-
-
         }
     }
 }

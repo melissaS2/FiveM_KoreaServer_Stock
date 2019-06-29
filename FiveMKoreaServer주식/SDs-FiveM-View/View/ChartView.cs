@@ -392,7 +392,8 @@ namespace SDs.FiveM.View.View
 
                         else if (list.Count == 1)
                         {
-                            userCompanyBuyItem.ju = buyJuCount + userCompanyBuyItem.ju; // 가지고 있던 주 갯수 + 새로 살 갯수
+                            userCompanyBuyItem.ju = list[0].ju; //가지고 있던 주 갯수
+                            userCompanyBuyItem.ju = buyJuCount + userCompanyBuyItem.ju; //  새로 살 갯수 + 가지고 있던 주 갯수
                             this.controller.DoUpdateCompanyJu(userCompanyBuyItem);
                         }
 
@@ -423,7 +424,7 @@ namespace SDs.FiveM.View.View
             this.DoHistoryRefresh();
 
             Timer timer = new Timer();
-            timer.Interval = 1000; // 1 초
+            timer.Interval = 800; // 1 초
             timer.Tick += new EventHandler(NewEventArgsTimer_Tick);
             timer.Start();
         }
@@ -481,13 +482,19 @@ namespace SDs.FiveM.View.View
                 int no = FiveMUtilClass.StringToParseInt(this.grd_StockStatusList.Rows[currRowIndex].Cells[0].FormattedValue.ToString()); //번호
                 string CompanyName = this.grd_StockStatusList.Rows[currRowIndex].Cells[1].FormattedValue.ToString(); //회사이름
                 long JuMoney = FiveMUtilClass.StringToParseLong(this.grd_StockStatusList.Rows[currRowIndex].Cells[2].FormattedValue.ToString()); // 판매단가
+                long ju = FiveMUtilClass.StringToParseLong(this.grd_StockStatusList.Rows[currRowIndex].Cells[3].FormattedValue.ToString()); //회사 남은 주 갯수
 
                 userCompanySellItem.userid = this.publicLoginView.LOGIN_ID;
                 userCompanySellItem.company = companyName;
                 userCompanySellItem.won = JuMoney;
 
-                IList<UserCompanyItem> list = this.controller.DoGetCompanyJuCnt(userCompanySellItem);
+                companyItem.No = no;
+                companyItem.CompanyName = CompanyName;
 
+                //유저가 선택한 회사 가지고 있는 주식 갯수
+                IList<UserCompanyItem> list = this.controller.DoGetCompanyJuCnt(userCompanySellItem);
+                //회사 주식 갯수(그리드 Retrive 와 동일)
+                IList<AdminViewItem> companyListItem = this.controller.DoRetriveJusikData(companyItem);
                 if (list.Count > 1)
                 {
                     msgBoxText = "데이터 오류. 관리자 문의 바람";
@@ -533,7 +540,7 @@ namespace SDs.FiveM.View.View
 
                 if (list[0].ju < sellJuCount)
                 {
-                    msgBoxText = companyName + " 회사의 보유하고 계신 주 보다 \r\n 많은 양의 주를 매도 신청 하셨습니다.";
+                    msgBoxText = companyName + "해당 회사의 보유하고 계신 주 보다 \r\n 많은 양의 주를 매도 신청 하셨습니다.";
                     msgBoxCaption = "경고";
                     FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -553,6 +560,7 @@ namespace SDs.FiveM.View.View
                     //if (Util.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     userCompanySellItem.ju = list[0].ju - sellJuCount;
                     userCompanySellItem.totalprice = sellStockPrice;
+                    companyItem.LeftCnt = companyListItem[0].LeftCnt + sellJuCount;
                     {
                         //STEP 1. Upddate User's Ju Count Where Company
                         this.controller.DoUpdateCompanyJu(userCompanySellItem);
@@ -560,6 +568,8 @@ namespace SDs.FiveM.View.View
                         this.controller.DoInsertSellHistory(userCompanySellItem);
                         //STEP 3. UPDATE USER LEFT MONEY
                         this.DoUpdateUserMoney(leftMoney);
+                        //STEP 4. Company Ju Count Increase
+                        this.controller.DoUpdateCompanyLeftJuCnt(companyItem);
                     }
 
                     msgBoxText = "매도 완료 \r\n 회사명 : " + companyName + " \r\n 주 : " + sellJuCount + "개 \r\n 판매단가 : " + JuMoney + "\r\n 거래 후 잔액 : " + leftMoney;
