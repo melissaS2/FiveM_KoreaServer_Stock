@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SDs.FiveM.Model.Service.PostgreSQL.Maps.DefaultMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ibatis.apache.org/mapping">
+  <alias>
+    <typeAlias alias="tableListItem"  type="SDs.FiveM.Model.Item.PostgreSQL.TableListItem" />
+    <typeAlias alias="tableSchemaItem"  type="SDs.FiveM.Model.Item.PostgreSQL.TableSchemaItem" />
+  </alias>
+  <statements>
+    <select id="select-TableSchema"  resultClass="tableSchemaItem">
+      select * from information_schema.columns
+      where table_name =#tablename#
+      order by column_name
+    </select>
+
+    <select id="select-AllSchemaList"  resultClass="tableListItem">
+      select distinct schemaname from pg_tables order by 1 desc
+    </select>
+
+    <select id="select-AllTableList"  resultClass="tableListItem">
+      select * from pg_tables where schemaname like #schemaname# ||'%' and tablename like #tablename# || '%'
+    </select>
+
+    <select id="select-columnName"  resultClass="tableListItem">
+      select *
+      from information_schema.columns
+      where table_name = #tablename#
+    </select>
+  </statements>
+</sqlMap>

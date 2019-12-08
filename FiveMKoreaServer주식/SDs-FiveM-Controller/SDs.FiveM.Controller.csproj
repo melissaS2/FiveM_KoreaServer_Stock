@@ -57,6 +57,7 @@
     <Compile Include="Controller\ChartView\ChartViewController.cs" />
     <Compile Include="Controller\Lotto\LottoMakerView\LottoMakerViewController.cs" />
     <Compile Include="Controller\PublicLoginViewController.cs" />
+    <Compile Include="Controller\QueryMakerView\QueryMakerController.cs" />
     <Compile Include="Controller\SignUpView\SignUpViewController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

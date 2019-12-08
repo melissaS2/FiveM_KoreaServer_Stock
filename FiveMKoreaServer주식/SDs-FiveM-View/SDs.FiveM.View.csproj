@@ -7,7 +7,7 @@
     <ProjectGuid>{B8B4A48C-1F30-4949-A063-986760553A02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SDs.FiveM.View</RootNamespace>
-    <AssemblyName>주식프로그램</AssemblyName>
+    <AssemblyName>쿼리자동생성기</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -72,8 +72,14 @@
     <Reference Include="IBatisNet.DataMapper">
       <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Postgres\Mono.Security.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\SDs-Global-Libraries\Global\Lib\MySql\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Postgres\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -138,6 +144,12 @@
       <DependentUpon>PublicLoginView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PublicLoginViewInterface.cs" />
+    <Compile Include="View\QueryMaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QueryMaker.Designer.cs">
+      <DependentUpon>QueryMaker.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Sample\SampleView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PublicLoginView.resx">
       <DependentUpon>PublicLoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QueryMaker.resx">
+      <DependentUpon>QueryMaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Sample\SampleView.resx">
       <DependentUpon>SampleView.cs</DependentUpon>

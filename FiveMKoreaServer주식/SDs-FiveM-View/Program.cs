@@ -17,12 +17,12 @@ namespace SDs_FiveM_View
         [STAThread]
         static void Main()
         {
-            DateTime licenseTime = DateTime.Parse("2019-07-12");
+            DateTime licenseTime = DateTime.Parse("2020-06-30");
 
             if (licenseTime.CompareTo(System.DateTime.Now) < 0)
             {
                 //현재 일 보다 빠르면 (라이센스 만료)
-                string msgBoxText = "라이센스 기간이 만료되었습니다. 관리자에게 문의하세요";
+                string msgBoxText = "더이상 못씁니다^^";
                 string msgBoxCaption = "경고";
                 SDs.FiveM.Model.Util.FiveMUtilClass.GetMessageBox(msgBoxText, msgBoxCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Environment.Exit(0);
@@ -31,13 +31,14 @@ namespace SDs_FiveM_View
             {
                 //현재 일 보다 느리면
             }
+
             //FiveMConfigXMLHandler cfgHdl = new FiveMConfigXMLHandler();
             //cfgHdl.Load();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new SampleView());
-            Application.Run(new PublicLoginView());
+            Application.Run(new QueryMaker());
         }
     }
 }

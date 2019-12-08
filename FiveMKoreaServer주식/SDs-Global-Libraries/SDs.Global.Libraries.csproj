@@ -80,6 +80,8 @@
     <Content Include="Global\Lib\Ibatis\log4net.dll" />
     <Content Include="Global\Lib\Ibatis\log4net.xml" />
     <Content Include="Global\Lib\MySql\MySql.Data.dll" />
+    <Content Include="Global\Lib\Postgres\Mono.Security.dll" />
+    <Content Include="Global\Lib\Postgres\Npgsql.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

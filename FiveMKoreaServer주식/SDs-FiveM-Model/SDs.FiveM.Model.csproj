@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DBType.cs" />
     <Compile Include="Constants\FiveMConstants.cs" />
     <Compile Include="Item\AdminLoginView\AdminLoginItem.cs" />
     <Compile Include="Item\AdminView\AdminViewItem.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Item\ChartView\HistoryItem.cs" />
     <Compile Include="Item\ChartView\UserCompanyItem.cs" />
     <Compile Include="Item\Lotto\LottoMakerView\LottoItem.cs" />
+    <Compile Include="Item\PostgreSQL\TableListItem.cs" />
+    <Compile Include="Item\PostgreSQL\TableSchemaItem.cs" />
     <Compile Include="Item\PublicLoginView\LoginItem.cs" />
     <Compile Include="Item\Sample\AdminUserItem.cs" />
     <Compile Include="Param\AdminLoginView\AdminLoginParam.cs" />
@@ -140,6 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Service\Lotto\LottoMakerView\Maps\LottoMakerViewMap.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service\PostgreSQL\Maps\DefaultMap.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
