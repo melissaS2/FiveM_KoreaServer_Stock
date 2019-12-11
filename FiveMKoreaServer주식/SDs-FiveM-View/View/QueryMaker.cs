@@ -84,11 +84,10 @@ namespace SDs.FiveM.View.View
                 
                 if ((bool)value)
                 {
-                    procedureText += 
-                        this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
+                    procedureText +=
+                        "p_" + this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
-                        + "character varying";
-                        procedureText += ", ";
+                        + "character varying, ";
                 }
             }
             procedureText = procedureText.Substring(0, procedureText.Length - 2);
@@ -108,10 +107,9 @@ namespace SDs.FiveM.View.View
                 if ((bool)value)
                 {
                     procedureText +=
-                        this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
+                        "p_" + this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
-                        + "character varying";
-                        procedureText += ", ";
+                        + "character varying, ";
                 }
             }
             procedureText = procedureText.Substring(0, procedureText.Length - 2);
@@ -131,10 +129,9 @@ namespace SDs.FiveM.View.View
                 if ((bool)value)
                 {
                     procedureText +=
-                        this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
+                        "p_" + this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
-                        + "character varying";
-                        procedureText += ", ";
+                        + "character varying, ";
                 }
             }
             procedureText = procedureText.Substring(0, procedureText.Length - 2);
@@ -161,9 +158,14 @@ namespace SDs.FiveM.View.View
             IList<TableSchemaItem> list = this.controller.DoSelectTableSchema(item);
             this.gridDbTableSchema.DataSource = list;
             this.gridDbTableSchema.Columns[6].Visible = false;
+            
 
-            this.gridDbTableSchema.Columns[1].Width += -10;
-            this.gridDbTableSchema.Columns[2].Width += +10;
+            this.gridDbTableSchema.Columns[1].Width = 30;
+
+            this.gridDbTableSchema.Columns[2].Width = 60;
+            this.gridDbTableSchema.Columns[3].Width = 30;
+            this.gridDbTableSchema.Columns[4].Width = 30;
+            this.gridDbTableSchema.Columns[5].Width = 30;
         }
         #endregion
 

@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(906, 542);
+            this.panel1.Size = new System.Drawing.Size(1061, 542);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -84,7 +84,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 542);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1061, 542);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
@@ -102,7 +102,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(906, 33);
+            this.panel2.Size = new System.Drawing.Size(1061, 33);
             this.panel2.TabIndex = 0;
             // 
             // cmbSchema
@@ -152,7 +152,7 @@
             // btnSearchDb
             // 
             this.btnSearchDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearchDb.Location = new System.Drawing.Point(809, 4);
+            this.btnSearchDb.Location = new System.Drawing.Point(964, 4);
             this.btnSearchDb.Name = "btnSearchDb";
             this.btnSearchDb.Size = new System.Drawing.Size(94, 23);
             this.btnSearchDb.TabIndex = 4;
@@ -185,14 +185,14 @@
             this.gridDbTable.Location = new System.Drawing.Point(3, 36);
             this.gridDbTable.Name = "gridDbTable";
             this.gridDbTable.RowTemplate.Height = 23;
-            this.gridDbTable.Size = new System.Drawing.Size(493, 176);
+            this.gridDbTable.Size = new System.Drawing.Size(648, 176);
             this.gridDbTable.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(502, 36);
+            this.panel3.Location = new System.Drawing.Point(657, 36);
             this.panel3.Name = "panel3";
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 2);
             this.panel3.Size = new System.Drawing.Size(401, 503);
@@ -272,14 +272,14 @@
             this.gridDbTableSchema.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.gridDbTableSchema.Name = "gridDbTableSchema";
             this.gridDbTableSchema.RowTemplate.Height = 23;
-            this.gridDbTableSchema.Size = new System.Drawing.Size(493, 304);
+            this.gridDbTableSchema.Size = new System.Drawing.Size(648, 304);
             this.gridDbTableSchema.TabIndex = 3;
             // 
             // QueryMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 542);
+            this.ClientSize = new System.Drawing.Size(1061, 542);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QueryMaker";
