@@ -31,31 +31,31 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbSchema = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTableNm = new System.Windows.Forms.TextBox();
             this.btnSearchDb = new System.Windows.Forms.Button();
             this.cmbDbType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gridDbTable = new System.Windows.Forms.DataGridView();
-            this.txtTableNm = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbSchema = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.gridDbTableSchema = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.deleteText = new System.Windows.Forms.RichTextBox();
+            this.saveText = new System.Windows.Forms.RichTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnCreateScript = new System.Windows.Forms.Button();
             this.searchText = new System.Windows.Forms.RichTextBox();
-            this.saveText = new System.Windows.Forms.RichTextBox();
-            this.deleteText = new System.Windows.Forms.RichTextBox();
+            this.gridDbTableSchema = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDbTable)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDbTableSchema)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDbTableSchema)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +83,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 542);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -103,6 +104,50 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(906, 33);
             this.panel2.TabIndex = 0;
+            // 
+            // cmbSchema
+            // 
+            this.cmbSchema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSchema.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbSchema.FormattingEnabled = true;
+            this.cmbSchema.Location = new System.Drawing.Point(315, 6);
+            this.cmbSchema.Name = "cmbSchema";
+            this.cmbSchema.Size = new System.Drawing.Size(121, 20);
+            this.cmbSchema.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(256, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "스키마명";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(447, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "테이블명";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(152, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 12);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "조회조건(필터)>";
+            // 
+            // txtTableNm
+            // 
+            this.txtTableNm.Location = new System.Drawing.Point(506, 6);
+            this.txtTableNm.Name = "txtTableNm";
+            this.txtTableNm.Size = new System.Drawing.Size(152, 21);
+            this.txtTableNm.TabIndex = 3;
             // 
             // btnSearchDb
             // 
@@ -143,50 +188,6 @@
             this.gridDbTable.Size = new System.Drawing.Size(493, 176);
             this.gridDbTable.TabIndex = 1;
             // 
-            // txtTableNm
-            // 
-            this.txtTableNm.Location = new System.Drawing.Point(506, 6);
-            this.txtTableNm.Name = "txtTableNm";
-            this.txtTableNm.Size = new System.Drawing.Size(152, 21);
-            this.txtTableNm.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 12);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "조회조건(필터)>";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(447, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "테이블명";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(256, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "스키마명";
-            // 
-            // cmbSchema
-            // 
-            this.cmbSchema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSchema.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbSchema.FormattingEnabled = true;
-            this.cmbSchema.Location = new System.Drawing.Point(315, 6);
-            this.cmbSchema.Name = "cmbSchema";
-            this.cmbSchema.Size = new System.Drawing.Size(121, 20);
-            this.cmbSchema.TabIndex = 2;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -196,17 +197,6 @@
             this.tableLayoutPanel1.SetRowSpan(this.panel3, 2);
             this.panel3.Size = new System.Drawing.Size(401, 503);
             this.panel3.TabIndex = 2;
-            // 
-            // gridDbTableSchema
-            // 
-            this.gridDbTableSchema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridDbTableSchema.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDbTableSchema.Location = new System.Drawing.Point(3, 235);
-            this.gridDbTableSchema.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.gridDbTableSchema.Name = "gridDbTableSchema";
-            this.gridDbTableSchema.RowTemplate.Height = 23;
-            this.gridDbTableSchema.Size = new System.Drawing.Size(493, 304);
-            this.gridDbTableSchema.TabIndex = 3;
             // 
             // tableLayoutPanel2
             // 
@@ -227,6 +217,24 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(401, 503);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // deleteText
+            // 
+            this.deleteText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteText.Location = new System.Drawing.Point(3, 317);
+            this.deleteText.Name = "deleteText";
+            this.deleteText.Size = new System.Drawing.Size(395, 151);
+            this.deleteText.TabIndex = 3;
+            this.deleteText.Text = "";
+            // 
+            // saveText
+            // 
+            this.saveText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveText.Location = new System.Drawing.Point(3, 160);
+            this.saveText.Name = "saveText";
+            this.saveText.Size = new System.Drawing.Size(395, 151);
+            this.saveText.TabIndex = 2;
+            this.saveText.Text = "";
             // 
             // panel4
             // 
@@ -256,23 +264,16 @@
             this.searchText.TabIndex = 1;
             this.searchText.Text = "";
             // 
-            // saveText
+            // gridDbTableSchema
             // 
-            this.saveText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveText.Location = new System.Drawing.Point(3, 160);
-            this.saveText.Name = "saveText";
-            this.saveText.Size = new System.Drawing.Size(395, 151);
-            this.saveText.TabIndex = 2;
-            this.saveText.Text = "";
-            // 
-            // deleteText
-            // 
-            this.deleteText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteText.Location = new System.Drawing.Point(3, 317);
-            this.deleteText.Name = "deleteText";
-            this.deleteText.Size = new System.Drawing.Size(395, 151);
-            this.deleteText.TabIndex = 3;
-            this.deleteText.Text = "";
+            this.gridDbTableSchema.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDbTableSchema.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridDbTableSchema.Location = new System.Drawing.Point(3, 235);
+            this.gridDbTableSchema.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.gridDbTableSchema.Name = "gridDbTableSchema";
+            this.gridDbTableSchema.RowTemplate.Height = 23;
+            this.gridDbTableSchema.Size = new System.Drawing.Size(493, 304);
+            this.gridDbTableSchema.TabIndex = 3;
             // 
             // QueryMaker
             // 
@@ -289,9 +290,9 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDbTable)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridDbTableSchema)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridDbTableSchema)).EndInit();
             this.ResumeLayout(false);
 
         }

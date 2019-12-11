@@ -75,7 +75,7 @@ namespace SDs.FiveM.View.View
 
             procedureText += "p_search(";
 
-            IEnumerable<TableSchemaItem> searchlist =((IList<TableSchemaItem>)this.gridDbTableSchema.DataSource).Where(x => x.SEARCH == true);
+            //IEnumerable<TableSchemaItem> searchlist =((IList<TableSchemaItem>)this.gridDbTableSchema.DataSource).Where(x => x.SEARCH == true);
 
             for (int i = 0; i < this.gridDbTableSchema.RowCount; i++)
             {
@@ -88,28 +88,17 @@ namespace SDs.FiveM.View.View
                         this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
                         + "character varying";
-
-                    if (i != searchlist.Count() -1) // 마지막 행 아님
-                    {
                         procedureText += ", ";
-                    }
-
-                    if (i == searchlist.Count() - 1) // 마지막 행
-                    {
-                        procedureText += ");";
-                        continue;
-                    }
                 }
             }
-
+            procedureText = procedureText.Substring(0, procedureText.Length - 2);
+            procedureText += ");";
             searchText.Text = procedureText;
             #endregion
 
             #region SAVE AREA *****************************
             procedureText = string.Empty;
             procedureText += "PROCEDURE p_save(";
-
-            IEnumerable<TableSchemaItem> savelist = ((IList<TableSchemaItem>)this.gridDbTableSchema.DataSource).Where(x => x.SAVE == true);
 
             for (int i = 0; i < this.gridDbTableSchema.RowCount; i++)
             {
@@ -122,28 +111,17 @@ namespace SDs.FiveM.View.View
                         this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
                         + "character varying";
-
-                    if (i != savelist.Count() - 1) // 마지막 행 아님
-                    {
                         procedureText += ", ";
-                    }
-
-                    if (i == savelist.Count() - 1) // 마지막 행
-                    {
-                        procedureText += ");";
-                        continue;
-                    }
                 }
             }
-
+            procedureText = procedureText.Substring(0, procedureText.Length - 2);
+            procedureText += ");";
             saveText.Text = procedureText;
             #endregion
 
             #region SAVE AREA *****************************
             procedureText = string.Empty;
             procedureText += "PROCEDURE p_delete(";
-
-            IEnumerable<TableSchemaItem> deletelist = ((IList<TableSchemaItem>)this.gridDbTableSchema.DataSource).Where(x => x.DELETE == true);
 
             for (int i = 0; i < this.gridDbTableSchema.RowCount; i++)
             {
@@ -156,20 +134,11 @@ namespace SDs.FiveM.View.View
                         this.gridDbTableSchema.Rows[i].Cells[0].Value + " "
                         //+ this.gridDbTableSchema.Rows[i].Cells[2].Value;
                         + "character varying";
-
-                    if (i != deletelist.Count() - 1) // 마지막 행 아님
-                    {
                         procedureText += ", ";
-                    }
-
-                    if (i == deletelist.Count() - 1) // 마지막 행
-                    {
-                        procedureText += ");";
-                        continue;
-                    }
                 }
             }
-
+            procedureText = procedureText.Substring(0, procedureText.Length - 2);
+            procedureText += ");";
             deleteText.Text = procedureText;
             #endregion
         }
