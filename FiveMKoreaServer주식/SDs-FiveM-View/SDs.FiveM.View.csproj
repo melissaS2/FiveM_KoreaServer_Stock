@@ -72,6 +72,10 @@
     <Reference Include="IBatisNet.DataMapper">
       <HintPath>..\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Microsoft\Office\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\SDs-Global-Libraries\Global\Lib\Postgres\Mono.Security.dll</HintPath>
     </Reference>
@@ -80,6 +84,11 @@
     </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\SDs-Global-Libraries\Global\Lib\Postgres\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\SDs-Global-Libraries\Global\Lib\Microsoft\Office\Office.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

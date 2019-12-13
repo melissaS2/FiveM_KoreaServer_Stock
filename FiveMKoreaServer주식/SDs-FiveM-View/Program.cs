@@ -38,7 +38,7 @@ namespace SDs_FiveM_View
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new SampleView());
-            Application.Run(new QueryMaker());
+            Application.Run(new JavaScriptTest());
         }
     }
 }

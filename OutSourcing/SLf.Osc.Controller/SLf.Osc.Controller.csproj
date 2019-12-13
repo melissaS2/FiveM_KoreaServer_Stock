@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8BACE8F6-AD88-4899-B40E-081A939FE95F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>SDs.Global.Libraries</RootNamespace>
-    <AssemblyName>SDs.Global.Libraries</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectGuid>{6FE47045-8476-4091-BC72-D7F8ADB04379}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SLf.Osc.Controller</RootNamespace>
+    <AssemblyName>SLf.Osc.Controller</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,10 +40,18 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -56,7 +61,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -69,21 +73,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.Logging.Log4Net.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.Logging.Log4Net.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.Common.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataAccess.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataAccess.xml" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataMapper.dll" />
-    <Content Include="Global\Lib\Ibatis\IBatisNet.DataMapper.xml" />
-    <Content Include="Global\Lib\Ibatis\log4net.dll" />
-    <Content Include="Global\Lib\Ibatis\log4net.xml" />
-    <Content Include="Global\Lib\Microsoft\Office\Microsoft.Office.Interop.Excel.dll" />
-    <Content Include="Global\Lib\Microsoft\Office\Office.dll" />
-    <Content Include="Global\Lib\MySql\MySql.Data.dll" />
-    <Content Include="Global\Lib\Postgres\Mono.Security.dll" />
-    <Content Include="Global\Lib\Postgres\Npgsql.dll" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

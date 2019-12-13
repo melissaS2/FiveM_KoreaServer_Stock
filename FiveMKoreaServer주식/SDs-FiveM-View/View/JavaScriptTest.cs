@@ -10,6 +10,7 @@ using System.Runtime.InteropServices; //Dll Import
 using System.Net;
 using System.IO;
 using System.Web;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SDs.FiveM.View.View
 {
@@ -23,7 +24,9 @@ namespace SDs.FiveM.View.View
             this.Load += JavaScriptTest_Load;
             this.webBrowser1.DocumentCompleted += WebBrowser1_DocumentCompleted;
             //this.SendKatalk("Jay","흐음");
-            HttpGet("자양로21길");
+            //HttpGet("자양로21길");
+            PrintMyExcelFile();
+            //ExcelToPrint(@"D:\testexcel.xlsx");
         }
 
         [DllImport("user32.dll")]
@@ -218,6 +221,146 @@ namespace SDs.FiveM.View.View
             wRespFirst.Close();
 
             return true;
+        }
+
+
+        private bool ExcelToPrint(string sFilePath, string sSheetName = "")
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbooks wbs = excelApp.Workbooks;
+            Excel._Workbook wb = null;
+            Excel.Worksheet ws = null;
+
+            try
+            {
+                excelApp.DisplayAlerts = false;
+
+                wb = wbs.Open(sFilePath, 0, true, 5, "", "", true,
+                 Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, true, true);
+
+                if (sSheetName.Length > 0)
+                    ws = (Excel.Worksheet)wb.Sheets[sSheetName];
+                else
+                    ws = (Excel.Worksheet)wb.ActiveSheet;
+
+                //_Workbook.PrintOut(object From /// 인쇄를 시작할 페이지 번호입니다. 이 인수를 생략하면 인쇄가 처음부터 시작됩니다.
+                // , Object To     /// 인쇄할 마지막 페이지 번호입니다. 이 인수를 생략하면 마지막 페이지까지 인쇄됩니다.
+                // , object Copies    /// 인쇄할 매수입니다. 이 인수를 생략하면 한 부만 인쇄됩니다.
+                // , object Preview   /// Microsoft Office Excel에서 개체를 인쇄하기 전에 인쇄 미리 보기를 호출하려면 true이고, 개체를 즉시 인쇄하려면 false(또는 생략)입니다.
+                // , object ActivePrinter  /// 활성 프린터의 이름을 설정합니다
+                // , object PrintToFile  /// 파일로 인쇄하는 경우 true입니다. PrToFileName이 지정되지 않으면 Excel에서 출력 파일의 이름을 입력하라는 메시지를 표시합니다.
+                // , object Collate   /// 여러 장을 한 부씩 인쇄하는 경우 true입니다.
+                // , object PrToFileName  /// PrintToFile이 true로 설정되면 이 인수는 인쇄할 파일의 이름을 지정합니다.
+                //);
+                object printer = Type.Missing; // "프린터명"
+                ws.PrintOut(1, Type.Missing, 1, false, printer, true, false, "PRINTTEST");
+
+                //void PrintOut(object From, object To, object Copies, object Preview, object ActivePrinter, object PrintToFile, object Collate, object PrToFileName);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //SS_LABEL.Text = ex.Message;
+                //SS_PRJOUTLINE.Refresh();
+            }
+            finally
+            {
+                QuitExcel(excelApp, wb, ws);
+            }
+
+            return false;
+
+        }
+
+        private static void ReleaseExcelObject(object obj)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    System.Runtime.InteropServices.Marshal.FinalReleaseComObject(obj);
+                    obj = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                throw ex;
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+        private void QuitExcel(Excel.Application xlApp, Excel._Workbook wb, Excel.Worksheet ws)
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            wb.Close(false);
+            xlApp.Quit();
+
+            // Clean up
+            ReleaseExcelObject(ws);
+            ReleaseExcelObject(wb);
+            ReleaseExcelObject(xlApp);
+
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+
+            System.Diagnostics.Process[] PROC = System.Diagnostics.Process.GetProcessesByName("EXCEL");
+            foreach (System.Diagnostics.Process PK in PROC)
+            {
+                /// Process로 실행되고 타이틀이 없는 것을 이용하여 현재 EXCEL.EXE Process를 끝낸다.
+                if (PK.MainWindowTitle.Length == 0)
+                    PK.Kill();
+            }
+
+        }
+
+        //private void PrintToFile()
+        //{
+        //    // Make sure the worksheet has some data before printing. 
+        //    this.Range["A1", missing].Value2 = "123";
+        //    this.PrintOut(1, 2, 1, false, missing, true, false, missing);
+        //}
+
+        void PrintMyExcelFile()
+        {
+            /*https://stackoverrun.com/ko/q/144120*/
+            Excel.Application excelApp = new Excel.Application();
+
+            // Open the Workbook: 
+            Excel.Workbook wb = excelApp.Workbooks.Open(
+             @"D:\testexcel.xlsx",
+             Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+             Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+             Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // Get the first worksheet. 
+            // (Excel uses base 1 indexing, not base 0.) 
+            Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[1];
+
+            // Print out 1 copy to the default printer: 
+            ws.PrintOut(
+             Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+             Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // Cleanup: 
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            Marshal.FinalReleaseComObject(ws);
+
+            wb.Close(false, Type.Missing, Type.Missing);
+            Marshal.FinalReleaseComObject(wb);
+
+            excelApp.Quit();
+            Marshal.FinalReleaseComObject(excelApp);
         }
     }
 }
