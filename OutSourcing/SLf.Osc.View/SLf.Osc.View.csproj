@@ -32,8 +32,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IBatisNet.Common">
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper">
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Ibatis\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Microsoft\Office\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Postgres\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\MySql\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Postgres\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\FiveMKoreaServer주식\SDs-Global-Libraries\Global\Lib\Microsoft\Office\Office.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +100,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SLf.Osc.Config\SLf.Osc.Config.csproj">
+      <Project>{211acf86-8dc6-4ab4-afea-a9c182d7ced4}</Project>
+      <Name>SLf.Osc.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLf.Osc.Controller\SLf.Osc.Controller.csproj">
+      <Project>{6fe47045-8476-4091-bc72-d7f8adb04379}</Project>
+      <Name>SLf.Osc.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SLf.Osc.Model\SLf.Osc.Model.csproj">
+      <Project>{5f91610f-cd54-41d6-b7ab-d0173c7104f3}</Project>
+      <Name>SLf.Osc.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
