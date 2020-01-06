@@ -1,0 +1,43 @@
+﻿DRM
+id : poscoict
+pass : lsnikko2@
+
+DB
+ID : sfcomuser
+IP : 165.186.171.229
+port : 5444
+db : postgres
+pw : dmesdb1!
+
+개발환경정보
+
+# eclipse
+ - X:\5000. 개발\5900. 기타\dev.tools\SmartFactoryMES -> C:\복사 및 각각 폴더에 압축 풀기 
+
+#datbase
+  - 업무 10.2.30.75:5302/SFKMDDEV   sfmauser/dmesdb1! sfmbuser~sfmhuser : sma~smh스키마
+  - 업무공통(Tag) 10.2.30.75:5302/SFKMDDEV   sfrtpuser/dmesdb1! : srtp 스키마
+  - 내부I/F 10.2.30.75:5302/SFKMDDEV   sfpiouser/dmesdb1! : spio 스키마
+  - 외부EAI 10.2.30.75:5302/SFKMDDEV   sfeaiuser/dmesdb1! : seai 스키마
+165.186.171.229:5444
+#svn
+  - https://10.2.138.443:5302/svn/lsnikkoMES sonstar/sonstar
+
+#개발계PC
+ .접속주소 : http://165.186.171.229:8080/SCO
+ .ID/PW : dwsfuser/dwsfuser
+
+#개발게시판
+ .접속주소 : http://165.186.171.229/g5/
+
+http://localhost:8080/SCO
+
+
+
+/////Tomcat runconfig
+
+-Dcatalina.base="C:\SmartFactoryMES\eclipseWS\.metadata\.plugins\org.eclipse.wst.server.core\tmp0" -Dcatalina.home="C:\SmartFactoryMES\apache-tomcat-7.0.42" -Dwtp.deploy="C:\SmartFactoryMES\eclipseWS\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps" -Djava.endorsed.dirs="C:\SmartFactoryMES\apache-tomcat-7.0.42\endorsed" -DCONFIG_PATH="C:\SmartFactoryMES\apache-tomcat-7.0.42\usr"
+
+
+///
+

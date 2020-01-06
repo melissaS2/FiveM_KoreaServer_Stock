@@ -1,0 +1,37 @@
+switch ( elementObj.datatype ) {
+    case 'text' 		: eleName = 'input'   ; attrObj.category = 'text'    ; break;
+    case 'texttd' 		: eleName = 'input'   ; attrObj.category = 'text'    ; break;
+    case 'button' 		: eleName = 'button'  ; attrObj.category = 'button'	 ; attrObj.type = ''; break;
+    case 'lov'	 		: eleName = 'div'	  ; attrObj.category = 'select'	 ; break;
+    case 'chklov'	 	: eleName = 'div'	  ; attrObj.category = 'select'	 ; break;
+    case 'cbolov'	 	: eleName = 'div'	  ; attrObj.category = 'select'	 ; break;
+    case 'radio'	 	: eleName = 'div'     ; attrObj.category = 'radio'	 ; attrObj.type = '';  attrObj[ 'name' ] = ''; break;
+    case 'checkbox'	 	: eleName = 'div'	  ; attrObj.category = 'checkbox'; attrObj.type = 'checkbox';  break;
+    case 'password'	 	: eleName = 'input'   ; attrObj.category = 'password'; attrObj.type = 'password';  break;
+    case 'passwordtd' 	: eleName = 'input'   ; attrObj.category = 'password'; attrObj.type = 'password';  break;
+    case 'yearmonth' 	: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'monthday' 	: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'date' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'datetd' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'datehour' 	: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'datemin' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'datetime' 	: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'hour' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'hourmin' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'minsec' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'time' 		: eleName = 'div'	  ; attrObj.category = 'date'	 ; break;
+    case 'integer' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 0; break;
+    case 'number' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; break;
+    case 'number0' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 0; break;
+    case 'number1' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 1; break;
+    case 'number2' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 2; break;
+    case 'number3' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 3; break;
+    case 'number4' 		: eleName = 'input'   ; attrObj.category = 'number'	 ; attrObj.decimalDigits = 4; break;
+    case 'IMG'		 	: eleName = 'img'	  ; attrObj.category = 'image'	 ; break;
+    case 'label'		: eleName = 'label'   ; attrObj.category = 'text'	 ; break;
+    case 'popup'		: eleName = 'div'	  ; attrObj.category = 'popup'	 ; break;
+    case 'custpopup'	: eleName = 'div'	  ; attrObj.category = 'popup'	 ; break;
+    case 'textarea'		: eleName = 'textarea'; attrObj.category = 'textarea'; break;
+    case 'editor'		: eleName = 'textarea'; attrObj.category = 'editor'  ; break;
+    default 			: eleName = 'label'   ; attrObj.category = 'text'    ; attrObj.style = 'width:' + elementObj.labelWth + '%;text-align: ' +elementObj.labelAlign+';'  ; break;
+}; // end of switch ( _datatype )
