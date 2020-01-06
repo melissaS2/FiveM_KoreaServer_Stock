@@ -4,7 +4,7 @@
 	<head><title>DWSF Project</title>
 	<style type="text/css">
 	<!--
-	label{cursor:hand;color:#4A4A4A; letter-spacing:-0.6
+	label{cursor:hand;color:#4A4A4A; letter-spacing:-0.6; 
 		; line-height:160%;text-decoration:underline;}
 	-->
 	</style>
@@ -25,8 +25,10 @@
 	<B>SMC PROJECT</B>
 	<Br><br>
 	<br><B>================================</B><Br>
+		<label onclick="javascript:goPage( 'SC3210.do' )">SC3210 : 동정광재고현황조회</label><br><br>
 	<B>기준관리</B><Br><br>
 		<label onclick="javascript:goPage( 'SC4110.do' )">SC4110 : 물품등록</label><br><br>
+		<label onclick="javascript:goPage( 'SC4212.do' )">SC4210 : 수출업체등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4212.do' )">SC4210 : 수출업체등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4220.do' )">SC4220 : 차량번호등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4221.do' )">SC4221 : 출입금지차량관리</label><br><br>
