@@ -25,10 +25,8 @@
 	<B>SMC PROJECT</B>
 	<Br><br>
 	<br><B>================================</B><Br>
-		<label onclick="javascript:goPage( 'SC3210.do' )">SC3210 : 동정광재고현황조회</label><br><br>
 	<B>기준관리</B><Br><br>
 		<label onclick="javascript:goPage( 'SC4110.do' )">SC4110 : 물품등록</label><br><br>
-		<label onclick="javascript:goPage( 'SC4212.do' )">SC4210 : 수출업체등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4212.do' )">SC4210 : 수출업체등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4220.do' )">SC4220 : 차량번호등록</label><br><br>
 		<label onclick="javascript:goPage( 'SC4221.do' )">SC4221 : 출입금지차량관리</label><br><br>
@@ -55,6 +53,7 @@
 		<label onclick="javascript:goPage( 'SC2350.do' )">SC2350 : 부두황산재고현황입력</label><br><br>
 		<label onclick="javascript:goPage( 'SC2351.do' )">SC2351 : 황산선박작업</label><br><br>
 		<label onclick="javascript:goPage( 'SC2352.do' )">SC2352 : 황산작업일지</label><br><br>
+		<label onclick="javascript:goPage( 'SC2343.do' )">SC2343 : 기타제품재고조회</label><br><br>
 	<br><B>================================</B><Br>
 		<B>재고관리</B><Br><br>
 		<label onclick="javascript:goPage( 'SC3215.do' )">SC3215 : 부산항재고관리</label><br><br>
@@ -66,7 +65,7 @@
 		<label onclick="javascript:goPage( 'SC3255.do' )">SC3255 : 저장품재고현황조회(월별)</label><br><br>
 		<label onclick="javascript:goPage( 'SC3257.do' )">SC3257 : 고액저장품리스트조회</label><br><br>
 		<label onclick="javascript:goPage( 'SC3260.do' )">SC3260 : 저장품보유기간별현황조회</label><br><br>
-
+		<label onclick="javascript:goPage( 'SC3210.do' )">SC3210 : 동정광재고현황조회</label><br><br>
 	<br><B>================================</B><Br>
 	</body>
 </html>

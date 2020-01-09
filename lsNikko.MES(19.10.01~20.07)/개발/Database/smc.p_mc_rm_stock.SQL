@@ -22,7 +22,7 @@ IS
     --[SC3211]기간별 재고 조회 그래프
     PROCEDURE p_search_chart(p_item_cd character varying, p_find_fr character varying, p_find_to character varying, OUT p_cur v_cur);
     --[SC3212]위치별 재고 조회 
-    PROCEDURE p_search_pos_stock(p_stock_dt character varying, p_wh_cd character varying, OUT p_cur v_cur);
+    PROCEDURE p_search_pos_stock(p_item_cd character varying, p_stock_dt character varying, p_wh_cd character varying, OUT p_cur v_cur);
 END p_mc_rm_stock;
 
 CREATE OR REPLACE PACKAGE BODY p_mc_rm_stock
@@ -137,10 +137,10 @@ IS
     --************************************************************************
     --[SC3212]위치별 재고 조회 
     --************************************************************************
-    PROCEDURE p_search_pos_stock(p_stock_dt character varying, p_wh_cd character varying, OUT p_cur v_cur) IS
+    PROCEDURE p_search_pos_stock(p_item_cd character varying, p_stock_dt character varying, p_wh_cd character varying, OUT p_cur v_cur) IS
     v_stock_dt T_MC_RM_STOCK.STOCK_DT%TYPE;
     BEGIN
-    v_stock_dt := replace(p_find_fr,'-','');
+    v_stock_dt := replace(p_stock_dt,'-','');
         OPEN P_CUR FOR
             WITH RSLT AS (
                 SELECT B.ATTR2 AS STORE_LOC
@@ -153,7 +153,7 @@ IS
                              , STOCK_WMT
                           FROM T_MC_RM_STOCK
                          WHERE STOCK_DT = v_stock_dt
-                           AND ITEM_CD = 'CN') A,
+                           AND ITEM_CD = p_item_cd) A,
                        (SELECT CD_VAL
                              , ATTR2
                              , ATTR3
@@ -163,10 +163,10 @@ IS
                            AND ATTR5 = p_wh_cd) B
                  WHERE A.STORE_LOC = B.CD_VAL
             )   SELECT '1' SEQ
-                     , STORE_LOC
-                     , SUM(STORE_CAPA)
-                     , SCH_NO
-                     , SUM(STOCK_WMT)
+                     , DECODE(STORE_LOC,NULL,'합계',STORE_LOC) AS STORE_LOC
+                     , SUM(STORE_CAPA) AS STORE_CAPA
+                     , DECODE(SCH_NO,NULL,'-',SCH_NO) AS SCH_NO
+                     , SUM(STOCK_WMT) AS STOCK_WMT
                      , STORE_RATE
                   FROM RSLT
                  GROUP BY GROUPING SETS((SEQ,STORE_LOC,SCH_NO,STORE_RATE),(SEQ))
